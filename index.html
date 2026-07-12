@@ -3,16 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hacker News Daily Digest — Archive</title>
+<title>Hacker News Daily Digest</title>
 <style>
+
   :root {
     --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
     --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
+    --quote-border: #ddd;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
       --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
+      --quote-border: #3a3a46;
     }
   }
   * { box-sizing: border-box; }
@@ -20,10 +23,60 @@
     margin: 0; background: var(--bg); color: var(--text);
     font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
-  header { border-bottom: 3px solid var(--accent); padding-bottom: 16px; margin-bottom: 28px; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 32px 20px 64px; }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 16px; margin-bottom: 20px; }
   header h1 { margin: 0 0 4px; font-size: 26px; }
   header .sub { color: var(--muted); font-size: 14px; }
+  header .sub a { color: var(--muted); }
+  .controls { display: flex; gap: 8px; margin-bottom: 20px; }
+  .controls button {
+    background: var(--card); border: 1px solid var(--border); color: var(--muted);
+    border-radius: 6px; padding: 4px 12px; font-size: 13px; cursor: pointer;
+  }
+  .controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 22px; margin-bottom: 14px;
+  }
+  summary.card-head {
+    cursor: pointer; list-style: none; position: relative; padding-right: 30px;
+  }
+  summary.card-head::-webkit-details-marker { display: none; }
+  summary.card-head::after {
+    content: "▸"; position: absolute; right: 4px; top: 2px; font-size: 18px;
+    color: var(--muted); transition: transform .15s ease;
+  }
+  details[open] summary.card-head::after { transform: rotate(90deg); color: var(--accent); }
+  summary.card-head:hover::after { color: var(--accent); }
+  .card-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .rank { color: var(--accent); font-weight: 700; font-size: 20px; min-width: 26px; }
+  .badge {
+    background: var(--badge-bg); color: var(--badge-text); border-radius: 999px;
+    font-size: 12px; font-weight: 600; padding: 2px 10px; text-transform: uppercase;
+    letter-spacing: .04em; white-space: nowrap;
+  }
+  h2 { margin: 8px 0 4px; font-size: 19px; line-height: 1.35; }
+  h2 a { color: var(--text); text-decoration: none; }
+  h2 a:hover { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; }
+  .meta a { color: var(--muted); }
+  .meta a:hover { color: var(--accent); }
+  .card-body { margin-top: 14px; }
+  .summary { margin: 0 0 14px; }
+  .discussion h3 {
+    margin: 0 0 8px; font-size: 12px; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--muted);
+  }
+  .discussion ul { margin: 0; padding-left: 0; list-style: none; }
+  .discussion li {
+    border-left: 3px solid var(--quote-border); padding: 2px 0 2px 12px;
+    margin-bottom: 10px; font-size: 15px;
+  }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  /* --- archive calendar (index-only) --- */
+  #archive-panel { margin: 0 0 20px; }
+  .archive-note { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
   .months { display: flex; flex-wrap: wrap; gap: 18px; }
   .month {
     background: var(--card); border: 1px solid var(--border); border-radius: 10px;
@@ -45,22 +98,271 @@
   }
   a.day:hover { background: var(--accent); color: #fff; }
   .day.today { border: 1px solid var(--accent); }
-  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>Hacker News Daily Digest</h1>
-    <div class="sub">1 archived digests · highlighted days are clickable · updated 2026-07-12</div>
+    <div class="sub">Top 10 stories from <a href="https://news.ycombinator.com/front">the front page</a> of Saturday, July 11, 2026 · <a href="digests/hn-digest-2026-07-11.html">permalink</a></div>
   </header>
-  <div class="months">
-    <section class="month">
-      <h2>July 2026</h2>
-      <div class="grid"><div class="dow">S</div><div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><a class="day" href="digests/hn-digest-2026-07-11.html" title="Digest for 2026-07-11">11</a><div class="day today">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day"></div></div>
-    </section>
+
+  <div class="controls">
+    <button onclick="setAll(true)">Expand all</button>
+    <button onclick="setAll(false)">Collapse all</button>
+    <button onclick="toggleArchive()" id="archive-btn">&#128197; Archive</button>
   </div>
-  <footer>summaries by Claude · source: news.ycombinator.com</footer>
+
+  <div id="archive-panel" hidden>
+    <p class="archive-note">1 archived digest · highlighted days are clickable</p>
+    <div class="months">
+      <section class="month">
+        <h2>July 2026</h2>
+        <div class="grid"><div class="dow">S</div><div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><a class="day" href="digests/hn-digest-2026-07-11.html" title="Digest for 2026-07-11">11</a><div class="day today">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day"></div></div>
+      </section>
+    </div>
+  </div>
+
+<details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">1</span>
+      <span class="badge">Tech &amp; Law</span>
+    </div>
+    <h2><a href="https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/">Apple sues OpenAI, accuses ex-employees of stealing trade secrets</a></h2>
+    <div class="meta">1,613 points · <a href="https://news.ycombinator.com/item?id=48865019">922 comments</a> · 9to5mac.com</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">Apple has filed suit in the Northern District of California against OpenAI, io Products, and two named ex-employees — former VP of product design Tang Tan and engineer Chang Liu — alleging systematic theft of trade secrets "for the benefit of OpenAI." The complaint claims Tan used Apple's internal project codenames in job interviews and directed candidates still at Apple to bring "actual parts" and CAD files to show-and-tell sessions, while Liu allegedly exploited a security bug to download over a thousand pages of confidential manufacturing documents after leaving. Apple says it raised the issue with OpenAI in February and got no response, calling the conduct "the tip of the iceberg" at a company where such behavior is "normalized and exemplified by leadership."</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>The top thread found the specifics genuinely damning — coaching recruits to hide their OpenAI offers, emailing themselves confidential files, and tricking an Apple supplier into using a trade-secret metal-finishing technique by claiming Apple had approved it — with commenters distinguishing this from ordinary (and disliked) non-compete enforcement.</li>
+        <li>A counter-current argued knowledge in an employee's head should be free to move, and that trade-secret hoarding benefits investors at the public's expense; others replied that exfiltrating documents and hardware is categorically different from taking your skills with you.</li>
+        <li>Several commenters dug into the actual court filing (posted in-thread) and marveled that well-paid senior people would leave such an obvious paper trail, joking "LOL, so funny" messages included.</li>
+        <li>Skeptics comparing it to Apple v. Samsung were pushed back on: if the allegations hold, this is document exfiltration rather than design imitation, and many predicted OpenAI will want to settle quickly.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">2</span>
+      <span class="badge">Science</span>
+    </div>
+    <h2><a href="https://www.brown.edu/news/2026-07-09/chemical-bonds-relativity">Einstein's relativity rules chemical bonds in heavy elements, new research shows</a></h2>
+    <div class="meta">395 points · <a href="https://news.ycombinator.com/item?id=48866134">182 comments</a> · brown.edu</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">Brown University chemists published direct spectroscopic evidence in Science that the textbook picture of a triple bond — one sigma bond plus two pi bonds — breaks down in heavy elements. In carbon–bismuth molecules cooled to near absolute zero, photoelectron spectroscopy showed electrons moving fast enough that relativistic spin-orbit coupling smears the sigma/pi distinction, producing one pi bond and two sigma-pi hybrids instead. The idea that relativity matters in heavy-element chemistry dates to the 1970s, but this is claimed as the first direct experimental confirmation, with implications for bismuth's growing role in solar cells and quantum materials.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>Much of the thread was collaborative science exposition: links to the Science paper and Dirac's equations, refreshers on sigma/pi bonds from AP chemistry, and the crowd-favorite fact that relativistic effects are why gold is gold-colored.</li>
+        <li>Several asked what's actually new here, since relativistic quantum chemistry has a whole Wikipedia page — the resolution being that this is the first <em>direct experimental observation</em> of the effect on bonding orbitals, not a new theory.</li>
+        <li>Pedants earned their keep: one commenter corrected the article's claim that nuclear <em>mass</em> causes the effect (it's the nuclear charge and the resulting Coulomb potential).</li>
+        <li>The mood was broadly delighted — one commenter mused, a couple of drinks in, about how experiments like this are what make science wonderful.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">3</span>
+      <span class="badge">AI &amp; Markets</span>
+    </div>
+    <h2><a href="https://io-fund.com/ai-stocks/nvidia-coreweave-nebius-circular-financing-gpu-boom">Nvidia, CoreWeave, and Nebius: Inside the Circular Financing of the GPU Boom</a></h2>
+    <div class="meta">307 points · <a href="https://news.ycombinator.com/item?id=48873836">126 comments</a> · io-fund.com</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">Tech analyst Beth Kindig examines the "neocloud" model of CoreWeave and Nebius, which have secured hyperscaler commitments topping $120 billion from Microsoft and Meta alone — an order of magnitude above their current revenue. Their edge is deploying the newest Nvidia GPUs within weeks rather than the years hyperscalers need for internal builds, and letting Big Tech shift capex off its balance sheet. The piece flags the risks: unprofitable growth, soaring GPU-backed debt, and circular financing in which Nvidia invests in the very customers buying its chips.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>The top comment pushed back on the "circular" framing with arithmetic: Nvidia's $2B stake is under 6% of CoreWeave's 2026 capex, and the investments are better understood as Nvidia hedging against hyperscalers building their own chips.</li>
+        <li>Others countered that the structure matters more than the size — SPV deals where GPUs are bought from Nvidia and loaned back, with Nvidia guaranteeing minimum utilization, genuinely blur what's revenue versus investment.</li>
+        <li>A recurring take: circular financing is a tired talking point, and the real question is whether the buildout ever becomes profitable per token — which several argued can't be answered yet because everything is moving too fast.</li>
+        <li>Predictable bubble-versus-fundamentals sparring closed it out, from "the pop will leave useful cheap capacity behind" to one unironic "this will never pop, it's the biggest gold rush in human history."</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">4</span>
+      <span class="badge">Databases</span>
+    </div>
+    <h2><a href="https://clickhouse.com/blog/pgbouncer-clickhouse-managed-postgres">We scaled PgBouncer to 4x throughput</a></h2>
+    <div class="meta">228 points · <a href="https://news.ycombinator.com/item?id=48872874">53 comments</a> · clickhouse.com</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">PgBouncer is single-threaded, so on a 16-vCPU box one core does all the connection pooling while fifteen idle. ClickHouse's Managed Postgres team runs a fleet of PgBouncer processes all binding the same port via <code>so_reuseport</code>, letting the kernel load-balance connections, and uses PgBouncer's peering feature to forward query-cancel requests to whichever process owns the session. On identical hardware the fleet hit ~336k transactions/sec versus ~87k for a single process — about 4x — while the single process left the machine 90% idle.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>The top comment supplied the actual pgbouncer.ini config (so_reuseport, peer_id, [peers] section) that the article described but never showed.</li>
+        <li>Practitioners compared notes on alternatives: running multiple PgBouncers behind Kubernetes or HAProxy, with the reply that so_reuseport does the same job in kernel space without an extra userspace hop.</li>
+        <li>Others plugged competing poolers — Yandex's Odyssey and pgdog — and a ClickHouse engineer responded that they chose the most battle-tested option first, adding that they're not fans of 10k+ Postgres connections anyway ("100s are more than enough").</li>
+        <li>One commenter shared a delightfully gratuitous hobby version of the same trick: so_reuseport coordination with fd-passing between instances of a BitTorrent client.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">5</span>
+      <span class="badge">Databases</span>
+    </div>
+    <h2><a href="https://evanhahn.com/prefer-strict-tables-in-sqlite/">Prefer strict tables in SQLite</a></h2>
+    <div class="meta">318 points · <a href="https://news.ycombinator.com/item?id=48873940">161 comments</a> · evanhahn.com</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">Evan Hahn advocates for SQLite's underrated STRICT tables: append one keyword to CREATE TABLE and the engine rejects type mismatches (no more 'garbage' stored in an INTEGER column) and errors on bogus column types like DATETIME, JSON, or UUID that plain SQLite silently accepts. He covers the escape hatch (ANY columns), the caveats — you can't ALTER an existing table to strict, and it needs SQLite 3.37+ — and notes, fairly, that the SQLite developers themselves defend flexible typing as a feature.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>The dominant sentiment by far: strict should be the default, and many were surprised it isn't. Simon Willison explained why it never will be — SQLite's near-absolute commitment to backwards compatibility means defaults essentially never change.</li>
+        <li>War stories backed up the advocacy, including a cleanup after the strings '1' and '0' were stored in a boolean column on thousands of deployed devices.</li>
+        <li>The gripes widened to SQLite's other legacy quirks: no real timestamp type (you get "yyyy-mm-dd HH:MM:SS" strings you must assume are UTC) and foreign-key enforcement being off by default.</li>
+        <li>Tone stayed affectionate — "a truly great project, with some truly baffling design decisions" captured the room.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">6</span>
+      <span class="badge">Space</span>
+    </div>
+    <h2><a href="https://www.zdnet.com/home-and-office/networking/spacex-wants-to-launch-100000-more-starlink-satellites/">SpaceX wants to launch 100k more Starlink satellites for 100x the bandwidth</a></h2>
+    <div class="meta">307 points · <a href="https://news.ycombinator.com/item?id=48863064">1,155 comments</a> · zdnet.com</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">SpaceX has asked the FCC for permission to deploy 100,000 third-generation Starlink satellites — versus roughly 11,000 in orbit today — promising multi-gigabit symmetrical broadband, sub-20ms latency, and a 100x increase in total network bandwidth, partly pitched at serving "billions of AI-powered devices." The two-ton satellites would need Starship (or interim Falcon Heavy launches), and the filing requests an unusually broad swath of spectrum with rule waivers. ZDNET's writer is openly skeptical, noting real-world Starlink speeds today plateau far below advertised peaks.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>At 1,155 comments this was the day's argument magnet. A vocal contingent called it nonsense-capital showmanship nobody needs — countered immediately by rural users (and 12M+ subscribers) for whom Starlink was genuinely transformative.</li>
+        <li>The strongest recurring counterpoint: subsidized fiber keeps beating it — commenters from Central Europe and Morocco reported dramatically faster, cheaper wired connections arriving within months of Starlink's debut.</li>
+        <li>Environmental and astronomy worries ran through the thread — atmospheric pollution from deorbiting satellites, Kessler-syndrome risk, and the loss of dark skies — with rebuttals that natural meteoric infall dwarfs the mass involved.</li>
+        <li>Plenty of Musk-promise skepticism ("I too plan on increasing my revenue 100-fold by 2030"), alongside quieter first-hand notes that off-grid Starlink access has changed backcountry life, for better and worse.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">7</span>
+      <span class="badge">Math</span>
+    </div>
+    <h2><a href="https://www.math.ucdavis.edu/~saito/courses/229A/stewart-svd.pdf">The early History of the Singular Value Decomposition (1993) [pdf]</a></h2>
+    <div class="meta">132 points · <a href="https://news.ycombinator.com/item?id=48872858">71 comments</a> · math.ucdavis.edu</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">G.W. Stewart's classic 1993 survey traces the singular value decomposition from its 19th-century origins — Beltrami, Jordan, and Sylvester each discovering it independently — through Schmidt's integral-equation work and Weyl's perturbation theory, up to the numerical algorithms that made it a workhorse of modern computing. (The link is the PDF itself; the summary here leans on the paper's well-known content and the thread.)</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>Practitioners testified to SVD's ubiquity — computer vision, compression, quantum information — with one noting that Claude and Codex now write his SVD code, and another grumbling about having to review AI-generated linear algebra for pivoting bugs.</li>
+        <li>Intuition-building was the thread's main sport: singular values as "the fundamental frequencies of your matrix," plus a neat observation that a linear autoencoder trained on reconstruction error rediscovers exactly the truncated SVD (the Eckart–Young theorem in disguise).</li>
+        <li>The analogies got peer-reviewed in real time — corrections landed on an RGB metaphor, on claims about what the Muon and Adam optimizers actually do with singular values, and on eigenvalues-versus-singular-values.</li>
+        <li>A wholesome subthread gathered advice for learning to read math papers at all: Axler and Strang recommendations, plus the honest admission that it mostly takes patience and rewriting proofs by hand.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">8</span>
+      <span class="badge">AI Policy</span>
+    </div>
+    <h2><a href="https://ai-2040.com/">AI 2040: Plan A</a></h2>
+    <div class="meta">386 points · <a href="https://news.ycombinator.com/item?id=48848425">502 comments</a> · ai-2040.com</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">From the team behind AI 2027 (including ex-OpenAI researcher Daniel Kokotajlo), Plan A is a detailed scenario in which humanity avoids what they see as the default outcomes of the superintelligence race — extinction or irreversible concentration of power. The proposal: a US–China deal struck in 2029 imposing total transparency on AI research, dozens of companies advancing slowly in parallel rather than racing in secret, "mutually assured compute destruction" as the enforcement mechanism, and superintelligence delayed until 2040. The authors stress it's a recommendation subjected to "scenario scrutiny," not a prediction.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>The central objection, in several flavors: international coordination this ambitious is fantasy when carbon taxes are already politically lethal and there's this much money on the table. Any real pause, one argued, will come from public dislike of AI companies, not safety arguments.</li>
+        <li>An honest question anchored the best thread — have humans ever collectively chosen not to pursue knowledge? Author Daniel Kokotajlo showed up to answer, citing human cloning, germline editing, and mirror life, and clarifying the plan regulates giant compute clusters, not ideas.</li>
+        <li>The hawkish rebuttal: unilateral slowing is an "insane trust fall," illustrated with how a modest military-tech edge let Britain colonize India. Others accused safety advocates of regulatory capture dressed as caution.</li>
+        <li>Side skirmishes questioned the scenario's physical-world optimism — robot populations rivaling humans by 2035 struck commenters as wildly underestimating how slowly atoms move compared to bits.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">9</span>
+      <span class="badge">Fintech</span>
+    </div>
+    <h2><a href="https://timeseriesofindia.com/economy/reads/upi-architecture/">UPI: Anatomy of a Payment Transaction</a></h2>
+    <div class="meta">215 points · <a href="https://news.ycombinator.com/item?id=48873457">101 comments</a> · timeseriesofindia.com</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">A richly illustrated walkthrough of what happens in the two seconds between scanning a QR code and the green tick in India's UPI system, which carried over 22 billion payments in June 2026 alone. The piece untangles the cast: apps like PhonePe and Google Pay (which hold no money and no banking license), the sponsor banks that lend them network access, and NPCI's central non-profit switch that routes every transaction, debiting the payer's bank before crediting the payee's.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>Engineers reached for scale comparisons — someone who worked on scaling UPI explained why real-time inter-bank payments are far harder than exchange feeds: every transaction is a multi-party message dance completed while both users wait, 24/7, for free.</li>
+        <li>The thread turned into a system-design lesson: a national payment rail for 1.5 billion people averages "only" hundreds-to-thousands of TPS, a reality check for interview-style overengineering.</li>
+        <li>Comparisons with China's Alipay/WeChat Pay drew the sharpest technical distinction: those are closed custodial wallets, while UPI is a decentralized routing layer across real bank accounts, run at cost by a non-profit.</li>
+        <li>Genuine admiration dominated — UPI got even elderly users to go fully digital — tempered by a privacy minority uneasy about a centralized, KYC'd view of every transaction the state could switch off.</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+      <span class="rank">10</span>
+      <span class="badge">Show HN</span>
+    </div>
+    <h2><a href="https://antjs.org">Show HN: Ant – A JavaScript runtime and ecosystem</a></h2>
+    <div class="meta">299 points · <a href="https://news.ycombinator.com/item?id=48875377">132 comments</a> · antjs.org</div>
+    </summary>
+    <div class="card-body">
+    <p class="summary">A solo developer's Show HN: Ant is a tiny JavaScript runtime — roughly 8 MB including Node-compatibility work, versus the hundreds of megabytes a V8/Node distribution drags along — designed to be trivially embeddable anywhere. An ant-desktop package for turning HTML/CSS/JS projects into desktop apps shipped literally the night before the post, with a bundled libant so no local install is needed.</p>
+    <div class="discussion">
+      <h3>What the comments said</h3>
+      <ul>
+        <li>Reception was warm and practical: followers of the project asked about real use cases like packaging web projects as desktop apps, and the author responded in-thread with fresh builds and roadmap answers.</li>
+        <li>The size-versus-speed tradeoff got quantified: one commenter posted benchmarks showing Ant at 4.3 MB but scoring a tiny fraction of V8's benchmark performance with ~50% ES6 coverage — embeddability, not speed, is the pitch.</li>
+        <li>Community advice skewed sustainability: get collaborators to raise the bus factor, write a roadmap — to which the author cheerfully agreed.</li>
+        <li>The thread had endearing solo-dev energy, including an all-caps apology mid-thread for a broken release ("im very sorry everyone who tried to install and got a libcares error :(").</li>
+      </ul>
+    </div>
+    </div>
+  </details>
+
+  <footer>latest digest shown · summaries by Claude · source: news.ycombinator.com</footer>
 </div>
+<script>
+function setAll(open) {
+  document.querySelectorAll('details.card').forEach(d => d.open = open);
+}
+function toggleArchive() {
+  const p = document.getElementById('archive-panel');
+  p.hidden = !p.hidden;
+}
+</script>
 </body>
 </html>

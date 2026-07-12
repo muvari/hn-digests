@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Build a calendar-view index.html for an HN digest archive repo.
+"""Build index.html for an HN digest archive repo.
+
+The landing page mirrors the LATEST digest (its styles and story cards are
+extracted straight from the newest file in <repo>/digests/, so the index never
+drifts from the digest design), plus an "Archive" button in the toolbar that
+unfolds a clickable calendar of every archived day.
 
 Scans <repo>/digests/ for files named hn-digest-YYYY-MM-DD.html and writes
-<repo>/index.html: one calendar grid per month (newest first), where each day
-that has a digest is a clickable link. Self-contained output, styled to match
-the digest pages, light/dark aware. Stdlib only.
+<repo>/index.html. Stdlib only.
 
 Usage:
     python3 build_index.py --repo /path/to/archive-repo
@@ -21,27 +24,12 @@ PAGE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hacker News Daily Digest — Archive</title>
+<title>Hacker News Daily Digest</title>
 <style>
-  :root {
-    --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
-    --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
-      --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--text);
-    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
-  header { border-bottom: 3px solid var(--accent); padding-bottom: 16px; margin-bottom: 28px; }
-  header h1 { margin: 0 0 4px; font-size: 26px; }
-  header .sub { color: var(--muted); font-size: 14px; }
+{{DIGEST_STYLE}}
+  /* --- archive calendar (index-only) --- */
+  #archive-panel { margin: 0 0 20px; }
+  .archive-note { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
   .months { display: flex; flex-wrap: wrap; gap: 18px; }
   .month {
     background: var(--card); border: 1px solid var(--border); border-radius: 10px;
@@ -63,20 +51,41 @@ PAGE = """<!DOCTYPE html>
   }
   a.day:hover { background: var(--accent); color: #fff; }
   .day.today { border: 1px solid var(--accent); }
-  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>Hacker News Daily Digest</h1>
-    <div class="sub">{{COUNT}} archived digests · highlighted days are clickable · updated {{UPDATED}}</div>
+    <div class="sub">{{SUB}} · <a href="digests/hn-digest-{{LATEST}}.html">permalink</a></div>
   </header>
-  <div class="months">
-{{MONTHS}}
+
+  <div class="controls">
+    <button onclick="setAll(true)">Expand all</button>
+    <button onclick="setAll(false)">Collapse all</button>
+    <button onclick="toggleArchive()" id="archive-btn">&#128197; Archive</button>
   </div>
-  <footer>summaries by Claude · source: news.ycombinator.com</footer>
+
+  <div id="archive-panel" hidden>
+    <p class="archive-note">{{COUNT}} archived {{DIGEST_WORD}} · highlighted days are clickable</p>
+    <div class="months">
+{{MONTHS}}
+    </div>
+  </div>
+
+{{CARDS}}
+
+  <footer>latest digest shown · summaries by Claude · source: news.ycombinator.com</footer>
 </div>
+<script>
+function setAll(open) {
+  document.querySelectorAll('details.card').forEach(d => d.open = open);
+}
+function toggleArchive() {
+  const p = document.getElementById('archive-panel');
+  p.hidden = !p.hidden;
+}
+</script>
 </body>
 </html>
 """
@@ -101,9 +110,17 @@ def month_section(year, month, dates, today):
                 cells.append(f'<div class="day{today_cls}">{day}</div>')
     name = f"{calendar.month_name[month]} {year}"
     return (
-        f'    <section class="month">\n      <h2>{name}</h2>\n'
-        f'      <div class="grid">{"".join(cells)}</div>\n    </section>'
+        f'      <section class="month">\n        <h2>{name}</h2>\n'
+        f'        <div class="grid">{"".join(cells)}</div>\n      </section>'
     )
+
+
+def extract(pattern, text, what, path):
+    m = re.search(pattern, text, re.DOTALL)
+    if not m:
+        raise SystemExit(f"could not extract {what} from {path} - "
+                         "digest markup may have drifted from the template")
+    return m.group(1)
 
 
 def main():
@@ -120,17 +137,33 @@ def main():
     if not dates:
         raise SystemExit(f"no digest files found in {repo / 'digests'}")
 
+    latest = max(dates)
+    latest_path = repo / "digests" / f"hn-digest-{latest.isoformat()}.html"
+    digest = latest_path.read_text()
+    # strip HTML comments first so a leftover template comment (which contains
+    # example card markup) can't pollute the extraction
+    digest = re.sub(r"<!--.*?-->", "", digest, flags=re.DOTALL)
+
+    style = extract(r"<style>(.*?)</style>", digest, "stylesheet", latest_path)
+    sub = extract(r'<div class="sub">(.*?)</div>', digest, "subtitle", latest_path)
+    cards = extract(r'(<details class="card">.*</details>)', digest, "story cards", latest_path)
+
     today = datetime.date.today()
     months = sorted({(d.year, d.month) for d in dates}, reverse=True)
     sections = "\n".join(month_section(y, m, dates, today) for y, m in months)
 
     out = (
-        PAGE.replace("{{MONTHS}}", sections)
+        PAGE.replace("{{DIGEST_STYLE}}", style)
+        .replace("{{SUB}}", sub)
+        .replace("{{LATEST}}", latest.isoformat())
+        .replace("{{MONTHS}}", sections)
         .replace("{{COUNT}}", str(len(dates)))
-        .replace("{{UPDATED}}", today.isoformat())
+        .replace("{{DIGEST_WORD}}", "digest" if len(dates) == 1 else "digests")
+        .replace("{{CARDS}}", cards)
     )
     (repo / "index.html").write_text(out)
-    print(f"wrote {repo / 'index.html'}: {len(dates)} digests across {len(months)} month(s)")
+    print(f"wrote {repo / 'index.html'}: mirrors {latest.isoformat()}, "
+          f"{len(dates)} digests across {len(months)} month(s)")
 
 
 if __name__ == "__main__":
