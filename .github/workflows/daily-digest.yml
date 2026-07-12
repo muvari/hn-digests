@@ -43,7 +43,7 @@ jobs:
             Do NOT run any git commands (no commit, no push) — a later workflow
             step handles git. Success: the digest HTML exists in digests/ with
             20 story cards, and index.html includes the new date.
-          claude_args: '--allowedTools "Bash,Read,Write,Edit,Glob,Grep"'
+          claude_args: '--model claude-sonnet-5 --allowedTools "Bash,Read,Write,Edit,Glob,Grep"'
 
       - name: Commit and push
         run: |
