@@ -33,6 +33,27 @@ With Pages enabled (repo Settings → Pages → Deploy from a branch → `main`,
 automatically. The daily routine pushes after committing, so the site updates
 itself each morning. Note: Pages sites are public.
 
+## How the daily run works (GitHub Action)
+
+`.github/workflows/daily-digest.yml` runs every day at 11:30 UTC: Claude
+(via `anthropics/claude-code-action`) follows `skill/SKILL.md` to generate the
+digest and rebuild `index.html`, then a plain workflow step commits and pushes,
+which redeploys GitHub Pages.
+
+- **Auth**: the Action uses a Claude subscription OAuth token stored as the
+  `CLAUDE_CODE_OAUTH_TOKEN` repo secret. Generate one with `claude setup-token`
+  (interactive, requires a Pro/Max login), then `gh secret set
+  CLAUDE_CODE_OAUTH_TOKEN`. Usage counts against the subscription, not
+  pay-per-token API billing. Tokens expire (~1 year) — if runs start failing
+  with auth errors, mint a new one.
+- **The repo's `skill/` is canonical for daily runs.** Edit the skill here (or
+  copy from `~/.claude/skills/hn-daily-digest/` and push). A local copy in
+  `~/.claude/skills/` is only needed for on-demand digests in local sessions.
+- **Manual trigger**: `gh workflow run daily-digest` (or the Actions tab →
+  Run workflow).
+- **Schedule note**: Actions cron is UTC and can start 10–15 min late at busy
+  times.
+
 ## Setting up on a new computer
 
 Prerequisites: the Claude desktop app (or Claude Code) installed and signed in,
@@ -52,8 +73,10 @@ the standard library).
    cp -r ~/hn-digests/skill ~/.claude/skills/hn-daily-digest
    ```
 
-3. **Recreate the daily routine** — scheduled tasks are per-machine, so in a
-   new Claude session say something like:
+3. **(Optional) Recreate a local daily routine** — only needed if you want the
+   machine itself generating digests instead of (or as a fallback to) the
+   GitHub Action. Scheduled tasks are per-machine, so in a new Claude session
+   say something like:
 
    > Create a scheduled task that runs every morning at 7am using the prompt
    > in ~/hn-digests/scheduled-task/SKILL.md
