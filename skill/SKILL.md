@@ -39,6 +39,16 @@ Use `<skill-dir>/assets/template.html`: copy it, replace the `{{...}}` placehold
 - HTML-escape story titles and any text you quote.
 - Save as `hn-digest-<YYYY-MM-DD>.html` in the current working directory unless the user asked for a different location.
 
+## Archive index (when saving into an archive repo)
+
+If the digest is being saved into an archive directory that keeps digests under `<repo>/digests/` (like the daily routine does), rebuild the clickable calendar landing page afterwards:
+
+```bash
+python3 <skill-dir>/scripts/build_index.py --repo <repo>
+```
+
+It scans `digests/` and rewrites `<repo>/index.html` — one month grid per month, digest days linked.
+
 ## Step 4: Deliver
 
 Tell the user where the file is and offer to open it. If an Artifact tool is available and the user wants a shareable page, publish it there too. End with a one-line TL;DR of the day (e.g. the biggest story and the overall theme).

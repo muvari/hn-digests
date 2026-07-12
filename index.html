@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacker News Daily Digest — Archive</title>
+<style>
+  :root {
+    --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
+      --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 16px; margin-bottom: 28px; }
+  header h1 { margin: 0 0 4px; font-size: 26px; }
+  header .sub { color: var(--muted); font-size: 14px; }
+  .months { display: flex; flex-wrap: wrap; gap: 18px; }
+  .month {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; width: 296px; flex-grow: 0;
+  }
+  .month h2 { margin: 0 0 12px; font-size: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .dow {
+    text-align: center; font-size: 11px; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; padding-bottom: 2px;
+  }
+  .day {
+    aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; font-size: 14px; color: var(--muted);
+  }
+  a.day {
+    background: var(--badge-bg); color: var(--badge-text); font-weight: 700;
+    text-decoration: none; border: 1px solid transparent;
+  }
+  a.day:hover { background: var(--accent); color: #fff; }
+  .day.today { border: 1px solid var(--accent); }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Hacker News Daily Digest</h1>
+    <div class="sub">1 archived digests · highlighted days are clickable · updated 2026-07-12</div>
+  </header>
+  <div class="months">
+    <section class="month">
+      <h2>July 2026</h2>
+      <div class="grid"><div class="dow">S</div><div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><a class="day" href="digests/hn-digest-2026-07-11.html" title="Digest for 2026-07-11">11</a><div class="day today">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day"></div></div>
+    </section>
+  </div>
+  <footer>summaries by Claude · source: news.ycombinator.com</footer>
+</div>
+</body>
+</html>
