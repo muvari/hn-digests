@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacker News Digest — {{DATE}}</title>
+<style>
+  :root {
+    --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
+    --quote-border: #ddd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
+      --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
+      --quote-border: #3a3a46;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 32px 20px 64px; }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 16px; margin-bottom: 20px; }
+  header h1 { margin: 0 0 4px; font-size: 26px; }
+  header .sub { color: var(--muted); font-size: 14px; }
+  header .sub a { color: var(--muted); }
+  .controls { display: flex; gap: 8px; margin-bottom: 20px; }
+  .controls button {
+    background: var(--card); border: 1px solid var(--border); color: var(--muted);
+    border-radius: 6px; padding: 4px 12px; font-size: 13px; cursor: pointer;
+  }
+  .controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 22px; margin-bottom: 14px;
+  }
+  summary.card-head {
+    cursor: pointer; list-style: none; position: relative; padding-right: 30px;
+  }
+  summary.card-head::-webkit-details-marker { display: none; }
+  summary.card-head::after {
+    content: "▸"; position: absolute; right: 4px; top: 2px; font-size: 18px;
+    color: var(--muted); transition: transform .15s ease;
+  }
+  details[open] summary.card-head::after { transform: rotate(90deg); color: var(--accent); }
+  summary.card-head:hover::after { color: var(--accent); }
+  .card-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .rank { color: var(--accent); font-weight: 700; font-size: 20px; min-width: 26px; }
+  .badge {
+    background: var(--badge-bg); color: var(--badge-text); border-radius: 999px;
+    font-size: 12px; font-weight: 600; padding: 2px 10px; text-transform: uppercase;
+    letter-spacing: .04em; white-space: nowrap;
+  }
+  h2 { margin: 8px 0 4px; font-size: 19px; line-height: 1.35; }
+  h2 a { color: var(--text); text-decoration: none; }
+  h2 a:hover { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; }
+  .meta a { color: var(--muted); }
+  .meta a:hover { color: var(--accent); }
+  .card-body { margin-top: 14px; }
+  .summary { margin: 0 0 14px; }
+  .discussion h3 {
+    margin: 0 0 8px; font-size: 12px; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--muted);
+  }
+  .discussion ul { margin: 0; padding-left: 0; list-style: none; }
+  .discussion li {
+    border-left: 3px solid var(--quote-border); padding: 2px 0 2px 12px;
+    margin-bottom: 10px; font-size: 15px;
+  }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Hacker News Daily Digest</h1>
+    <div class="sub">Top {{TOP_N}} stories from <a href="{{FRONT_URL}}">the front page</a> of {{DATE_HUMAN}}</div>
+  </header>
+
+  <div class="controls">
+    <button onclick="setAll(true)">Expand all</button>
+    <button onclick="setAll(false)">Collapse all</button>
+  </div>
+
+  <!-- One collapsible .card per story, in rank order. Cards start collapsed
+       (no `open` attribute) so the reader can skim headers and expand only
+       what interests them. Card structure:
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">1</span>
+        <span class="badge">AI &amp; Business</span>
+      </div>
+      <h2><a href="ARTICLE_URL">Headline exactly as it appeared on HN</a></h2>
+      <div class="meta">1,613 points · <a href="HN_ITEM_URL">922 comments</a> · example.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">2–4 sentence summary of the linked article.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>One dominant opinion or thread, summarized in a sentence or two.</li>
+          <li>Another prevalent take, disagreement, or notable anecdote.</li>
+          <li>3–5 bullets total.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  -->
+  {{CARDS}}
+
+  <footer>Generated {{GENERATED_AT}} · summaries by Claude · source: news.ycombinator.com</footer>
+</div>
+<script>
+function setAll(open) {
+  document.querySelectorAll('details.card').forEach(d => d.open = open);
+}
+</script>
+</body>
+</html>
