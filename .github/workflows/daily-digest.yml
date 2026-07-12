@@ -2,8 +2,8 @@ name: Daily HN Digest
 
 on:
   schedule:
-    # 11:30 UTC ≈ 7:30am US Eastern (DST) / 6:30am EST. Cron here is always UTC.
-    - cron: "30 11 * * *"
+    # 9:30 UTC ≈ 5:30am US Eastern (DST) / 4:30am EST. Cron here is always UTC.
+    - cron: "30 9 * * *"
   workflow_dispatch: {}
 
 permissions:
