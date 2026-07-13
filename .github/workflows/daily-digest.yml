@@ -61,4 +61,7 @@ jobs:
           fi
           DATE=$(ls digests | sed -nE 's/^hn-digest-(.*)\.html$/\1/p' | sort | tail -1)
           git commit -m "Digest for ${DATE}"
+          # main may have moved while the digest was generating; rebase our
+          # one commit onto the new tip rather than failing the push
+          git pull --rebase origin main
           git push
