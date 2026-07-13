@@ -9,7 +9,7 @@ Writes one index file plus one JSON file per story so the caller can read
 stories individually without loading everything into context at once.
 
 Usage:
-    python3 fetch_hn.py --out DIR [--day YYYY-MM-DD] [--top 20]
+    python3 fetch_hn.py --out DIR [--day YYYY-MM-DD] [--top 30]
 
 Output layout (inside --out):
     index.json      {date, stories: [{rank, id, title, url, points, ...}]}
@@ -171,7 +171,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True, help="output directory")
     ap.add_argument("--day", help="YYYY-MM-DD (default: HN's default = yesterday)")
-    ap.add_argument("--top", type=int, default=20)
+    ap.add_argument("--top", type=int, default=30)
     args = ap.parse_args()
 
     front_url = "https://news.ycombinator.com/front"

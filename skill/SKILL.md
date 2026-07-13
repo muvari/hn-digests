@@ -1,11 +1,11 @@
 ---
 name: hn-daily-digest
-description: Generate an HTML digest of the top stories (20 by default) from the previous day's Hacker News front page — headline, category, article summary, and a summary of the top comment threads. Use this whenever the user asks for a Hacker News summary, HN digest, "what happened on Hacker News", yesterday's top HN stories/links, or a summary of HN discussions/comments — even if they don't say "digest" or specify a date. Also use for a specific past day's HN front page (it takes a date).
+description: Generate an HTML digest of the top stories (30 by default — the full HN front page) from the previous day's Hacker News front page — headline, category, article summary, and a summary of the top comment threads. Use this whenever the user asks for a Hacker News summary, HN digest, "what happened on Hacker News", yesterday's top HN stories/links, or a summary of HN discussions/comments — even if they don't say "digest" or specify a date. Also use for a specific past day's HN front page (it takes a date).
 ---
 
 # Hacker News Daily Digest
 
-Produce a polished, self-contained HTML page summarizing the top stories from a past day's HN front page (https://news.ycombinator.com/front — defaults to yesterday), including what each article says and what the HN commenters thought of it. Default to the top 20 stories; honor a different count if the user asks for one (pass `--top N` to the fetcher).
+Produce a polished, self-contained HTML page summarizing the top stories from a past day's HN front page (https://news.ycombinator.com/front — defaults to yesterday), including what each article says and what the HN commenters thought of it. Default to the top 30 stories (a full front page); honor a different count if the user asks for one (pass `--top N` to the fetcher).
 
 ## Step 1: Fetch the data
 

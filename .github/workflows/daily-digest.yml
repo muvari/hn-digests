@@ -34,12 +34,12 @@ jobs:
             Follow the skill instructions in ./skill/SKILL.md exactly:
             1. Run: python3 skill/scripts/fetch_hn.py --out /tmp/hn-data
                (no --day argument, so it picks up the previous day's front page;
-               use the default story count of 20)
+               use the default story count of 30, the full HN front page)
             2. Read each story JSON it produces and write the digest per the
                skill: category badge, 2-4 sentence article summary, and 3-5
                bullets synthesizing the top comment threads, rendered with
                skill/assets/template.html (collapsible cards, collapsed by
-               default, {{TOP_N}} = 20).
+               default, {{TOP_N}} = 30).
             3. Save it as digests/hn-digest-<YYYY-MM-DD>.html where the date is
                the front-page day the digest covers (i.e. yesterday's date).
                Overwrite the file if it already exists.
@@ -47,7 +47,7 @@ jobs:
                python3 skill/scripts/build_index.py --repo .
             Do NOT run any git commands (no commit, no push) — a later workflow
             step handles git. Success: the digest HTML exists in digests/ with
-            20 story cards, and index.html includes the new date.
+            30 story cards, and index.html includes the new date.
           claude_args: '--model claude-sonnet-5 --allowedTools "Bash,Read,Write,Edit,Glob,Grep"'
 
       - name: Commit and push

@@ -2,7 +2,7 @@
 
 A daily archive of Hacker News front-page digests, generated automatically by a
 Claude skill. Each `digests/hn-digest-YYYY-MM-DD.html` is a self-contained page
-summarizing the top 20 stories from that day's HN front page
+summarizing the top 30 stories from that day's HN front page (the full page)
 (https://news.ycombinator.com/front): headline, category, a short article
 summary, and a synthesis of the top comment threads. Cards are collapsible —
 skim the headers, expand what interests you. `index.html` is a clickable
@@ -35,7 +35,7 @@ itself each morning. Note: Pages sites are public.
 
 ## How the daily run works (GitHub Action)
 
-`.github/workflows/daily-digest.yml` runs every day at 11:30 UTC: Claude
+`.github/workflows/daily-digest.yml` runs every day at 7:43 UTC: Claude
 (via `anthropics/claude-code-action`) follows `skill/SKILL.md` to generate the
 digest and rebuild `index.html`, then a plain workflow step commits and pushes,
 which redeploys GitHub Pages.
@@ -49,10 +49,11 @@ which redeploys GitHub Pages.
 - **The repo's `skill/` is canonical for daily runs.** Edit the skill here (or
   copy from `~/.claude/skills/hn-daily-digest/` and push). A local copy in
   `~/.claude/skills/` is only needed for on-demand digests in local sessions.
-- **Manual trigger**: `gh workflow run daily-digest` (or the Actions tab →
+- **Manual trigger**: `gh workflow run daily-digest.yml` (or the Actions tab →
   Run workflow).
-- **Schedule note**: Actions cron is UTC and can start 10–15 min late at busy
-  times.
+- **Schedule note**: Actions cron is UTC and best-effort — delays of 1–3h are
+  routine at busy times, which is why the schedule is set for 7:43 UTC even
+  though the target is an early-morning US digest.
 
 ## Setting up on a new computer
 
