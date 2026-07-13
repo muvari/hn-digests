@@ -2,8 +2,11 @@ name: Daily HN Digest
 
 on:
   schedule:
-    # 9:30 UTC ≈ 5:30am US Eastern (DST) / 4:30am EST. Cron here is always UTC.
-    - cron: "30 9 * * *"
+    # 7:43 UTC ≈ 3:43am US Eastern (DST). Cron is UTC and best-effort: GitHub
+    # queues scheduled runs and delays of 1-3h are routine, so this is set
+    # early (yesterday's front page is final by ~7:00 UTC) and off the :00/:30
+    # herd so the digest is reliably ready by morning.
+    - cron: "43 7 * * *"
   workflow_dispatch: {}
 
 permissions:
