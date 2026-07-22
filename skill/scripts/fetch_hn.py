@@ -24,6 +24,8 @@ import html
 import json
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
@@ -36,16 +38,38 @@ ROOT_COMMENTS_KEPT = 6          # top-level comment threads per story
 COMMENT_TEXT_LIMIT = 900        # chars kept per comment
 REPLIES_PER_THREAD = 3          # direct replies kept per top-level comment
 
+# Transient statuses worth retrying (throttling / upstream blips). A cloud CI
+# IP gets 429'd by HN far more than a home connection does, so the critical
+# front-page and comment fetches retry with backoff rather than failing the
+# whole run on a single blip.
+RETRY_STATUSES = {429, 500, 502, 503, 504}
 
-def get(url, timeout=25):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        ctype = resp.headers.get("Content-Type", "")
-        charset = "utf-8"
-        m = re.search(r"charset=([\w-]+)", ctype)
-        if m:
-            charset = m.group(1)
-        return resp.read().decode(charset, errors="replace"), ctype
+
+def get(url, timeout=25, retries=3, backoff=1.5):
+    last_err = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                ctype = resp.headers.get("Content-Type", "")
+                charset = "utf-8"
+                m = re.search(r"charset=([\w-]+)", ctype)
+                if m:
+                    charset = m.group(1)
+                return resp.read().decode(charset, errors="replace"), ctype
+        except urllib.error.HTTPError as e:
+            last_err = e
+            if e.code in RETRY_STATUSES and attempt < retries - 1:
+                time.sleep(backoff * (attempt + 1))
+                continue
+            raise
+        except (urllib.error.URLError, TimeoutError) as e:  # conn reset, DNS, timeout
+            last_err = e
+            if attempt < retries - 1:
+                time.sleep(backoff * (attempt + 1))
+                continue
+            raise
+    raise last_err  # unreachable, but keeps intent explicit
 
 
 def parse_front_page(page_html, top_n):
@@ -108,7 +132,10 @@ class TextExtractor(HTMLParser):
 
 def extract_article_text(url):
     try:
-        raw, ctype = get(url)
+        # Article fetches are best-effort (failures are tolerated per-story), so
+        # keep them snappy — fewer retries and a tighter timeout than the
+        # critical front-page/comment calls, to protect the overall time budget.
+        raw, ctype = get(url, timeout=15, retries=2)
         if "html" not in ctype and "<html" not in raw[:2000].lower():
             return None, f"not html (content-type: {ctype.split(';')[0]})"
         p = TextExtractor()

@@ -20,16 +20,25 @@ concurrency:
 jobs:
   digest:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate digest with Claude
+      # Claude occasionally ends a run early having written nothing (e.g. it
+      # reaches for a fallback tool and gets denied, or a transient fetch blip).
+      # That used to slip through as a green "success" because the commit step
+      # treats an empty diff as exit 0. We now generate, then VERIFY, and retry
+      # generation once if the first attempt produced no valid digest — and if
+      # the retry still fails, the job goes red instead of silently doing nothing.
+
+      - name: Generate digest with Claude (attempt 1)
+        id: gen1
+        continue-on-error: true
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          prompt: |
+          prompt: &digest_prompt |
             Generate the daily Hacker News digest inside this repository checkout.
             Follow the skill instructions in ./skill/SKILL.md exactly:
             1. Run: python3 skill/scripts/fetch_hn.py --out /tmp/hn-data
@@ -39,7 +48,11 @@ jobs:
                skill: category badge, 2-4 sentence article summary, and 3-5
                bullets synthesizing the top comment threads, rendered with
                skill/assets/template.html (collapsible cards, collapsed by
-               default, {{TOP_N}} = 30).
+               default, {{TOP_N}} = 30). When a story's article_text is missing,
+               use WebFetch on its URL as the skill describes; if that also
+               fails, summarize from the title and the comment threads rather
+               than skipping the story. Every one of the 30 stories must get a
+               card — do not stop early.
             3. Save it as digests/hn-digest-<YYYY-MM-DD>.html where the date is
                the front-page day the digest covers (i.e. yesterday's date).
                Overwrite the file if it already exists.
@@ -48,7 +61,32 @@ jobs:
             Do NOT run any git commands (no commit, no push) — a later workflow
             step handles git. Success: the digest HTML exists in digests/ with
             30 story cards, and index.html includes the new date.
-          claude_args: '--model claude-sonnet-5 --allowedTools "Bash,Read,Write,Edit,Glob,Grep"'
+          claude_args: &claude_args '--model claude-sonnet-5 --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebFetch,WebSearch"'
+
+      - name: Check attempt 1
+        id: check1
+        continue-on-error: true
+        run: |
+          if bash .github/verify_digest.sh; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "Attempt 1 did not produce a valid digest — will retry generation."
+          fi
+
+      - name: Generate digest with Claude (attempt 2)
+        if: steps.check1.outputs.ok != 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: *digest_prompt
+          claude_args: *claude_args
+
+      # Hard gate: if neither attempt produced a valid digest, fail the run so
+      # it shows up red (and is easy to re-run) instead of a silent no-op.
+      - name: Verify digest
+        run: bash .github/verify_digest.sh
 
       - name: Commit and push
         run: |
@@ -56,6 +94,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then
+            # Verify already confirmed a valid digest exists, so an empty diff
+            # here just means it was unchanged (e.g. a same-day re-run) — fine.
             echo "Nothing to commit"
             exit 0
           fi
