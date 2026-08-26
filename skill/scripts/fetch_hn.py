@@ -23,11 +23,14 @@ import argparse
 import html
 import json
 import re
+import random
 import sys
 import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -38,14 +41,51 @@ ROOT_COMMENTS_KEPT = 6          # top-level comment threads per story
 COMMENT_TEXT_LIMIT = 900        # chars kept per comment
 REPLIES_PER_THREAD = 3          # direct replies kept per top-level comment
 
-# Transient statuses worth retrying (throttling / upstream blips). A cloud CI
-# IP gets 429'd by HN far more than a home connection does, so the critical
-# front-page and comment fetches retry with backoff rather than failing the
-# whole run on a single blip.
-RETRY_STATUSES = {429, 500, 502, 503, 504}
+# Statuses worth retrying. 429/403 are the throttling ones: a datacenter IP
+# (GitHub Actions) gets throttled by HN far more readily than a home connection,
+# and HN's cool-off is measured in MINUTES, not seconds — so the backoff below
+# is deliberately patient rather than the few seconds a transient blip needs.
+RETRY_STATUSES = {403, 429, 500, 502, 503, 504}
+
+MAX_WORKERS = 3        # concurrent story fetches; low to stay under rate limits
+MAX_SLEEP = 90         # cap on any single backoff nap (seconds)
 
 
-def get(url, timeout=25, retries=3, backoff=1.5):
+def _retry_after(err):
+    """Seconds requested by a Retry-After header, if the server sent one."""
+    try:
+        raw = err.headers.get("Retry-After")
+    except AttributeError:
+        return None
+    if not raw:
+        return None
+    try:
+        return max(0, int(raw.strip()))        # delta-seconds form
+    except ValueError:
+        pass
+    try:                                        # HTTP-date form
+        when = parsedate_to_datetime(raw)
+        if when.tzinfo is None:
+            when = when.replace(tzinfo=timezone.utc)
+        return max(0, int((when - datetime.now(timezone.utc)).total_seconds()))
+    except Exception:                           # noqa: BLE001 - unparseable header
+        return None
+
+
+def _backoff(attempt, base, err=None):
+    """Seconds to wait before the next try: server's request, else exponential.
+
+    Jitter matters here because the story fetches run in parallel — without it
+    they would all wake up together and hit the same rate limit again.
+    """
+    wait = _retry_after(err) if err is not None else None
+    if wait is None:
+        wait = base * (2 ** attempt)
+    wait = min(wait, MAX_SLEEP)
+    return wait * (0.75 + random.random() * 0.5)
+
+
+def get(url, timeout=25, retries=5, backoff=4.0):
     last_err = None
     for attempt in range(retries):
         try:
@@ -60,13 +100,19 @@ def get(url, timeout=25, retries=3, backoff=1.5):
         except urllib.error.HTTPError as e:
             last_err = e
             if e.code in RETRY_STATUSES and attempt < retries - 1:
-                time.sleep(backoff * (attempt + 1))
+                nap = _backoff(attempt, backoff, e)
+                print(f"  [retry] HTTP {e.code} on {url} - waiting {nap:.0f}s "
+                      f"(attempt {attempt + 1}/{retries})", file=sys.stderr)
+                time.sleep(nap)
                 continue
             raise
         except (urllib.error.URLError, TimeoutError) as e:  # conn reset, DNS, timeout
             last_err = e
             if attempt < retries - 1:
-                time.sleep(backoff * (attempt + 1))
+                nap = _backoff(attempt, backoff)
+                print(f"  [retry] {type(e).__name__} on {url} - waiting {nap:.0f}s "
+                      f"(attempt {attempt + 1}/{retries})", file=sys.stderr)
+                time.sleep(nap)
                 continue
             raise
     raise last_err  # unreachable, but keeps intent explicit
@@ -205,7 +251,19 @@ def main():
     if args.day:
         front_url += f"?day={args.day}"
 
-    page, _ = get(front_url)
+    try:
+        page, _ = get(front_url)
+    except urllib.error.HTTPError as e:
+        if e.code in (403, 429):
+            sys.exit(
+                f"ERROR: HN refused the front page with HTTP {e.code} after retries "
+                f"({front_url}). This is rate limiting/blocking of this IP, not a bug "
+                "in the page parsing - retrying again right now will make it worse. "
+                "Wait for the throttle to clear before re-running."
+            )
+        sys.exit(f"ERROR: could not fetch {front_url}: HTTP {e.code}")
+    except Exception as e:  # noqa: BLE001 - network failure, report cleanly
+        sys.exit(f"ERROR: could not fetch {front_url}: {type(e).__name__}: {e}")
     date_m = re.search(r"front\?day=(\d{4}-\d{2}-\d{2})", page)
     # /front shows "day before" links; the shown date appears in the page title area
     shown_date_m = re.search(r"(\d{4}-\d{2}-\d{2})</font>", page) or date_m
@@ -216,7 +274,7 @@ def main():
 
     date = args.day or (shown_date_m.group(1) if shown_date_m else "unknown")
 
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         stories = list(pool.map(enrich, stories))
 
     out = Path(args.out)

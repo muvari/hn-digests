@@ -20,7 +20,7 @@ concurrency:
 jobs:
   digest:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -74,6 +74,16 @@ jobs:
             echo "Attempt 1 did not produce a valid digest — will retry generation."
           fi
 
+      # Retrying immediately is actively counterproductive when the cause is
+      # rate limiting (HN throttles datacenter IPs, and its cool-off is measured
+      # in minutes): a back-to-back retry just extends the block. Wait it out.
+      - name: Cool off before retry
+        if: steps.check1.outputs.ok != 'true'
+        run: |
+          echo "Attempt 1 produced no valid digest. Waiting 10 minutes before"
+          echo "retrying so any upstream rate limit has time to clear."
+          sleep 600
+
       - name: Generate digest with Claude (attempt 2)
         if: steps.check1.outputs.ok != 'true'
         uses: anthropics/claude-code-action@v1
@@ -86,7 +96,14 @@ jobs:
       # Hard gate: if neither attempt produced a valid digest, fail the run so
       # it shows up red (and is easy to re-run) instead of a silent no-op.
       - name: Verify digest
-        run: bash .github/verify_digest.sh
+        run: |
+          if ! bash .github/verify_digest.sh; then
+            echo "::notice::Both attempts failed. If the cause is upstream rate" \
+                 "limiting, do NOT re-run immediately — each re-run fires two" \
+                 "more generation attempts and extends the block. Wait an hour," \
+                 "or let tomorrow's scheduled run pick it up."
+            exit 1
+          fi
 
       - name: Commit and push
         run: |
