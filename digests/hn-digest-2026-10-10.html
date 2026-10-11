@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacker News Digest — 2026-10-10</title>
+<style>
+  :root {
+    --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
+    --quote-border: #ddd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
+      --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
+      --quote-border: #3a3a46;
+    }
+  }
+  /* Density note: the collapsed list is the primary view — it should read like
+     a tight index you can scan in one screen, so headers are compact. Expanded
+     prose keeps a comfortable size and line-height, since that's read closely. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 9px; margin-bottom: 12px; }
+  header h1 { margin: 0 0 2px; font-size: 21px; }
+  header .sub { color: var(--muted); font-size: 13px; }
+  header .sub a { color: var(--muted); }
+  .controls { display: flex; gap: 6px; margin-bottom: 10px; }
+  .controls button {
+    background: var(--card); border: 1px solid var(--border); color: var(--muted);
+    border-radius: 5px; padding: 3px 10px; font-size: 12px; cursor: pointer;
+  }
+  .controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 7px;
+    padding: 8px 12px; margin-bottom: 5px;
+  }
+  summary.card-head {
+    cursor: pointer; list-style: none; position: relative; padding-right: 22px;
+  }
+  summary.card-head::-webkit-details-marker { display: none; }
+  summary.card-head::after {
+    content: "▸"; position: absolute; right: 2px; top: 0; font-size: 15px;
+    color: var(--muted); transition: transform .15s ease;
+  }
+  details[open] summary.card-head::after { transform: rotate(90deg); color: var(--accent); }
+  summary.card-head:hover::after { color: var(--accent); }
+  /* Rank, badge and headline share one line; the headline wraps under them
+     only when it genuinely needs to, which keeps most rows a single line. */
+  .card-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .rank { color: var(--accent); font-weight: 700; font-size: 14px; min-width: 20px; }
+  .badge {
+    background: var(--badge-bg); color: var(--badge-text); border-radius: 999px;
+    font-size: 10px; font-weight: 600; padding: 1px 7px; text-transform: uppercase;
+    letter-spacing: .03em; white-space: nowrap;
+  }
+  h2 { margin: 1px 0 1px; font-size: 15.5px; line-height: 1.3; }
+  h2 a { color: var(--text); text-decoration: none; }
+  h2 a:hover { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 11.5px; }
+  .meta a { color: var(--muted); }
+  .meta a:hover { color: var(--accent); }
+  .card-body { margin-top: 9px; }
+  .summary { margin: 0 0 9px; }
+  .discussion h3 {
+    margin: 0 0 5px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--muted);
+  }
+  .discussion ul { margin: 0; padding-left: 0; list-style: none; }
+  .discussion li {
+    border-left: 2px solid var(--quote-border); padding: 1px 0 1px 10px;
+    margin-bottom: 6px; font-size: 14px;
+  }
+  footer { margin-top: 24px; color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Hacker News Daily Digest</h1>
+    <div class="sub">Top 30 stories from <a href="https://news.ycombinator.com/front">the front page</a> of October 10, 2026</div>
+  </header>
+
+  <div class="controls">
+    <button onclick="setAll(true)">Expand all</button>
+    <button onclick="setAll(false)">Collapse all</button>
+  </div>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">1</span>
+        <span class="badge">AI & Dev Tools</span>
+      </div>
+      <h2><a href="https://rea.tools/">REA Reverse – Engineer Anything</a></h2>
+      <div class="meta">748 points · <a href="https://news.ycombinator.com/item?id=50028275">321 comments</a> · rea.tools</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">REA connects coding agents to reverse-engineering workflows so an agent can inspect a running or compiled program and explain, in plain English, what it does and how to rebuild it. The site demos this on Windows Calculator's confusing "% after +" behavior and Chrome's dinosaur-game speed curve, with the agent reading decompiled code or a live script and reconstructing the underlying rule.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several ask what this offers over just telling Claude or another agent to set up Ghidra/radare2 itself; some say it's genuinely worse than freelancing with an existing RE toolkit, aimed more at people without a reverse-engineering methodology of their own.</li>
+          <li>The "npx rea-agents@latest setup" one-liner draws the familiar curl-pipe-bash trust joke, though others note the manual command is right there too.</li>
+          <li>A tangent into reverse-engineering legality (CFAA, DMCA 1201 exemptions) and worry that frontier model vendors are locking down the capability agents need to do this kind of work at all.</li>
+          <li>Praise for open-sourcing it, and lighter jokes about using it to redo classic RTS games like Battle for Middle-earth from scratch.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">2</span>
+        <span class="badge">Security</span>
+      </div>
+      <h2><a href="https://beaksec.github.io/posts/telegram-desktop-one-click-account-takeover/">Telegram Desktop vulnerability allowed any user's file to be stolen</a></h2>
+      <div class="meta">454 points · <a href="https://news.ycombinator.com/item?id=50029123">298 comments</a> · beaksec.github.io</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A researcher found that Telegram Desktop hands clicked tg:// links to its already-running instance as raw text over a local socket, without escaping the semicolon used to separate internal commands — letting one crafted link inject several. That injection reaches an internal "interpret:" URI scheme, originally built so Telegram's own team could publish release files to a channel, which reads a named file and uploads it to a chat with no confirmation, turning a single click into arbitrary local file theft and account takeover. Fixed in 7.2.9 (CVE-2026-107181, CVSS 8.1).</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many note the root cause — "interpret:" — was a tool Telegram's own developers built to upload arbitrary files for their release process, calling it an almost absurdly convenient design to later exploit.</li>
+          <li>A sizable thread argues this is really a consequence of desktop OSes letting any user process read/write any user file, though others push back that Telegram still can't blame the OS for silently exfiltrating that file.</li>
+          <li>Old reputational skepticism about Telegram's security resurfaces, but commenters distinguish protocol/infra criticism from this being a genuinely new file-exfiltration bug.</li>
+          <li>Practical sandboxing suggestions (bubblewrap/jailed launch commands) are floated, though some note that alone wouldn't have stopped the account-takeover piece, which relies on Telegram's own session files.</li>
+          <li>A side discussion on how exposed phone-number-based accounts already are by default, with notes about login notifications and the password/2FA feature mitigating full takeover.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">3</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://github.com/rociiu/talorys">Talorys – A self-hosted personal AI agent on Cloudflare's free tier</a></h2>
+      <div class="meta">306 points · <a href="https://news.ycombinator.com/item?id=50031614">141 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Talorys is an open-source personal AI assistant — chat, memory, tasks, notes, and scheduled reminders — that deploys with a single command entirely inside the user's own Cloudflare account (Workers, Workers AI, Durable Objects, Pages), aiming to be free-tier friendly, single-user, and telemetry-free. The author built it to own a personal AI assistant without a monthly subscription or a third-party-operated backend.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The biggest thread is semantic: many argue running entirely on Cloudflare's four-plus managed services isn't meaningfully "self-hosted," just hosted differently; others counter that renting infrastructure has always counted as self-hosting as long as you control the deployment.</li>
+          <li>Confusion and jokes about Cloudflare Workers AI's "neuron" pricing unit, with commenters working out roughly how many tokens a day's free allocation actually buys.</li>
+          <li>One user warns that Cloudflare's "free" AI tier billing has burned them with unexplained charges and unresponsive support, though another got a bill reversed after persistent complaints.</li>
+          <li>Suggestions to put spending on a capped virtual card (e.g. privacy.com) to avoid surprise bills on the free tier.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">4</span>
+        <span class="badge">Security Research</span>
+      </div>
+      <h2><a href="https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-qibo">Eye of Sauron: Long-Range Hidden Spy Camera Detection (2024)</a></h2>
+      <div class="meta">335 points · <a href="https://news.ycombinator.com/item?id=49997481">81 comments</a> · usenix.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This USENIX Security 2024 paper presents ESauron, a proof-of-concept that detects hidden spy cameras — wired, wireless, or fully offline — by sensing electromagnetic radiation bursts from a camera's memory chip when scene changes force it to encode new video. By deliberately stimulating scene changes and measuring the resulting EM spikes, the system detected all 50 tested camera models with 100% accuracy after just four stimuli, at ranges exceeding 20 meters even through some obstructions.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Enthusiasm for the idea along with surprise at how far the EM leakage is detectable, with speculation that it's partly due to poor/absent shielding in consumer camera products.</li>
+          <li>Commenters dug into the paper's own limitations: a coke-can aluminum shield cut detection range from 30m to 2m, and the method struggled against well-shielded, low-power smartphone cameras.</li>
+          <li>Praise for the presenter's unpolished, clearly human slides and accent as a refreshing contrast to AI-generated conference content.</li>
+          <li>A tangent on counter-surveillance tradecraft already used against electronic sweeps (fiber-optic borescopes, laser-based listening devices) and a running joke pairing "Eye of Sauron" against "Palantir."</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">5</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://patkerr.co.uk/2d-vehicles/">2D Vehicles</a></h2>
+      <div class="meta">536 points · <a href="https://news.ycombinator.com/item?id=49991852">107 comments</a> · patkerr.co.uk</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Pat Kerr recreated, in JavaScript for its 30th anniversary, the 2D rigid-body vehicle physics he wrote in a weekend in 1996 — which went on to become the basis for GTA's car handling. The playable remaster offers Car, Ship, and Brick modes built on a shared rigid-body core, with a deliberately approximate (not physically accurate) tire-friction model that nonetheless produces the recognizable "feel" of cars resisting sideways slide.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Some gently question why someone with this level of skill would "just" remake an old demo rather than build something new; others defend it as a worthwhile toy-prototyping exercise with real product-development value.</li>
+          <li>Nostalgia thread about learning handbrake turns from games like this, followed by learning the real-world cost of tires and insurance deductibles.</li>
+          <li>A reader shares a related parking solver/visualizer project built on a simpler bicycle dynamics model, which others found fun to play with despite a seemingly buggy "blocked zone" visualization.</li>
+          <li>The author (commenting as PatKerr) confirms the original 1996 version was similar but minimal — plain black-and-white line drawings with no settings UI, plus skid trails added later.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">6</span>
+        <span class="badge">AI & Security</span>
+      </div>
+      <h2><a href="https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/">Mxc: Microsoft Execution Containers version 1.0.0</a></h2>
+      <div class="meta">207 points · <a href="https://news.ycombinator.com/item?id=50016956">58 comments</a> · blogs.windows.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Microsoft announced general availability of Microsoft Execution Containers (MXC), a policy-driven containment layer for AI agents and their generated code. Developers declare the files and network destinations a workload needs via a unified JSON schema, and MXC enforces that boundary at runtime across Windows, macOS, and Linux backends — independent of the agent itself — so that even a misbehaving or manipulated agent can't exceed its granted access, with Windows uniquely offering a full session-level container with its own isolated desktop and identity.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Enterprise interest is acknowledged, but several commenters think the announcement and docs read as sloppily written or even LLM-generated, undermining confidence in the actual implementation.</li>
+          <li>Questions about why this is better than just using bubblewrap directly, with one commenter linking their own critique from a duplicate thread on the same launch.</li>
+          <li>A broader complaint that the industry's permissioning story remains fragmented and overly complex — e.g. connecting to Jira introduces a completely different identity/resource model — and that MXC doesn't solve this root problem, just adds another layer.</li>
+          <li>Interest in using MXC as a general app-permissions boundary (e.g. locking a music player out of SSH keys) rather than only for "agent" workloads, with skepticism that this will be gated to paying enterprise customers.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">7</span>
+        <span class="badge">Programming Lore</span>
+      </div>
+      <h2><a href="https://www.thomas-huehn.com/knuth-reward-check/">Knuth reward check</a></h2>
+      <div class="meta">207 points · <a href="https://news.ycombinator.com/item?id=50034081">75 comments</a> · thomas-huehn.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author recounts finding a genuine error on page 1 of Donald Knuth's "Computer Modern Typefaces" — one of his more obscure volumes — and, after months of double-checking before daring to report it, receiving one of Knuth's legendary "reward checks": a symbolic $2.88 from the fictitious Bank of San Serriffe (Knuth stopped issuing real checks years ago). A later, mostly-wrong bug report still earned a smaller $0.32 check for one useful observation buried in it.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Broken images send readers to a Wayback Machine mirror, which HN's moderators then substituted into the story URL.</li>
+          <li>Several commenters share their own reward-check stories, including one for correcting Knuth's claim that Alan Turing "broke" the Enigma rather than Polish cryptanalyst Marian Rejewski.</li>
+          <li>A side debate over whether the reported "infinitely many alphabets" error was really wrong, since the actual parameter space, though enormous, is technically finite.</li>
+          <li>People compare notes on losing their own checks (one got a replacement from Knuth directly) and link to Knuth's published list of his biggest bug-bounty recipients.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">8</span>
+        <span class="badge">Hardware & Design</span>
+      </div>
+      <h2><a href="https://lightbulbcomputer.com/">The Lightbulb Computer</a></h2>
+      <div class="meta">497 points · <a href="https://news.ycombinator.com/item?id=50029487">73 comments</a> · lightbulbcomputer.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A speculative design project proposes the "Lightbulb Computer": a device shaped to screw into any standard light socket that combines a projector with computer vision to deliver ambient, spatial computing — projecting recipes, maps, reminders, and smart-home controls onto real surfaces instead of through a phone, headset, or smart glasses. The author built a real, if bulky, working prototype and argues ceiling-mounted projection plus voice and pointing gestures is a more social, less isolating direction than wearable computing.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Largely enthusiastic reception, with comparisons to the Humane Pin's ambition minus its wearable-device execution problems, and praise for solving the "weird to onlookers" problem of XR headsets.</li>
+          <li>A detailed suggestion to eliminate pointing latency by timestamping the word "here" and pulling from a short rolling video buffer instead of waiting for a live frame.</li>
+          <li>Some skepticism that bright, high-resolution projectors remain expensive, especially for use in lit rooms.</li>
+          <li>The author confirms in-thread that all demos are from a real (bulky) prototype, not animation, and distinguishes the project's modest "replace the screen" goal from the more ambitious end-user-programming vision of related projects like Dynamicland/Folk Computer.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">9</span>
+        <span class="badge">AI & Career</span>
+      </div>
+      <h2><a href="https://purplesyringa.moe/blog/grieving-the-loss-of-details/">Grieving the loss of details</a></h2>
+      <div class="meta">463 points · <a href="https://news.ycombinator.com/item?id=49980880">377 comments</a> · purplesyringa.moe</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A self-described detail-oriented "low-level coder" writes a personal essay grieving that LLM-driven development has eliminated the professional niche — performance tuning, deep systems knowledge, explaining intricate behavior — that gave her value and identity, since she can't work the way LLMs reward (operating over large, abstracted codebases she can't fully internalize). She describes a year of declining prospects, swearing off LLMs for anything she cares about, and now worrying about applying for disability.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>An unusually large, emotionally charged thread: many say they relate strongly and suggest detail-obsessive hobbies decoupled from economic pressure (ham radio, woodworking, violin making) as a healthier outlet.</li>
+          <li>Others push back that this reaction is specific to people who found meaning in craftsmanship, and that the new abstraction-first world is a net positive for those happy to iterate quickly without deep understanding.</li>
+          <li>A substantial sub-thread on how LLMs removed the "forced understanding" that writing code by hand used to require, with some developers describing new coping habits like sitting on AI-authored PRs for a day before merging.</li>
+          <li>A philosophical exchange about who absorbs the externalized costs of AI convenience — displaced workers, data-center neighbors, future learners who skip understanding basics.</li>
+          <li>One commenter describes leaving software entirely for professional violin-making, finding the same intense attention to millimeter-level detail there, and being happier for the move.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">10</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://housing.over.pizza/">A city-building game in which the city would prefer you didn't</a></h2>
+      <div class="meta">423 points · <a href="https://news.ycombinator.com/item?id=50036864">140 comments</a> · housing.over.pizza</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">"Discretionary Review" is a browser-based San Francisco housing-politics simulator where players try to get building projects approved against the city's real permitting, zoning, supervisor-district, and neighborhood-politics dynamics. Its in-game rulebook states every rule, vote count, and case is drawn from the public record, with the game's economics simplified for playability.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Mixed-to-critical reception: several find the UI overwhelmingly complex for what should be a quick, pointed satire of NIMBYism, and link an alternative game they think communicates a similar idea more cleanly and respectfully of players' time.</li>
+          <li>Others defend it as an intentionally dense, "vibe-coded" in-joke made for the creator's own amusement rather than a polished product for a broad audience.</li>
+          <li>A political sub-thread debates whether blocking new construction genuinely preserves neighborhood character or simply pushes up prices and pushes out longtime residents regardless.</li>
+          <li>Lighter notes about specific details players enjoyed, like a Blue Angels flyover easter egg, and confusion over what a high "Neighborhood" score in the approval UI is actually supposed to mean.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">11</span>
+        <span class="badge">AI & Finance</span>
+      </div>
+      <h2><a href="https://blog.janestreet.com/can-you-use-autoregressive-diffusion-to-generate-market-data/">Can you use autoregressive diffusion to generate market data?</a></h2>
+      <div class="meta">183 points · <a href="https://news.ycombinator.com/item?id=50021410">56 comments</a> · blog.janestreet.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A Jane Street summer intern project explores whether autoregressive diffusion models — the same family used for image and video generation — can synthesize realistic market order-book events, including their timing. The team found pure continuous diffusion didn't suit market data's mix of discrete and spiky-continuous features: DDPM denoising diverged badly, while flow-matching performed much better, and the project's main contribution was clarifying what an eventual working generative market-data model would need, rather than delivering a finished one.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Reflexive one-line skepticism ("past performance isn't indicative of future results," flat "no"s) alongside a more developed counter-argument that index-fund investing itself relies on exactly that assumption, self-fulfillingly.</li>
+          <li>A thoughtful thread on whether any genuinely accurate predictive model is self-defeating once competitors adopt it, and how real trading edges increasingly come from exotic data sources (satellite imagery of parking lots, weather) rather than the model architecture itself.</li>
+          <li>Praise for the write-up's technical rigor and its honest framing of market data as neither purely discrete nor continuous, with one commenter noting manual category-engineering here echoes "bitter lesson" tensions in ML more broadly.</li>
+          <li>A specific technical question about why order inter-arrival times were modeled as roughly normal rather than Hawkes-process-style clustered, given one order plausibly raises the likelihood of more following it.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">12</span>
+        <span class="badge">Science & Health</span>
+      </div>
+      <h2><a href="https://news.vt.edu/articles/2026/10/research_fralinbiomed_upfhutelin.html">Food processing influences metabolism and brain activity</a></h2>
+      <div class="meta">169 points · <a href="https://news.ycombinator.com/item?id=50029830">137 comments</a> · news.vt.edu</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Virginia Tech researchers fed the same healthy adults a minimally processed and an ultraprocessed meal, matched within 1% on calories, macronutrients, sodium, water, and weight, in separate sessions, then measured metabolic and brain responses. Despite the nutritional match, the ultraprocessed meal triggered a higher insulin response, more energy expenditure, less carbohydrate burned for fuel, and different activity in the brain's reward circuitry — suggesting processing itself, independent of nutrient content, shapes how the body and brain respond to food.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters note the underlying paper also matched glycemic index between meals (omitted from the news article), narrowing the likely explanation to micronutrients, additives, or psychological expectation effects.</li>
+          <li>Debate over the modest sample size (57 enrolled, 32 completing both the brain-imaging and metabolic arms) versus the real cost of running larger nutrition studies.</li>
+          <li>Sharp criticism of the NOVA food-processing classification system used to define "ultraprocessed," citing apparent inconsistencies like home-fried potato chips counting as merely "processed" while store-bought three-ingredient chips count as "ultraprocessed," and PB&J being classed as more processed than cheese.</li>
+          <li>Practical suggestions, like making pasta from scratch, as an indirect way to eat less of the ultraprocessed equivalent.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">13</span>
+        <span class="badge">Science</span>
+      </div>
+      <h2><a href="https://phys.org/news/2026-10-chernobyl-particles-reveal-unexpectedly-stable.html">Chernobyl particles reveal unexpectedly stable nuclear fuel after 40 years</a></h2>
+      <div class="meta">167 points · <a href="https://news.ycombinator.com/item?id=49986919">68 comments</a> · phys.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Researchers from Leibniz University Hannover and Helmholtz-Zentrum Dresden-Rossendorf used synchrotron X-ray diffraction on six highly radioactive "hot particles" collected from the 1986 Chernobyl accident and found the nuclear fuel's crystal structure has largely stayed intact after 40 years — meaning the particles are more mechanically stable, and slower to break down and leach fission products into soil and water, than previously assumed. The authors caution the sample is tiny and particle structure varies widely, so the finding doesn't support loosening restrictions in the Exclusion Zone.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Multiple commenters clarify the headline's "stable" means mechanically/structurally stable, not radiologically inert — the radioactive decay of these materials proceeds at its normal, unaffected rate.</li>
+          <li>A side note that this mechanical stability is good news mainly because it limits further leaching of radionuclides into the surrounding environment, not because the material has become less hazardous.</li>
+          <li>A comparison of total fuel mass involved — roughly 190 tons at Chernobyl versus 64kg in the Hiroshima bomb — used to explain why reactor accidents and bomb detonations have such different long-term risk profiles.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">14</span>
+        <span class="badge">Dev Tools</span>
+      </div>
+      <h2><a href="https://openscad.org/">OpenSCAD the Programmers Solid 3D CAD Modeller</a></h2>
+      <div class="meta">165 points · <a href="https://news.ycombinator.com/item?id=49984349">131 comments</a> · openscad.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">OpenSCAD's homepage highlights the free, cross-platform, script-based solid 3D CAD modeler aimed at programmers rather than traditional CAD users, along with its manual, module/function cheat sheet, community library ecosystem, and a recent "Braiding Machine from Code" showcase.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Frustration that the official stable release (dated 2021) lags far behind the much-improved nightly builds, with a years-open GitHub issue tracking the blockers to a new release.</li>
+          <li>Comparisons to build123d (preferred by several commenters) and to Blender scripting or Fusion's MCP for LLM-driven model generation, with the view that OpenSCAD's concise, parametric code is a better fit for LLMs than Blender's unparameterized output meshes.</li>
+          <li>Practical praise from long-time users for how well OpenSCAD fits version control and reusable personal part libraries, alongside a caution that its variable scoping looks like a normal programming language but behaves quite differently (no reassignment warnings, etc.).</li>
+          <li>Multiple programmers say OpenSCAD's code-first approach makes 3D modeling finally click for them in a way GUI tools like Blender never did.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">15</span>
+        <span class="badge">Math & AI</span>
+      </div>
+      <h2><a href="https://terrytao.wordpress.com/2026/10/09/what-mathematicians-should-know-about-the-lean-theorem-proverquestions-of-reliability-and-ai/">What mathematicians should know about the Lean Theorem Prover: reliability &amp; AI</a></h2>
+      <div class="meta">198 points · <a href="https://news.ycombinator.com/item?id=50024090">58 comments</a> · terrytao.wordpress.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">In a guest post on Terence Tao's blog, Thomas Hales surveys the rapid rise of "autoformalization" — AI translating math papers directly into Lean-verified proofs — citing 2026 milestones like autoformalizing the 24-dimensional sphere-packing proof, a Meta project formalizing 26 textbooks, and Anthropic's 13-million-line Lean formalization of Fermat's Last Theorem. The post also raises open questions about trusting both the AI translations and Lean's own kernel, which has had soundness bugs in the past.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Practitioners report that current autoformalization often quietly proves a subtly different statement than the paper intended once the AI hits a wall — shifting bounds or sign conventions so the checker accepts a different claim — undercutting "practical reality" framing.</li>
+          <li>Others counter that formalizing older papers has valuably surfaced many genuine author typos and errors that would be very hard to catch by hand.</li>
+          <li>A deep philosophical sub-thread on whether proof checkers themselves can be fully trusted, given past Lean kernel soundness bugs, and what an undiscovered bug would actually mean for previously "proven" results.</li>
+          <li>A tangent lamenting Coq's 2021 rename to "Rocq," reigniting an old controversy about the motivations behind it.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">16</span>
+        <span class="badge">Dev Tools</span>
+      </div>
+      <h2><a href="https://fzakaria.com/2026/10/07/nix-wrote-half-of-my-debugger">Nix wrote half of my debugger</a></h2>
+      <div class="meta">217 points · <a href="https://news.ycombinator.com/item?id=50017247">52 comments</a> · fzakaria.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Farid Zakaria describes extending his deterministic, Nix-based record/replay VM ("Rewind") into a full debugger for diagnosing race conditions. Because a Nix derivation already pins every input a build needs — sources, compiler, debug symbols fetchable via debuginfod — most of the hard parts of a debugger (source panels, stack frames, reproducible gdb sessions, cross-run comparison) came almost for free once the deterministic VM existed; he demonstrates pinpointing the exact scheduling step behind a classic bank-account race condition in seconds.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Enthusiastic comparisons to Antithesis's deterministic-simulation testing platform, but running locally on a single machine, with questions about how Rewind handles randomness (answered: the guest kernel's RNG is seeded at boot).</li>
+          <li>Recurring commentary on the "whiplash" between Nix's strict determinism and LLM nondeterminism, alongside claims that AI assistance is making Nix configs more approachable for people who'd never have adopted it otherwise.</li>
+          <li>One skeptical take that this is essentially a reimplementation of the existing `rr` record-replay debugger, with Nix mainly providing the packaging and reproducibility layer around it.</li>
+          <li>General Nix ergonomics discussion, including a story about `nix` deleting itself mid-flake-development that soured one reader's trust before they'd even tried tools like this.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">17</span>
+        <span class="badge">Security</span>
+      </div>
+      <h2><a href="https://cphpost.dk/2026-10-10/news/round-up/123456-password-used-in-massive-danish-cpr-data-breach/">`123456' password used in Danish CPR data breach</a></h2>
+      <div class="meta">396 points · <a href="https://news.ycombinator.com/item?id=50031269">204 comments</a> · cphpost.dk</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A massive breach exposing Danish CPR numbers — the country's central 10-digit personal/social-security identifiers, assigned to every citizen and resident — reportedly traces back to a system protected only by the password "123456." The incident has drawn comparisons to how exposed national ID numbers can be versus how tightly guarded equivalent identifiers (like US Social Security numbers) are typically treated.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Dark humor dominates early replies ("not ideal," luggage-combination-lock jokes, a Spaceballs reference to famously weak passwords).</li>
+          <li>Explanation that a CPR number encodes birthdate and sex, narrowing the possible values considerably if an attacker already knows those details about a target.</li>
+          <li>A comparative thread on identifier secrecy norms: the US treats SSNs as de facto secret despite using them for financial authorization, while Argentina's DNI is openly public and even posted at polling places — the real risk, several argue, depends on what the number is used to authorize, not just whether it leaks.</li>
+          <li>Frustration that no public root-cause postmortem has been released, drawing a parallel to a still-unexplained ransomware attack on a Swedish municipality.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">18</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://lwn.net/Articles/1055211/">Compiling Rust to readable C with Eurydice</a></h2>
+      <div class="meta">139 points · <a href="https://news.ycombinator.com/item?id=50027853">39 comments</a> · lwn.net</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">LWN profiles Eurydice, part of Inria/Microsoft's Aeneas formal-verification project, which compiles Rust to structurally faithful "readable" C rather than optimized machine code — preserving control flow and evaluation order so existing C-oriented verification and compliance tooling can analyze Rust code (it's already been used on post-quantum-cryptography routines). The hard parts are monomorphizing Rust generics for a language with no generics, and emitting two differently-shaped C types for Rust's dynamically-sized types so bounds-check semantics survive the translation without manufacturing false "missing" checks.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Confirmation that Rust's runtime safety checks (like bounds checks) are preserved through the IR and show up correctly in the generated C, since they're encoded in Rust's semantics from the start.</li>
+          <li>Jokes about the project's Hadestown-referencing name ("Eurydice" / "you're da C") and its pronunciation.</li>
+          <li>Suggestions that D and C++ could benefit from a similar readable-C backend, met with pushback questioning why that would actually be needed.</li>
+          <li>Playful speculation about whether repeatedly round-tripping Rust→C→Rust would eventually cycle or grow unboundedly, plus a request for friendlier temporary-variable names than `uu____0` if "readability" is the real selling point.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">19</span>
+        <span class="badge">AI & ML</span>
+      </div>
+      <h2><a href="https://nishtahir.com/build-your-own-decision-model/">Build your own decision model</a></h2>
+      <div class="meta">386 points · <a href="https://news.ycombinator.com/item?id=50037949">85 comments</a> · nishtahir.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The post explains "decision models" like Jev: instead of autoregressively generating structured output token-by-token, you constrain decoding to a fixed small set of allowed tokens (e.g. multiple-choice letters) and take the single highest-probability option in one pass. The author builds a toy version on Qwen3-1.7B, gets ~59% accuracy on CommonsenseQA (improving to ~62% after a quick fine-tune), and shows the model's raw output "confidence" is badly overconfident — fixable via temperature-scaling calibration.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Clarification that this isn't about generating constrained JSON text — it's reading raw next-token probabilities directly, producing only a label, not generated text.</li>
+          <li>A frustrated ML engineer argues this is just zero-shot classification rediscovered with new branding; others counter that the real selling point of tools like Jev is extreme cheapness and speed at scale, not novelty.</li>
+          <li>Skepticism that fitting a temperature parameter to match a benchmark's accuracy after the fact is a form of p-hacking, though others argue it's legitimate calibration if the test set is large and diverse enough.</li>
+          <li>Pointers to similar lightweight classifier tools (Jeffy, gutsy) and real applications, including using Jev inside a Claude Code hook to flag dangerous shell commands.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">20</span>
+        <span class="badge">Systems</span>
+      </div>
+      <h2><a href="https://ghuntley.com/unikernels/">Unikernels were hard. key word: were</a></h2>
+      <div class="meta">177 points · <a href="https://news.ycombinator.com/item?id=50033357">89 comments</a> · ghuntley.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Recapping a conversation with MirageOS veteran Justin Cormack, Geoffrey Huntley argues unikernels — "OS-less" systems where the application is its own operating system, with no shell or userland to fall back on — were historically painful because every bit of infrastructure (TCP stacks, storage drivers) had to be hand-written as a library. He argues AI coding agents now make that tractable: porting a missing library (like Stripe bindings) or reverse-engineering a byte-identical Rust reimplementation of `mkfs.xfs` against a reference "golden oracle" is now a loop an agent can run, while the lack of a shell or interpreter also denies attackers (human or AI) anywhere to pivot after a compromise.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Security-focused commenters argue "attack surface reduction" understates the real benefit — removing the multi-tenant OS model entirely — while others counter that memory-corruption and gadget-based exploits still work regardless of unikernel isolation.</li>
+          <li>A substantive thread clarifies unikernels still reuse shared, reviewed library code rather than hand-rolling filesystems and networking per application; they just redraw where the abstraction boundary sits, replacing syscalls with plain subroutine calls.</li>
+          <li>Debate over whether fast microVM boot times (cited via Netlify and Unikraft) matter for most workloads, versus being valuable mainly in niche, high-density multi-tenant job-scheduling scenarios.</li>
+          <li>Concerns about debuggability when a single buffer overflow can corrupt the whole single-address-space "kernel," with mixed views on whether current unikernel debugging tooling (gdb stubs, etc.) is adequate.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">21</span>
+        <span class="badge">Operating Systems</span>
+      </div>
+      <h2><a href="https://www.opengroup.org//openbrand/register/">Apple/macOS removed from official Unix registry</a></h2>
+      <div class="meta">282 points · <a href="https://news.ycombinator.com/item?id=50031653">238 comments</a> · opengroup.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The Open Group's official register of UNIX®-certified products appears to have quietly dropped macOS from its main list, even though a separate UNIX 03 standard subpage still shows it — leaving open whether this reflects genuine decertification of macOS Tahoe, administrative oversight, or simply that the newer macOS 27 was never certified to begin with.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Readers cross-reference Wayback Machine snapshots and conclude macOS 26/Tahoe was listed and has since been removed, while macOS 27 was apparently never UNIX-certified in the first place.</li>
+          <li>Speculation ranges from Apple deliberately diverging from traditional Unix design goals, to simple corporate inattention or lapsed certification paperwork, to this being essentially inconsequential either way.</li>
+          <li>Several argue Unix-as-a-formal-standard is effectively dead regardless, and what actually matters practically is whether macOS keeps its BSD-derived core and Unix-like developer tooling (Homebrew, terminal, POSIX APIs) — not the trademark certification itself.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">22</span>
+        <span class="badge">Privacy</span>
+      </div>
+      <h2><a href="https://ndstudio.gov/posts/say-hello-to-rampart">Rampart: Browser native on-device PII radaction</a></h2>
+      <div class="meta">89 points · <a href="https://news.ycombinator.com/item?id=50024242">33 comments</a> · ndstudio.gov</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The US National Design Studio open-sourced Rampart, a tiny (14.7MB) browser-based PII filter combining regex rules with a small MiniLM model to redact sensitive information — names, addresses, SSNs — from text before it's sent to a chatbot, entirely on-device. It claims 98.4% recall across seven languages at under 4ms latency, positioned as dramatically smaller than cloud alternatives like a roughly 2.8GB competing privacy filter.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Pointed distrust toward the project given past reporting that people connected to its authorship mishandled sensitive government data elsewhere, tempered by others noting the tool is open source and runnable fully offline.</li>
+          <li>A practitioner (and competing open-source package author) argues the government's own example in the post — a user volunteering their SSN to a housing chatbot — models exactly the risky behavior that should be discouraged, and that extending HIPAA-like legal restrictions to AI vendors would do more than client-side redaction.</li>
+          <li>Skepticism that 98.4% recall is good enough to call this real PII protection, versus pursuing deterministic redaction at the source as banks reportedly prefer.</li>
+          <li>Debate over whether PII is inherently too context-dependent for any general-purpose model to fully solve in the broadest case.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">23</span>
+        <span class="badge">Economics</span>
+      </div>
+      <h2><a href="https://conversableeconomist.com/2026/09/28/i-would-like-the-value-of-my-home-to-rise-while-my-property-taxes-fall/">I would like the value of my home to rise, while my property taxes fall</a></h2>
+      <div class="meta">259 points · <a href="https://news.ycombinator.com/item?id=50032758">593 comments</a> · conversableeconomist.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Economics writer Timothy Taylor discusses David Schleicher's paper on recent US state-level property tax reforms that cut taxes on owner-occupied homes — shifting the burden onto commercial and rental property, sales taxes, and state funding — even as home values have risen sharply since COVID. He argues this converts property tax from a locally accountable service fee into redistributive taxation favoring existing homeowners, increases state control over local governments, and will likely push home prices even higher by lowering the effective cost of ownership.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A sprawling, 593-comment thread opens with a county assessment-appeal-board veteran confirming the title's contradiction is basically every hearing: homeowners want high comps when selling, low ones when taxed.</li>
+          <li>Debate over whether property taxes should scale with service costs (inflation, wages) independent of home values, versus critics arguing rising assessments shouldn't automatically mean rising bills.</li>
+          <li>Discussion of how fixed-dollar versus fixed-rate local bond levies interact differently with aggregate property value swings.</li>
+          <li>Practical "solutions" floated include buying in high-cost-of-living areas and later relocating somewhere cheaper, challenged by others noting this doesn't actually make "all other homes" cheaper in any meaningful sense.</li>
+          <li>A philosophical sub-thread on whether treating a home as a consumer good rather than a financial asset dissolves the stated tension, pushed back on by concerns about mortgages, upkeep costs, and transaction fees that make flat home values genuinely costly.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">24</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://bd103.dev/blog/2026-10-07-c-for-rust-programmers/">C for Rust programmers</a></h2>
+      <div class="meta">162 points · <a href="https://news.ycombinator.com/item?id=50005743">173 comments</a> · bd103.dev</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A Rust-first programmer catalogs C's quirks for others coming from Rust: booleans were only a late, macro-based addition before becoming a true primitive in C23; C's null-terminated strings trade off against Rust's length-carrying fat pointers; integer widths vary by platform (fixed by using stdint.h's explicit-width types); and C's error handling — magic return values and `errno` — is far weaker than Rust's `Result`, illustrated with a string-reversal function in both languages.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A popular sub-thread flips the question, asking what's hardest for C programmers adapting to Rust — general answers point to the borrow checker's front-loaded "compiler gymnastics" and the idea of zero-cost newtype wrappers that only matter at compile time.</li>
+          <li>Discussion of whether learning Rust before C is becoming more common as CS curricula shift toward Java and Python first.</li>
+          <li>Pushback that any serious C tutorial should foreground compiler warnings and sanitizers (-Wall -Wextra, ASan/UBSan/TSan) rather than hand-rolled unsafe string-reversal code as a first example.</li>
+          <li>A long debate on whether Rust's "memory safety" is overstated as its core value versus features like pattern matching and tagged unions, and whether a future "world without memory corruption" is realistic given FFI boundaries, unsafe blocks, and hardware-level attacks like Rowhammer.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">25</span>
+        <span class="badge">Science (2020)</span>
+      </div>
+      <h2><a href="https://www.nature.com/articles/s41598-020-73426-0">The role of cat eye narrowing movements in cat–human communication (2020)</a></h2>
+      <div class="meta">125 points · <a href="https://news.ycombinator.com/item?id=49984854">61 comments</a> · nature.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This 2020 Scientific Reports study found that cats perform more half-blinks and eye-narrowing in response to an owner's "slow blink" than during no interaction at all, and are more likely to approach an unfamiliar experimenter after being slow-blinked at than after a neutral expression — suggesting the cat slow blink functions as a form of positive, cross-species emotional communication between cats and humans.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many readers share enthusiastic personal anecdotes about slow-blinking at cats for years, including using it successfully on feral and skittish strays.</li>
+          <li>Tangents into other cat body-language myths — sleeping in another cat's or a human's spot is often read as an invitation for affection rather than dominance — and scent-based bonding techniques (finger-sniffing, nose rubs) borrowed from how cats greet each other.</li>
+          <li>Discussion of how early childhood exposure to animals seems to build this interspecies-communication intuition more reliably than learning it as an adult.</li>
+          <li>Lighthearted asides, including a call for a "double-blind" study of the classic cat-calling "pspsps" sound.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">26</span>
+        <span class="badge">Science & Health</span>
+      </div>
+      <h2><a href="https://www.broadinstitute.org/news/clinical-trial-prion-disease-drug-candidate-begins-enrolling-participants">Clinical trial of a prion disease drug candidate begins enrolling participants</a></h2>
+      <div class="meta">170 points · <a href="https://news.ycombinator.com/item?id=50028027">45 comments</a> · broadinstitute.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Broad Institute and UMass Chan researchers, led by Anastasia Khvorova's lab with Broad's Eric Minikel and Sonia Vallabh, have begun enrolling the first human participants in PRiSM, a Phase 1 trial of a divalent siRNA drug designed to cut production of the misfolded prion protein that causes fatal, currently incurable prion diseases. In mice, a single post-symptom-onset dose reduced prion protein by 49% and increased survival by 64%; the FDA-cleared, NIH-funded trial will dose 15 symptomatic patients at escalating levels alongside a 15-person untreated observation arm, primarily to assess safety and dosing.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Background on the broader family of prion diseases (scrapie, kuru, CJD, mad cow, chronic wasting disease) and their uniquely alarming nature: inert, non-living misfolded proteins that can arise spontaneously and trigger an irreversible cascading failure with no existing cure.</li>
+          <li>Strong admiration for Minikel and Vallabh's personal story — Vallabh carries the causative mutation and has driven this research since her mother's 2011 diagnosis — and their unusually open sharing of the drug-development and regulatory-filing process.</li>
+          <li>A caution that the drug only suppresses production of new prion protein rather than clearing existing misfolded protein, so side effects (sleep disruption, memory issues seen in mice) are likely, though commenters note these would still clearly beat the disease's current near-100% mortality.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">27</span>
+        <span class="badge">Open Source</span>
+      </div>
+      <h2><a href="https://community.bitwarden.com/t/published-version-update-in-app-stores/102750">Bitwarden Dual License Model</a></h2>
+      <div class="meta">387 points · <a href="https://news.ycombinator.com/item?id=50033407">285 comments</a> · community.bitwarden.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Bitwarden announced that, starting with its next release, its app-store and direct-download builds will switch from the GPLv3 license to its commercial license, while the GPLv3 source will keep publishing on GitHub. The company says the change adds "legal protection for select features" and primarily targets parties who repackage and resell Bitwarden rather than self-hosters, who it says are unaffected; future features will be licensed case-by-case, with some becoming commercial-only.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many see this as the predictable result of Bitwarden taking outside investment, drawing parallels to earlier license shifts at Elasticsearch, Terraform, and Redis made in response to cloud providers reselling their work.</li>
+          <li>Sharp disagreement over whether such relicensing is justified self-defense against freeloading hyperscalers, or a betrayal of the openness that built Bitwarden's user base in the first place.</li>
+          <li>Some paying, self-hosting customers say they'll stick around as long as source stays available, while others are already evaluating alternatives (Keyguard, PassPony) amid worry the mobile clients — the real leverage point for self-hosters — could eventually stop being buildable from source.</li>
+          <li>Questions about whether Flatpak builds and the portable Windows download will remain open-source or shift to the commercial build too.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">28</span>
+        <span class="badge">AI & Agents</span>
+      </div>
+      <h2><a href="https://www.cockroachlabs.com/blog/experiment-running-hospital-code/">Five months treating bugs like patients and coding agents like a medical team</a></h2>
+      <div class="meta">167 points · <a href="https://news.ycombinator.com/item?id=50021899">72 comments</a> · cockroachlabs.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Cockroach Labs describes a five-month-old internal coding-agent pipeline modeled explicitly on a teaching hospital — issues as "patients," merging as "discharge," with distinct Triage Nurse, Fellow, Review Attending, and Discharge Nurse agent roles enforcing mandatory planning, review, and escalation — built to prioritize reliability over raw throughput for database-migration code. As a flagship result, the pipeline added full IBM Db2 support to their MOLT migration tool in under two days for $4,172 in token cost, versus 9 months and roughly $160K for equivalent human-built Oracle support in 2024, generating 27 merged PRs and only 2 human escalations out of 32 sub-issues with just 7 total reverts across the whole five-month period.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The post's authors actively answer questions in the thread, including that their biggest early mistake was running in full auto-merge mode — results looked plausible but arrived too fast to meaningfully human-verify, prompting a switch to human-approval mode.</li>
+          <li>They describe adding an explicit "deferred scope ledger" after discovering sibling sub-issues would silently drop work each assumed the other would handle, since they couldn't otherwise communicate.</li>
+          <li>Comparisons to Fred Brooks's "surgical team" model from The Mythical Man-Month, and to other agent-factory approaches (OpenAI's internal pipeline, Cursor's rapid SQLite rewrite) that optimize for throughput instead of this project's safety-first design.</li>
+          <li>One skeptical commenter argues these elaborate multi-agent quality-gate pipelines often net out to slower, lower-value development in practice, generating activity without proportionate output.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">29</span>
+        <span class="badge">AI & Business</span>
+      </div>
+      <h2><a href="https://www.ft.com/content/052610c5-22b4-4dd4-932e-b7f9f0628b6a">Nvidia in talks to acquire US 'open' model startup Reflection AI</a></h2>
+      <div class="meta">169 points · <a href="https://news.ycombinator.com/item?id=50035886">107 comments</a> · ft.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The Financial Times reports Nvidia is in talks to acquire Reflection AI, a US-based "open" frontier-model startup. The deal is notable partly because Nvidia had already put roughly $800M into Reflection AI's $2B funding round, fueling discussion over whether a full acquisition is really about acquiring talent, defensively keeping a competitive open model tied to Nvidia's CUDA and hardware stack, or both.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>General unease about continued AI-sector consolidation, tempered by some hope that a well-funded "open" alternative to closed labs could still emerge from it.</li>
+          <li>A detailed theory that Nvidia's real incentive is ensuring frontier-competitive models keep running on its proprietary stack (chips, interconnects, CUDA) to defend its unusually high hardware margins against hyperscaler pressure to diversify onto cheaper alternatives.</li>
+          <li>Skeptical takes that major US AI players increasingly default to acquihiring and consolidation rather than independently advancing capability, contrasted with more aggressive, numerous Chinese competitors.</li>
+          <li>Questions about why Nvidia wouldn't simply hire the team directly given its compute resources and cash, rather than acquiring the whole company.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">30</span>
+        <span class="badge">Dev Tools</span>
+      </div>
+      <h2><a href="https://tonym.us/wsl2-vs-wsl3-benchmarks.html">WSL3 Performance is about 5-60% faster than WSL2 depending on the workload</a></h2>
+      <div class="meta">229 points · <a href="https://news.ycombinator.com/item?id=49998801">229 comments</a> · tonym.us</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A detailed benchmark comparing WSL2 (Linux kernel 6.6) against the new WSL3 (kernel 6.18) finds large low-level gains — +61% sequential memory bandwidth from reduced hypervisor trap overhead, and roughly 10-11% lower scheduler/IPC latency — but only a modest ~4% real-world speedup compiling the GoReleaser Go codebase, since compilation is dominated by user-space CPU work bounded by the test machine's two pinned virtual cores rather than kernel overhead. The author concludes memory- and IPC-heavy workloads (Redis, SQLite, container-dense services) benefit immediately, while compute-bound compilers mainly see reduced kernel time rather than meaningfully faster wall-clock builds.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>General appreciation for the benchmark's methodological rigor, alongside a side debate over whether "WSL3" is an accurate name given WSL's confusing prior version-numbering history.</li>
+          <li>Practical tips that most historical WSL2 slowness comes from the 9P protocol used to access Windows drives under /mnt/c rather than the VM itself, and that staying within the native Linux filesystem avoids most of it.</li>
+          <li>A recurring "just use Linux natively" needling met with pushback about mainstream hardware availability and usability realities for most users.</li>
+          <li>The author actively responds in the thread with clarifying details and promises of further WSL optimization and kernel-mitigation benchmark posts.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <footer>Generated October 11, 2026 · summaries by Claude · source: news.ycombinator.com</footer>
+</div>
+<script>
+function setAll(open) {
+  document.querySelectorAll('details.card').forEach(d => d.open = open);
+}
+</script>
+</body>
+</html>
