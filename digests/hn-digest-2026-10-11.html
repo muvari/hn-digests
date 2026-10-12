@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacker News Digest — 2026-10-11</title>
+<style>
+  :root {
+    --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
+    --quote-border: #ddd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
+      --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
+      --quote-border: #3a3a46;
+    }
+  }
+  /* Density note: the collapsed list is the primary view — it should read like
+     a tight index you can scan in one screen, so headers are compact. Expanded
+     prose keeps a comfortable size and line-height, since that's read closely. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 9px; margin-bottom: 12px; }
+  header h1 { margin: 0 0 2px; font-size: 21px; }
+  header .sub { color: var(--muted); font-size: 13px; }
+  header .sub a { color: var(--muted); }
+  .controls { display: flex; gap: 6px; margin-bottom: 10px; }
+  .controls button {
+    background: var(--card); border: 1px solid var(--border); color: var(--muted);
+    border-radius: 5px; padding: 3px 10px; font-size: 12px; cursor: pointer;
+  }
+  .controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 7px;
+    padding: 8px 12px; margin-bottom: 5px;
+  }
+  summary.card-head {
+    cursor: pointer; list-style: none; position: relative; padding-right: 22px;
+  }
+  summary.card-head::-webkit-details-marker { display: none; }
+  summary.card-head::after {
+    content: "▸"; position: absolute; right: 2px; top: 0; font-size: 15px;
+    color: var(--muted); transition: transform .15s ease;
+  }
+  details[open] summary.card-head::after { transform: rotate(90deg); color: var(--accent); }
+  summary.card-head:hover::after { color: var(--accent); }
+  /* Rank, badge and headline share one line; the headline wraps under them
+     only when it genuinely needs to, which keeps most rows a single line. */
+  .card-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .rank { color: var(--accent); font-weight: 700; font-size: 14px; min-width: 20px; }
+  .badge {
+    background: var(--badge-bg); color: var(--badge-text); border-radius: 999px;
+    font-size: 10px; font-weight: 600; padding: 1px 7px; text-transform: uppercase;
+    letter-spacing: .03em; white-space: nowrap;
+  }
+  h2 { margin: 1px 0 1px; font-size: 15.5px; line-height: 1.3; }
+  h2 a { color: var(--text); text-decoration: none; }
+  h2 a:hover { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 11.5px; }
+  .meta a { color: var(--muted); }
+  .meta a:hover { color: var(--accent); }
+  .card-body { margin-top: 9px; }
+  .summary { margin: 0 0 9px; }
+  .discussion h3 {
+    margin: 0 0 5px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--muted);
+  }
+  .discussion ul { margin: 0; padding-left: 0; list-style: none; }
+  .discussion li {
+    border-left: 2px solid var(--quote-border); padding: 1px 0 1px 10px;
+    margin-bottom: 6px; font-size: 14px;
+  }
+  footer { margin-top: 24px; color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Hacker News Daily Digest</h1>
+    <div class="sub">Top 30 stories from <a href="https://news.ycombinator.com/front">the front page</a> of October 11, 2026</div>
+  </header>
+
+  <div class="controls">
+    <button onclick="setAll(true)">Expand all</button>
+    <button onclick="setAll(false)">Collapse all</button>
+  </div>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">1</span>
+        <span class="badge">Gaming</span>
+      </div>
+      <h2><a href="https://nanolathe.gg">Total Annihilation, rebuilt for modern computers</a></h2>
+      <div class="meta">625 points · <a href="https://news.ycombinator.com/item?id=50045984">232 comments</a> · nanolathe.gg</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Nanolathe is an MIT-licensed, clean-room reimplementation of the Total Annihilation engine, playable as a browser demo (three original missions, no install) or as a native beta for Windows, Mac and Linux using game files you already own. It offers a modern GPU renderer with lighting and glow effects alongside a faithful "Classic" mode, plus online skirmish and Survival multiplayer with replays, while the underlying code and clean-room research are open for study and modding.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Plenty of excitement and requests for a similar remake of Supreme Commander, with some reminiscing about SupCom's late-game slowdowns caused by pathfinding bugs for destroyed units.</li>
+          <li>Several point to Beyond All Reason, an existing open-source spiritual successor, as already excellent, polished, and capable of 150-player battles with tens of thousands of units.</li>
+          <li>A vocal minority bristles at the landing page's marketing tone, closing the tab at the first whiff of perceived "Claudespeak."</li>
+          <li>A tangent on how fast AI-assisted decompilation and remakes are moving speculates GTA VI could get an unofficial PC port within days of its PS5 release.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">2</span>
+        <span class="badge">AI & Math</span>
+      </div>
+      <h2><a href="https://teorth.github.io/tao-web/slides/math-2-0-caltech-2026.pdf">Terence Tao: Math 2.0 [pdf]</a></h2>
+      <div class="meta">479 points · <a href="https://news.ycombinator.com/item?id=50043026">471 comments</a> · teorth.github.io</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This is a slide deck from a Caltech talk by mathematician Terence Tao exploring what he calls "Math 2.0" — mathematics done jointly by humans and AI systems, including formal tools like Lean. Among its arguments is a thought experiment about alignment and understanding: would you want a human expert to understand the mechanism behind an AI-derived cure before it's used, drawing an analogy to trusting opaque but effective AI-generated mathematics.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The cancer-cure analogy dominates the thread — many argue it's weak since medicine already approves treatments whose mechanisms aren't fully understood, and that most people would take a working cure regardless of whether anyone understands why it works.</li>
+          <li>Others defend the deeper point: AI-driven science may need to be studied empirically, like biology, rather than understood symbolically, and mathematics may be approaching the same kind of reckoning.</li>
+          <li>Some worry an AI collaborator could still waste effort on technically-correct-but-useless results (e.g., absurdly impractical complexity bounds), or that reliance on Lean could sideline the intuition of "blackboard mathematicians."</li>
+          <li>A few worry heavy AI use will flatten the diversity of mathematical schools of thought that historically drove real progress.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">3</span>
+        <span class="badge">Policy</span>
+      </div>
+      <h2><a href="https://www.nyc.gov/main/click-to-cancel">NYC's "Click to Cancel" rule is now in effect</a></h2>
+      <div class="meta">562 points · <a href="https://news.ycombinator.com/item?id=50045946">292 comments</a> · nyc.gov</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">As of October 1, 2026, a new NYC Department of Consumer and Worker Protection rule requires businesses to let customers cancel subscriptions through the same method they used to sign up, disclose subscription terms and auto-renewal clearly, and stop charging for unsolicited shipped goods. Violations carry civil penalties starting at $525 and possible consumer refunds, and residents can file complaints by web, mail, or fax.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Most commenters praise the rule and reject the idea that "same-medium cancellation" is ambiguous: if you can sign up on the web, you should be able to cancel on the web.</li>
+          <li>Some clarify the rule is about matching the sign-up channel, not demanding an identically trivial cancellation flow.</li>
+          <li>Many are skeptical about enforcement, citing NYC's history of passing consumer protections it doesn't actively police (illegal rent destabilization, NYPD sidewalk parking) and noting the $525 starting fine is trivial for large companies.</li>
+          <li>A side gripe about the growing patchwork of city- and state-level rules adding compliance overhead for businesses operating across regions.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">4</span>
+        <span class="badge">AI & ML</span>
+      </div>
+      <h2><a href="https://twitter.com/karpathy/status/2109361546505966046">The gap in shared understanding of LLM capability is widening</a></h2>
+      <div class="meta">613 points · <a href="https://news.ycombinator.com/item?id=50047422">879 comments</a> · twitter.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Andrej Karpathy argues public understanding of LLM capability is splitting into a sharp funnel: roughly 75% of people have barely touched LLMs, ~20% are casual free-tier chatbot users, ~0.2% (around 20M professionals in math and code) are seeing large projects completed in a prompt, and a tiny sliver (~5,000 people with frontier-internal access) are witnessing agent swarms doing cyberattacks, new science, and advanced mathematics. He attributes the funnel to problem ambition/horizon, the "jaggedness" of where RL-trained capability peaks (digital, verifiable, economically valuable domains), and uneven access.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many push back on the "5,000 insiders" framing, arguing that if internal models were dramatically more capable, public products from the same labs should already show it — "if AI can build killer software, where is it?"</li>
+          <li>A widely-endorsed reply flips the argument: the real bottleneck isn't model capability but humans' capacity to review and verify AI output, citing the slow ongoing "archaeology" of a prior AI-related incident.</li>
+          <li>Others think the gap is simpler — free-tier chatbots have already saturated what most non-technical people want or can appreciate from an LLM.</li>
+          <li>Skeptics argue flashy "agent swarm" demos (autonomous hacking, zero-days) are more marketing than genuine frontier breakthroughs, achievable already by small human-plus-agent teams at far lower cost.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">5</span>
+        <span class="badge">Maps & Culture</span>
+      </div>
+      <h2><a href="https://cartographers-nk.wonyoung.so/">Cartographers of North Korea (2019)</a></h2>
+      <div class="meta">306 points · <a href="https://news.ycombinator.com/item?id=50047091">62 comments</a> · cartographers-nk.wonyoung.so</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This piece profiles the small community of volunteer OpenStreetMap contributors responsible for mapping North Korea in surprising detail, including correspondence with some of the contributors themselves about how and why they map a country most people never visit. The site presents the contributors' own written responses alongside the data they produced.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Readers enjoy specific anecdotes surfaced in the contributor responses, including one who could only reference "Google Maps" and seemed unfamiliar with OSM itself.</li>
+          <li>Several praise the site's calm, uncluttered design and the way individual contributor responses can be explored without losing your place in the overall piece.</li>
+          <li>A long-time OSM contributor says deliberate vandalism is vanishingly rare in their decade of experience, speculating most contributors simply mean well.</li>
+          <li>Others wonder how North Korea's mapping and tech access have evolved since this piece (originally from 2019), especially in Pyongyang.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">6</span>
+        <span class="badge">Media</span>
+      </div>
+      <h2><a href="https://theonion.com/archivehunt/">So, you’d like to sell your print issues of The Onion?</a></h2>
+      <div class="meta">365 points · <a href="https://news.ycombinator.com/item?id=50047055">56 comments</a> · theonion.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The Onion is soliciting specific missing print issues from its archive, spanning gaps from 1988 through 2013, and asking readers who own clean, readable copies to fill out a form describing their collection. Issues sold to The Onion become its property and cannot be returned.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several learn for the first time that The Onion dates back to 1988, originating at the University of Wisconsin–Madison as a college paper.</li>
+          <li>One commenter traces its "Area Man" style to its Midwestern college-town sensibility and recalls assuming similar satirical papers must exist elsewhere too.</li>
+          <li>A tangent on magazine archival scarcity notes even high-circulation print runs are getting hard to find complete, per someone who scans old PC magazines.</li>
+          <li>Lighthearted speculation about what happened to the missing issues — stolen, lost, or just an Onion in-joke — with the earlier "mysteriously missing" framing apparently having been edited out of the live page.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">7</span>
+        <span class="badge">Security</span>
+      </div>
+      <h2><a href="https://status.yandex.cloud/en/incidents/2136">3rd Yandex Cloud Data Center Was Hit</a></h2>
+      <div class="meta">609 points · <a href="https://news.ycombinator.com/item?id=50040547">751 comments</a> · status.yandex.cloud</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A third Yandex Cloud data center facility was reportedly struck within a four-day span, following earlier hits on two of its primary facilities. The status page itself was briefly unreachable, and commenters report cascading outages across Yandex Go (taxis), Yandex Pay, food delivery, smart home platforms, and corporate services hosted on Yandex Cloud, with effects spilling into Belarus, Kazakhstan, Armenia, and Serbia.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Much of the thread frames the strikes through the Russia–Ukraine war, with many calling it deserved retaliation while others note ordinary Russians also oppose the war but can't say so safely.</li>
+          <li>Commenters confirm this is the third of Yandex's roughly three main cloud data centers, citing reports of hits in Sasovo, Kaluga, and Vladimir.</li>
+          <li>An engineering-focused subthread speculates this, plus earlier strikes on Middle East data centers, could push the industry toward decentralized infrastructure or hardened/underground builds — with some joking about future datacenter "point defense systems."</li>
+          <li>Others note Yandex's failover mechanisms broke down once three facilities went down within days, and that its Kazakh regions remained available while managed databases and data processing were heavily affected.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">8</span>
+        <span class="badge">Art & Culture</span>
+      </div>
+      <h2><a href="https://www.ways-of-seeing.com/ch1">Chapter 1 of "Ways of Seeing" by John Berger (1972)</a></h2>
+      <div class="meta">136 points · <a href="https://news.ycombinator.com/item?id=50046241">39 comments</a> · ways-of-seeing.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This is the opening chapter of John Berger's 1972 book, arguing that seeing precedes language and shapes our place in the world, that every image (including photographs) embodies a way of seeing rather than being a neutral mechanical record, and that cultural assumptions about art (Beauty, Genius, Taste) often mystify the past rather than clarify it.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several recommend the BBC TV series version Berger based the book on, though one warns Sony Music has been aggressive about takedowns of uploads.</li>
+          <li>Some prefer the book to the series since it was written afterward and covers more ground, such as museum-goers' attitudes.</li>
+          <li>A challenge to Berger's opening claim ("seeing establishes our place in the world") asks about blind people's place in the world, prompting replies that "seeing" here is closer to "perceiving."</li>
+          <li>A sharply critical commenter argues Berger lacked formal credentials and that ideas like "the male gaze" are overrated in film/media studies, drawing pushback from others defending his influence.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">9</span>
+        <span class="badge">Mobile & Open Source</span>
+      </div>
+      <h2><a href="https://lineageos.org/Changelog-32/">LineageOS 24</a></h2>
+      <div class="meta">443 points · <a href="https://news.ycombinator.com/item?id=50040276">180 comments</a> · lineageos.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">LineageOS 24, based on Android 17, ships ahead of schedule this cycle, with security patches merged across branches back to 18.1, major Material Design 3 app updates (a new Canvas image editor, redesigned Updater with streamed A/B updates), and new browser-based WebUSB flashing tools for ADB, Fastboot, Amlogic, and Samsung Odin protocols. The release also notes an experimental generic target that can boot on bare-metal x86_64 PCs, Apple Silicon Macs, and an NVIDIA DGX Spark.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Long-time users thank the maintainers for keeping old phones alive (Pixel 4a, OnePlus 6/6T), though some device support is now unofficial due to stricter kernel/eBPF requirements.</li>
+          <li>The new bare-metal generic target intrigues commenters who imagine reviving old laptops with it, though some question why you'd want Android over Linux there.</li>
+          <li>GrapheneOS users debate switching back, citing its faster AOSP update cadence (3 days vs. LineageOS's longer cycle) and better security, while others note GrapheneOS gets early proprietary patches via a Motorola partnership.</li>
+          <li>Camera quality on LineageOS is still flagged as a weak point on some older devices (e.g., Samsung Galaxy S5/S7) due to missing proprietary camera drivers.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">10</span>
+        <span class="badge">Security</span>
+      </div>
+      <h2><a href="https://nonfunctional.substack.com/p/passkeys-are-a-trap-do-not-use-them">Passkeys are a trap</a></h2>
+      <div class="meta">922 points · <a href="https://news.ycombinator.com/item?id=50048312">481 comments</a> · nonfunctional.substack.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The article argues passkeys as they exist today are a stepping stone toward "attested passkeys," which would require remote attestation among OS, TPM, and password manager, letting websites mandate hardware-locked credentials that users can't export, back up, or freely move between devices — unlike today's unattested, synchronizable passkeys.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many defend storing passkeys in flexible, cross-platform managers like KeePassXC or Bitwarden as giving real user control today, but others counter that services increasingly require TPM-backed, non-exportable passkeys such managers can't satisfy.</li>
+          <li>A popular suggestion is to treat passkeys as "cattle, not pets" — register several per account across devices and managers — though some object that juggling multiple password managers is impractical.</li>
+          <li>Several suspect the end goal is locking users into attested devices to prevent ad-blocking, DRM circumvention, or subscription workarounds, extending well past login security.</li>
+          <li>A side-thread proposes simpler signature-based auth schemes, with replies noting that's essentially what passkeys already are, and that the hard part is trustworthy key storage, not the protocol.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">11</span>
+        <span class="badge">Networking</span>
+      </div>
+      <h2><a href="https://ircv3.net/">IRCv3</a></h2>
+      <div class="meta">400 points · <a href="https://news.ycombinator.com/item?id=50041540">341 comments</a> · ircv3.net</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">IRCv3 is the working group's set of backwards-compatible extensions to classic IRC, covering SASL account login, instant away notifications, message metadata, and message history, with active work on standardized account registration, chat-history access across bouncers, automatic secure-connection detection, and Unicode nicknames.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Renewed interest in IRC is attributed partly to frustration with age-verification requirements elsewhere and Discord fatigue, with some noting big tech firms keep internal IRC as a reliable fallback during outages.</li>
+          <li>Debate over whether a Discord-like voice/video/image-embed experience belongs in IRC at all; purists prefer its plain-text simplicity while others want richer embeds.</li>
+          <li>Several note the IRCv3 roadmap's open issues date back to 2017–2021, joking a Dyson swarm will arrive before some specs ship, though others reply the incremental extensions are already usable today.</li>
+          <li>A comparison to other "old internet" protocols (FidoNet, Gopher, WAIS) notes IRC is unusual in still being actively used largely unchanged after 35 years.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">12</span>
+        <span class="badge">Hardware</span>
+      </div>
+      <h2><a href="https://www.theverge.com/games/1009140/ram-shortage-intel-amd-ddr4-comeback">The RAM shortage is bringing back DDR4</a></h2>
+      <div class="meta">286 points · <a href="https://news.ycombinator.com/item?id=50028647">310 comments</a> · theverge.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">With DDR5 prices spiking from ongoing shortages, Intel and AMD are reviving support for older, cheaper DDR4 memory: Gigabyte plans new motherboards for Intel's LGA 1700 socket (originally dual-format in 2021) and for AMD's AM4 platform alongside a 10th-anniversary Ryzen 7 5800X3D relaunch. DDR4 kits are currently running less than half the price of comparable DDR5 kits.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many question whether DDR5's benefits were ever worth much for ordinary use, saying they've noticed little real-world difference from older DDR4 systems they're still happily running.</li>
+          <li>A sharper thread frames this as a rare case of consumer tech "regressing" due to AI-driven demand, comparing it to crypto-era GPU shortages that pushed buyers toward older hardware.</li>
+          <li>Commenters trade current DDR4 vs. DDR5 prices, noting even DDR4 ECC server memory has climbed sharply in price over the past year or two.</li>
+          <li>Some see this as part of a broader worry that consumer hardware ownership is being deprioritized in favor of AI datacenter demand.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">13</span>
+        <span class="badge">AI & Software</span>
+      </div>
+      <h2><a href="https://momo5502.com/posts/2026-10-09-game-decompilation/">500B tokens later: Letting AI agents decompile a first-person shooter</a></h2>
+      <div class="meta">204 points · <a href="https://news.ycombinator.com/item?id=50039092">144 comments</a> · momo5502.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Over three months, the author orchestrated autonomous Claude and Codex agents (communicating over Discord, tracking progress via GitHub issues) to decompile a commercial first-person shooter to readable, compiling C++. Despite the game eventually running and loading maps, the team discovered the decompilation was riddled with semantic errors — wrong struct layouts, invented logic, and unnecessarily expensive architectural rewrites — because they'd never defined objective correctness criteria for their reviewer agent to check against.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters dispute the headline token-cost math, noting current frontier API pricing is far below the implied $150–400/million-token figure, muddying the real cost estimate.</li>
+          <li>Several zero in on the central finding: without objective acceptance criteria, a reviewer agent couldn't catch architectural regressions, like turning a simple global-variable read into an expensive hash-table lookup.</li>
+          <li>One commenter describes an alternative approach: have an agent write functionally (not byte-identical) equivalent code plus tests, then verify equivalence via matching memory read/write traces in an emulator — though others note this can't guarantee replicating the original's bugs or overflow behavior.</li>
+          <li>A legal side-thread identifies the game as the 2009 Call of Duty: Modern Warfare 2 despite the post's redactions, and debates what reverse-engineering and publishing decompiled code actually infringes, and where.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">14</span>
+        <span class="badge">Open Source</span>
+      </div>
+      <h2><a href="https://nitter.net">Nitter: Update Oct 10th seeking funding and legal help</a></h2>
+      <div class="meta">464 points · <a href="https://news.ycombinator.com/item?id=50041682">246 comments</a> · nitter.net</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">After X Corp sent two cease-and-desist letters demanding Nitter instances and its repository be taken down, maintainer zedeus revealed that promised legal representation fell through and Nitter currently has no legal counsel. He's now publicly seeking funding and legal help, with donations going first toward legal costs.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several explain Nitter's purpose to newcomers: a free, ad-free, tracker-free way to read public X/Twitter posts without an account.</li>
+          <li>Some think Nitter's legal position is simply untenable, likening it to proxying NYTimes or CNN, while others argue it's different since it republishes user-generated content that X itself holds no copyright over.</li>
+          <li>Workarounds already exist, like redirecting through xxcancel.com to rotate between surviving instances, drawing parallels to youtube-dl's survival through decentralization and forks.</li>
+          <li>One commenter is skeptical that forking alone can save the project against a sufficiently motivated legal opponent.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">15</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://disconnect3d.pl//2026/10/02/dont-put-tilde-in-your-path/">The tilde in your PATH may not be your HOME</a></h2>
+      <div class="meta">246 points · <a href="https://news.ycombinator.com/item?id=50042425">162 comments</a> · disconnect3d.pl</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Writing <code>export PATH="$PATH:~/.local/bin/"</code> in a quoted assignment doesn't expand the tilde to your home directory, because tilde expansion only applies to unquoted tilde-prefixes — the fix is to use <code>$HOME</code> explicitly instead. The author demonstrates how this silently creates a literal <code>./~/.local/bin/</code> directory that shells will still execute binaries from.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several confirm this is standard POSIX behavior, not bash-specific, and note bash has extra variants like <code>~+</code>/<code>~-</code> for <code>$PWD</code>/<code>$OLDPWD</code>.</li>
+          <li>Some prefer prepending <code>$HOME/.local/bin</code> before the rest of PATH rather than appending it, so a malicious local script can't shadow system binaries like sudo.</li>
+          <li>A broader tangent argues most shell path/quoting headaches would vanish if filenames were restricted to a small safe character set, though others counter that would unfairly break non-English filenames.</li>
+          <li>One recalls an AI coding agent once creating a literal directory named "~" in a repo — the same tilde-as-text versus tilde-as-home collision.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">16</span>
+        <span class="badge">Security</span>
+      </div>
+      <h2><a href="https://radar.cloudflare.com/bots/as13238?dateRange=7d">Bot traffic from Yandex</a></h2>
+      <div class="meta">636 points · <a href="https://news.ycombinator.com/item?id=50041619">252 comments</a> · radar.cloudflare.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A linked Cloudflare Radar dashboard shows bot-vs-human traffic from Yandex's AS13238 network, which commenters read as corroborating the day's other story about Yandex Cloud data centers being struck — Yandex-origin bot traffic reportedly cratered to near zero after the third facility went down.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters link the bot-traffic collapse directly to the datacenter strikes reported elsewhere, noting the entire Yandex Cloud compute core appeared offline.</li>
+          <li>Some joke Cloudflare "deserves a donation" from Ukraine for incidentally throttling Russian bot traffic.</li>
+          <li>A clarifying subthread explains Cloudflare's bot-vs-human classification methodology (bot score thresholds) needed to interpret the dashboard correctly.</li>
+          <li>Others note Yandex is effectively "Russian Google" with legitimate crawling needs, so the drop plausibly reflects real infrastructure damage rather than a deliberate pullback, with knock-on effects reported across Yandex Go, Pay, and smart home services in neighboring countries.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">17</span>
+        <span class="badge">Hardware & DIY</span>
+      </div>
+      <h2><a href="https://github.com/othermod/PSPi-Version-6">PSPi 6 – Raspberry Pi in a PSP</a></h2>
+      <div class="meta">131 points · <a href="https://news.ycombinator.com/item?id=50038623">14 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">PSPi 6 is an open-source custom circuit board that replaces a PSP 1000's mainboard with a Raspberry Pi (Zero, Zero 2W, or CM4), turning it into a handheld that can run emulators or full Linux distributions through the PSP's original screen, buttons, and speakers. Ready-made boards are sold at othermod.com, or you can fabricate your own from the provided open-source PCB files.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Some ask why this is needed given existing PSP homebrew emulation, answered that the CM4 is roughly an order of magnitude faster than the original PSP hardware.</li>
+          <li>A side-thread warns PSP batteries commonly swell badly with age, making a mod like this almost a practical necessity for anyone still holding a PSP 1000.</li>
+          <li>A skeptic argues this class of mod is often impractical "drawer filler" — no sleep mode on Pi SoCs, higher total cost than a dedicated retro handheld, and a working PSP destroyed in the process — prompting pushback from others who still see hobby value in it.</li>
+          <li>Buyers note PSP-1000 units are still cheaply available on eBay "for parts," sidestepping the need to sacrifice a working unit.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">18</span>
+        <span class="badge">Documentation</span>
+      </div>
+      <h2><a href="https://shkspr.mobi/blog/2026/10/i-paid-people-to-try-and-follow-my-readme/">I paid people to try and follow my README</a></h2>
+      <div class="meta">410 points · <a href="https://news.ycombinator.com/item?id=50042219">197 comments</a> · shkspr.mobi</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">For an NLnet grant project, the author paid volunteers €25 an hour to screen-share and narrate their experience following his software's README, then revised the document after each session before testing it on the next person. The exercise surfaced biases he couldn't see himself — broken links, confusing terminology, jokes that weren't funny, and unstated assumptions — for roughly €150 total.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Readers strongly back specific findings, like people who only read READMEs in a terminal and are annoyed by heavy markdown, and that automated em-dash substitution for "--" can silently break copy-pasted CLI examples.</li>
+          <li>Many note this is standard "hallway" usability testing applied to documentation, though some are surprised the author revised after every single session rather than batching feedback.</li>
+          <li>Several flag an unstated prerequisite the author missed — assuming readers already have php-fpm installed and configured — as a reminder that doc authors underestimate what they take for granted.</li>
+          <li>Many back the "cut the jokes" and "too many emoji" feedback specifically, saying flowery documentation tone actively drives them away from projects, though the author notes his own testers' reactions to emoji were actually mixed, not uniformly negative.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">19</span>
+        <span class="badge">AI & ML</span>
+      </div>
+      <h2><a href="https://www.nature.com/articles/s41586-026-11111-4">Retrofitting language models to operate over bytes</a></h2>
+      <div class="meta">105 points · <a href="https://news.ycombinator.com/item?id=50001234">23 comments</a> · nature.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This Nature paper introduces "byteification," a method for cheaply converting existing subword-based LLMs (Olmo 3, Qwen3, Llama 3) into byte-level models using less than 1% of a typical pretraining budget, rather than training byte-level models from scratch as prior approaches did. The resulting models approach subword-model performance while excelling at character-level tasks and avoiding tokenization artifacts.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Some are skeptical of a prestige venue like Nature publishing applied AI/ML work, with one quipping the journal "got rolled" by hype-driven AI papers before.</li>
+          <li>Technical readers note the real contribution is retrofitting existing models cheaply rather than training byte-level models from scratch like prior efforts (BLT, Charformer, H-Net).</li>
+          <li>Some are confused about what's new given models already have byte-level tokens for rare text; clarification follows that the point is using only byte tokens, avoiding artifacts like LLMs' trouble counting the "r"s in "strawberry."</li>
+          <li>A couple ask how this differs fundamentally from BPE tokenization, a question that goes unanswered in the thread.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">20</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://betterwispr.com/">Show HN: BetterWispr – Free, open-source dictation for Mac</a></h2>
+      <div class="meta">199 points · <a href="https://news.ycombinator.com/item?id=50042333">120 comments</a> · betterwispr.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">BetterWispr is a free, open-source (Apache 2.0) macOS dictation app: hold Option+Space, speak, and it transcribes locally using built-in Parakeet or Whisper speech models, cleaning up filler words and applying per-app writing styles. It also offers meeting notetaking with on-device summarization via Apple Intelligence or Ollama, and learns custom vocabulary over time.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters immediately compare it to similar existing Mac dictation tools (Handy, Voiceink, Fluidvoice, Parrot), debating which has the best UI, with the maker touting BetterWispr's much smaller 14MB binary.</li>
+          <li>Early testers report it working well out of the box, specifically praising the choice of the Parakeet v3 speech model.</li>
+          <li>Several ask about minimum Mac hardware requirements and request Windows/Linux support, which the developer says is on the roadmap.</li>
+          <li>Some note built-in macOS dictation keeps improving too, narrowing the gap these tools fill, though still with noticeable latency and error-rate issues.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">21</span>
+        <span class="badge">Programming Languages</span>
+      </div>
+      <h2><a href="https://verdagon.dev/blog/valen-group-borrowing">Valen's Memory Safety: A New Kind of Borrow Checking</a></h2>
+      <div class="meta">168 points · <a href="https://news.ycombinator.com/item?id=50042362">96 comments</a> · verdagon.dev</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Valen, a new language from Vale creator Evan Ovadia, implements "group borrowing" — a relaxed borrow-checking approach that catches use-after-free bugs at compile time while allowing patterns normally rejected by borrow checkers, like multiple local variables mutating the same object. It relaxes Rust's "shared-xor-mutable" rule to "no use-after-free," and the idea has already influenced other languages including Google's Carbon.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Technical readers debate naming, weighing "Group Borrowing" against the author's proposed rename "Path Borrowing," since "groups" misleadingly implies an explicit group type.</li>
+          <li>Several ask whether this relaxed borrow-checking could be "backported" into Rust itself; the author notes Rust's Polonius project already thinks in terms of "paths," and a WIP "Exclusion Typing" project is attempting something similar.</li>
+          <li>The author clarifies Valen is a new project, not a Vale rename, reusing ~90% of the Vale compiler but differing enough (Rust interop, mutable aliasing) to warrant its own name.</li>
+          <li>A side-discussion on whether language research should prioritize GPU/SIMD-friendly designs gets a reply confirming GPU compilation (via Rust MIR, SPIR-V, or MLIR) is on Valen's roadmap.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">22</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://hangul.ink/blog/hangul-day">Show HN: Happy Hangul Day! An RNN for Generating Korean Handwriting Strokes</a></h2>
+      <div class="meta">90 points · <a href="https://news.ycombinator.com/item?id=50015833">20 comments</a> · hangul.ink</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Released for Hangul Day, this project trains a recurrent neural network to generate realistic Korean handwriting strokes from typed text, following Alex Graves' 2013 handwriting-synthesis approach of predicting a mixture-density distribution over pen direction rather than a single next point — which the author found fixed early trouble navigating sharp corners.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The author explains specific modeling choices, including how switching to Graves-style mixture density prediction solved the model's earlier difficulty turning corners.</li>
+          <li>Commenters report specific failure cases — particular Hangul characters or combinations rendering incorrectly or dropped entirely — which the author says he'll fold into the next training run.</li>
+          <li>Several ask about extending the technique to Chinese hanzi; the author is open to collaborating but notes the text-embedding scheme is currently Hangul-specific.</li>
+          <li>One commenter shares a bittersweet personal motivation: wanting more samples of a parent's handwriting, lost to micrographia, and hoping the technique could help preserve or reproduce it.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">23</span>
+        <span class="badge">Web Standards</span>
+      </div>
+      <h2><a href="https://anderegg.ca/2026/10/08/i-guess-im-using-webp-now">I guess I'm using WebP now?</a></h2>
+      <div class="meta">127 points · <a href="https://news.ycombinator.com/item?id=50021989">157 comments</a> · anderegg.ca</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">After years of finding WebP annoying due to poor tooling (slow browser adoption, no native Photoshop support until 2022), the author has switched to it after moving to Pixelmator Pro, finding it consistently smaller than JPEG or PNG at equivalent quality. He's now eyeing AVIF and JPEG XL as the next formats worth adopting once his tools catch up.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many push the author further down the format tree, arguing AVIF (now with solid browser and HDR support) is a better target than WebP at this point.</li>
+          <li>Several recount their own tooling frustrations: Photoshop's export flows still lack WebP support, Google Docs/Slides don't support it, and some report Google Search failed to index WebP images on their sites until switching back to JPEG.</li>
+          <li>One highlights a specific annoyance: Firefox silently converts images to WebP on "Save As" with no way to opt out.</li>
+          <li>A broader gripe questions whether yet another format is worth the complexity, countered by others noting WebP/AVIF genuinely solve the old JPEG-bad-at-edges versus PNG-huge-for-photos tradeoff better than either legacy format alone.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">24</span>
+        <span class="badge">Databases</span>
+      </div>
+      <h2><a href="https://github.com/rogerbinns/apsw">apsw: Another Python SQLite Wrapper</a></h2>
+      <div class="meta">84 points · <a href="https://news.ycombinator.com/item?id=50045273">26 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">APSW glues together the complete SQLite C API with Python's C API, exposing SQLite features the standard library's sqlite3 module doesn't — full text search, sessions, virtual tables, VFS, JSON, and async framework support — for developers who want to use SQLite fully rather than through a generic database-interchangeable interface.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Longtime users strongly vouch for apsw solving specific pain points with Python's built-in sqlite3 module, especially around accessing SQLite's richer feature set.</li>
+          <li>The author (rogerbinns) is active in the thread, noting the project dates back to 2004 and that a new release shipped the same day, in response to a joking jab that it's "not exactly new."</li>
+          <li>Users contrast apsw's "SQLite-first" philosophy against sqlite3's generic DBAPI abstraction, with some reporting that abstraction's cross-engine portability promise doesn't hold up well in practice anyway.</li>
+          <li>A user shares a related project, apswutils, a more ergonomic sqlite-utils-style API layer built on top of apsw.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">25</span>
+        <span class="badge">Git</span>
+      </div>
+      <h2><a href="https://ratfactor.com/cards/git-commit-size">How big is a Git commit?</a></h2>
+      <div class="meta">85 points · <a href="https://news.ycombinator.com/item?id=50017548">34 comments</a> · ratfactor.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author measures the on-disk overhead of git commits as loose objects, finding tens of kilobytes of overhead for tiny commits (a few bytes of change can cost 8–17KB) while large files compress remarkably efficiently (a 16.4MB source file added just 1.6MB to the repo). The exact size depends heavily on file-tree size and content compressibility.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several note loose-object measurements overstate real-world cost; once objects get packed into packfiles, delta compression against similar content shrinks things dramatically.</li>
+          <li>A side-debate on always preferring long-form flags (like <code>--apparent-size</code>) in shared scripts for readability, prompted by the author's shorthand <code>du -sb</code>.</li>
+          <li>One commenter describes abandoning their own AST-based alternative git-compression scheme after concluding git's existing object/delta model was already hard to beat.</li>
+          <li>A technical thread confirms git only supports zlib/deflate compression, not newer algorithms like zstd or brotli, partly because pack data doesn't carry an identifying compression header.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">26</span>
+        <span class="badge">Climate & Policy</span>
+      </div>
+      <h2><a href="https://insideclimatenews.org/news/07102026/exxonmobil-climate-deception-new-evidence/">Documents add to evidence in climate deception case against ExxonMobil</a></h2>
+      <div class="meta">399 points · <a href="https://news.ycombinator.com/item?id=50043682">216 comments</a> · insideclimatenews.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Newly surfaced documents from Massachusetts's 2019 lawsuit against ExxonMobil include a 1988 internal memo warning that a climate consensus could hurt the company, and sworn deposition testimony from an Exxon scientist stating the company's public 2018 algae-biofuel production targets were "completely impossible to achieve" and known to be false before the press release went out. The release comes as the US Supreme Court hears arguments on whether a related Boulder, CO climate lawsuit against Exxon and Suncor should proceed.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many express frustration that leaks like this (alongside the Epstein files, Panama Papers) rarely lead to real accountability for powerful institutions, attributing it to money's outsized influence over the legal and political system.</li>
+          <li>Pointed reactions single out the scientist's deposition that Exxon's public biofuel targets were known internally to be false before publication.</li>
+          <li>Some read the 1988 memo alongside the newer deposition as showing decades-long internal awareness paired with public-facing claims to the contrary.</li>
+          <li>Others note the timing is pivotal, with the outcome of the pending Supreme Court case potentially determining the fate of two dozen or more similar climate lawsuits.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">27</span>
+        <span class="badge">Audio Engineering</span>
+      </div>
+      <h2><a href="http://epestr.com/blog/reverse-engineering-a-commercial-spatial-audio-effect/">How I reverse engineered a commercial spatial audio effect</a></h2>
+      <div class="meta">127 points · <a href="https://news.ycombinator.com/item?id=50044272">41 comments</a> · epestr.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Wanting a Linux equivalent of a commercial Windows spatial-audio effect, the author treated the original as a black-box linear time-invariant filter and characterized it purely through impulse responses and sine sweeps recorded on a friend's machine, rather than guessing at its internal HRTF/DSP techniques. The resulting open-source filter reproduces the "distant, less fatiguing" sound he remembered.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Strong disagreement over whether this style of processing sounds good at all — several compare it to "Bose barf," an aggressive bass/mid-boosted coloration, while others (including the author) say it's a matter of taste and that stacking similar effects can make it worse.</li>
+          <li>Technical readers appreciate the black-box impulse-response and sine-sweep methodology as a clean way to characterize a proprietary filter without reverse-engineering its code.</li>
+          <li>Commenters compare notes with similar commercial effects (Nothing Ear's spatial audio, a 2014 effect later used in mastering a Hollywood film) and share alternative tools like ffmpeg's "earwax" filter.</li>
+          <li>Some wish the post included a direct on/off toggle for the audio sample, since it was hard to evaluate the effect without a clean before/after comparison.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">28</span>
+        <span class="badge">AI & Software</span>
+      </div>
+      <h2><a href="https://itsallaboutthebit.com/i-am-sorry-but-you-still-have-to-think/">I'm sorry, but you still have to think</a></h2>
+      <div class="meta">417 points · <a href="https://news.ycombinator.com/item?id=50043689">179 comments</a> · itsallaboutthebit.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author dissects DHH's AI-driven rewrites of Campfire from Ruby on Rails into Rust, Elixir, and Go, arguing that unclear prompts leave major architectural decisions (backwards compatibility, latency vs. throughput tradeoffs) as effective coin flips made implicitly by the LLM. He traces a notorious 1% notification-delivery rate in the Rust rewrite under load to blocking operations and sync locks mixed into async code, showing that throughput-only benchmarks can mask important correctness and reliability differences.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters broadly agree with the core point that underspecified prompts leave key tradeoffs to be silently decided by the model.</li>
+          <li>Several dig into the specific technical critique of the Rust rewrite's async/blocking mixups as a plausible explanation for its poor notification-delivery rate versus Elixir's near-100% (albeit at lower request volume).</li>
+          <li>Debate over whether DHH's conclusion that Elixir "couldn't write performant code" was fair, given the Rust version had its own undiscovered issues the benchmark simply didn't surface.</li>
+          <li>A wider thread discusses whether "you still have to think" is becoming a workplace-discouraged stance, with some reporting that pushing back on AI-generated code now gets you labeled an obstacle to productivity.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">29</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://github.com/moritzwilksch/diffle">Show HN: Diffle, a keyboard-centric diff viewer with LSP support</a></h2>
+      <div class="meta">70 points · <a href="https://news.ycombinator.com/item?id=50006930">12 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Diffle is a keyboard-first, vim-inspired diff viewer that runs in the browser: it reviews git diffs, PR branches, or commit ranges, starts per-language LSP servers for jump-to-definition and hover, and lets you collect line/block/file comments into a prompt for an AI agent or export them as a pending GitHub PR review.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A reviewer notes they already do most code review now inside an AI harness rather than reading raw diffs, and asks how others keep up with review volume as AI-generated code output scales.</li>
+          <li>Interest in Diffle's comment-to-prompt workflow leads one commenter to request a live mode where an agent can listen and respond to comments in real time; the maintainers say they've discussed it but are weighing polling versus an agent-side endpoint.</li>
+          <li>Some compare Diffle to their own homegrown fzf/vim-based diff review setups and say the keyboard-first bindings would feel familiar.</li>
+          <li>One asks whether a heavily AI-assisted tool "feels" vibe-coded in its UX; the maintainer says real design effort went into avoiding that despite the AI-assisted implementation.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">30</span>
+        <span class="badge">Reverse Engineering</span>
+      </div>
+      <h2><a href="https://werwolv.net/posts/macromedia_copy_protection/">Getting old Macromedia Director Games to run on modern Hardware</a></h2>
+      <div class="meta">96 points · <a href="https://news.ycombinator.com/item?id=50020901">16 comments</a> · werwolv.net</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author works through three layered copy-protection schemes on a childhood German point-and-click adventure game (decoy duplicate files on the disk image, a CD-check reading a leftover config file from a previous game, and a check embedded in the Macromedia Director projector executable itself), using tools like ProjectorRays and Ghidra to extract and patch the game's embedded Director script.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters note LLMs can now do much of this work directly — one links a frontier-LLM-built web port of a related game in the same series, done in about two hours, arguing there's "basically no reason left" for manual reverse engineering if you only care about the end result.</li>
+          <li>Others push back that LLM-based translation still needs a way to run and compare against the original binary to verify correctness, so this kind of manual groundwork remains valuable.</li>
+          <li>The ScummVM project is cited as already working on native ports of many Director-based games, with a community-tracked status page.</li>
+          <li>Longtime Director/Lingo developers reminisce about building interactive CD-ROM and early web/ad-agency projects with it before moving on to Flash/ActionScript.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <footer>Generated October 12, 2026 · summaries by Claude · source: news.ycombinator.com</footer>
+</div>
+<script>
+function setAll(open) {
+  document.querySelectorAll('details.card').forEach(d => d.open = open);
+}
+</script>
+</body>
+</html>
