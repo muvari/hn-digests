@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacker News Digest — October 12, 2026</title>
+<style>
+  :root {
+    --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
+    --quote-border: #ddd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
+      --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
+      --quote-border: #3a3a46;
+    }
+  }
+  /* Density note: the collapsed list is the primary view — it should read like
+     a tight index you can scan in one screen, so headers are compact. Expanded
+     prose keeps a comfortable size and line-height, since that's read closely. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 9px; margin-bottom: 12px; }
+  header h1 { margin: 0 0 2px; font-size: 21px; }
+  header .sub { color: var(--muted); font-size: 13px; }
+  header .sub a { color: var(--muted); }
+  .controls { display: flex; gap: 6px; margin-bottom: 10px; }
+  .controls button {
+    background: var(--card); border: 1px solid var(--border); color: var(--muted);
+    border-radius: 5px; padding: 3px 10px; font-size: 12px; cursor: pointer;
+  }
+  .controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 7px;
+    padding: 8px 12px; margin-bottom: 5px;
+  }
+  summary.card-head {
+    cursor: pointer; list-style: none; position: relative; padding-right: 22px;
+  }
+  summary.card-head::-webkit-details-marker { display: none; }
+  summary.card-head::after {
+    content: "▸"; position: absolute; right: 2px; top: 0; font-size: 15px;
+    color: var(--muted); transition: transform .15s ease;
+  }
+  details[open] summary.card-head::after { transform: rotate(90deg); color: var(--accent); }
+  summary.card-head:hover::after { color: var(--accent); }
+  /* Rank, badge and headline share one line; the headline wraps under them
+     only when it genuinely needs to, which keeps most rows a single line. */
+  .card-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .rank { color: var(--accent); font-weight: 700; font-size: 14px; min-width: 20px; }
+  .badge {
+    background: var(--badge-bg); color: var(--badge-text); border-radius: 999px;
+    font-size: 10px; font-weight: 600; padding: 1px 7px; text-transform: uppercase;
+    letter-spacing: .03em; white-space: nowrap;
+  }
+  h2 { margin: 1px 0 1px; font-size: 15.5px; line-height: 1.3; }
+  h2 a { color: var(--text); text-decoration: none; }
+  h2 a:hover { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 11.5px; }
+  .meta a { color: var(--muted); }
+  .meta a:hover { color: var(--accent); }
+  .card-body { margin-top: 9px; }
+  .summary { margin: 0 0 9px; }
+  .discussion h3 {
+    margin: 0 0 5px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--muted);
+  }
+  .discussion ul { margin: 0; padding-left: 0; list-style: none; }
+  .discussion li {
+    border-left: 2px solid var(--quote-border); padding: 1px 0 1px 10px;
+    margin-bottom: 6px; font-size: 14px;
+  }
+  footer { margin-top: 24px; color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Hacker News Daily Digest</h1>
+    <div class="sub">Top 30 stories from <a href="https://news.ycombinator.com/front">the front page</a> of October 12, 2026</div>
+  </header>
+
+  <div class="controls">
+    <button onclick="setAll(true)">Expand all</button>
+    <button onclick="setAll(false)">Collapse all</button>
+  </div>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">1</span>
+        <span class="badge">Privacy</span>
+      </div>
+      <h2><a href="https://royfish.dev/fingerprints-are-the-new-cookies">Fingerprints are the new cookies</a></h2>
+      <div class="meta">733 points · <a href="https://news.ycombinator.com/item?id=50048642">357 comments</a> · royfish.dev</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Written from the perspective of an ad-tech fingerprinting script, the post argues that browser/device fingerprinting has quietly replaced third-party cookies as the web's primary tracking mechanism, walking through Google's multi-year "deprecate cookies" saga that ended in fingerprinting being explicitly permitted in its ad products. It explains the technical mechanics: network data (IP, headers) is fragile, but hardware signals (GPU, CPU, memory, display, audio stack, fonts) are stable enough that combined they make most devices practically unique, and surveys which browsers (Brave, Tor, Mullvad) actually defend against it.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many commenters share a resigned "cool tech, horrifying privacy invasion" reaction, with some describing switching to JA3/JA4 fingerprinting at the CDN layer themselves for anti-abuse rather than tracking.</li>
+          <li>A sub-thread debates whether EU consent banners ever targeted cookies themselves versus the tracking behind them, with some arguing enforcement against fingerprinting is already technically illegal but poorly applied.</li>
+          <li>Several people push back on "nothing to hide" apathy, arguing persistent identification across sites/devices is harmful even when "anonymized."</li>
+          <li>Practical defense tips dominate the rest: Brave's fingerprint randomization ("farbling"), Tor/Mullvad's uniformity approach, and anecdotes of the EFF's Cover Your Tracks tool correlating sessions across VPNs and incognito mode.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">2</span>
+        <span class="badge">AI & Law</span>
+      </div>
+      <h2><a href="https://z.ai/blog/glm-legal">GLM-Legal</a></h2>
+      <div class="meta">634 points · <a href="https://news.ycombinator.com/item?id=50058507">349 comments</a> · z.ai</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Z.ai announced GLM-Legal, a specialized large language model aimed at legal work such as contract review, case research and document drafting, positioned as a domain-tuned alternative to general-purpose frontier models and tools like Harvey. The model isn't open-weight, unlike some of Z.ai's other GLM releases.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A major thread debates legal and ethical liability: should lawyers be required to disclose AI use, and who's accountable when an LLM hallucinates case law that gets filed in court.</li>
+          <li>Several argue the legal profession will become "easy, high-paying, gilded" sign-off jobs once paralegal-style work is automated, though others counter it could instead become a race-to-the-bottom on billable hours and quality.</li>
+          <li>Some question how sentiment toward Chinese AI labs will shift as more of their flagship work (like this) goes proprietary rather than open-weight.</li>
+          <li>A tangent speculates on further vertical specialization — GLM-Science, tax-law models, etc. — versus just building one strong generalist model and monetizing specialized fine-tunes via API.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">3</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://prophitt.me/writing/a-modern-web-app-in-c">A Modern Web App in C</a></h2>
+      <div class="meta">654 points · <a href="https://news.ycombinator.com/item?id=50058528">281 comments</a> · prophitt.me</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author shipped a commercial product, marketyour.games, built entirely in C using the "BCHS" stack — OpenBSD, C, its built-in httpd, and SQLite — serving everything through CGI, including HTML generated directly in C and all static assets compiled into the binary. The post argues CGI's reputation as obsolete doesn't hold up in 2026: deploys are copying one statically-linked binary, there's no framework or templating layer to learn, the dependency footprint is just libcurl, libsodium and a vendored single-file JSON/SQLite library, and OpenBSD's pledge/unveil/chroot give solid sandboxing for free.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several commenters pile on the demo site's unreadable monochrome design, with the author admitting it's a rough first pass and confirming the blog post itself was human-written, not AI-generated.</li>
+          <li>A substantial thread argues CGI's per-request process-forking is exactly what FastCGI/long-lived-process models were invented to avoid, citing ~8ms fork overhead, though others note the simplicity tradeoff is the whole point.</li>
+          <li>People point out most of the architectural benefits (minimal deps, simple debugging, no reverse-proxy split) apply equally to Go or Rust, which also get memory safety — prompting some "why C specifically" pushback that the author doesn't fully answer.</li>
+          <li>Practical CGI-revival tips circulate: nginx-cgi plugin, lighttpd's native CGI support, and Passenger/Rack as a Ruby equivalent of the same pattern.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">4</span>
+        <span class="badge">Hardware</span>
+      </div>
+      <h2><a href="https://github.com/h0m3us3r/w1700k-sdr">Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver</a></h2>
+      <div class="meta">393 points · <a href="https://news.ycombinator.com/item?id=50055593">106 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This project reverse-engineers a Gemtek W1700K Wi-Fi 7 router's MediaTek MT7996 radio chipset, replacing its stock firmware with custom code that turns it into a wideband SDR receiver capable of capturing 320 Msps of 14-bit IQ data across 2.4/5/6 GHz bands, streamed over the router's 10GbE port to a host that renders a live spectrum/waterfall view in the browser. The repo includes a ground-up MT7996 bring-up sequence decoded register-by-register from MediaTek's own firmware traces, with no vendor code reused.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Strong enthusiasm from the ham-radio/SDR crowd, calling it a breakthrough that could enable full 13cm/5cm amateur radio bands at a fraction of typical SDR hardware cost.</li>
+          <li>Several commenters suspect (and the author doesn't deny) heavy use of an AI coding agent for the reverse-engineering grind, given the dense, oddly-phrased low-level register documentation in the README — with mixed reactions ranging from skepticism to treating it as a legitimate existence proof for AI-assisted RE work.</li>
+          <li>Hardware-focused replies note the same chipset likely works on the Banana Pi R4, and discuss practical uses like repurposing it as a cheap high-performance service monitor.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">5</span>
+        <span class="badge">Business</span>
+      </div>
+      <h2><a href="https://www.bbc.com/news/articles/c620r33plgppo">Citroen revives the 2CV for an electric age</a></h2>
+      <div class="meta">389 points · <a href="https://news.ycombinator.com/item?id=50055220">431 comments</a> · bbc.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Citroen unveiled a retro-styled electric concept car reviving its iconic 1948 2CV brand at the Paris Motor Show, targeting a roughly £13,000 price point with showroom availability by 2028. The move follows a broader European trend — Renault's 5, 4 and Twingo revivals, VW's ID-Buzz, Fiat's 500 — of carmakers leaning on nostalgia to sell EVs as they face mounting competition from Chinese manufacturers who lack equivalent heritage to draw on.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many commenters like the design direction but are skeptical retro-nostalgia alone will sell cars, predicting the trend fatigues quickly once a model becomes common (as happened with VW's revived Beetle).</li>
+          <li>A recurring complaint: modern safety regulations (headrests, crash structures) will force the production version away from the original's beloved simplicity and bench seating.</li>
+          <li>Several point out cheaper Chinese EVs like the BYD Seagull already undercut the 2CV's target price while offering more car for the money, questioning the pitch beyond heritage appeal.</li>
+          <li>A side-discussion notes EV powertrains are mechanically far simpler than the ICE 2CV's, so "keeping it simple" may be easier to achieve than commenters assume.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">6</span>
+        <span class="badge">Gaming</span>
+      </div>
+      <h2><a href="https://pixelatron.com/blog/the-making-of-super-mario-64-full-giles-goddard-interview-ngc/">The Making Of Super Mario 64 – full Giles Goddard interview (2001)</a></h2>
+      <div class="meta">266 points · <a href="https://news.ycombinator.com/item?id=50036287">101 comments</a> · pixelatron.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This is the previously-unpublished full transcript of a 2001 interview with Nintendo programmer Giles Goddard about building Super Mario 64, covering the small ~15-person team size, Nintendo's quiet open-plan office culture, how the game grew out of SGI Onyx tech demos (including Miyamoto's fascination with the real-time Mario face demo), and the months of iteration on the then-revolutionary camera system designed by Takumi Kawagoe.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Widespread surprise at how small the team was, spawning a broader thread on how many landmark software products (original Mac, NES, Google, early Amiga) were built by tiny teams compared to today's bloated credits lists.</li>
+          <li>Several commenters discuss how much of Mario 64's magic came from obsessive fine-tuning of movement "feel" via tiny numeric tweaks, contrasted with the fixed art pipeline that had almost no revision once characters were designed.</li>
+          <li>Kaze Emanuar's YouTube channel on N64/Mario 64 technical deep-dives and ROM-hack optimizations gets repeatedly recommended as a natural follow-up.</li>
+          <li>A side-argument over whether N64/Wii-era consoles show meaningful OpenGL influence gets contested on technical grounds (fixed-function hardware, no real shaders).</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">7</span>
+        <span class="badge">AI Tools</span>
+      </div>
+      <h2><a href="https://github.com/openai/codex/issues/48195">Codex CLI installs a persistent, self-updating background daemon by default</a></h2>
+      <div class="meta">587 points · <a href="https://news.ycombinator.com/item?id=50060694">283 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A GitHub issue reports that since version 0.157.0, OpenAI's Codex CLI silently starts a persistent background daemon on first use that copies the entire ~374MB platform package to disk, auto-updates itself hourly (killing active turns mid-update), and inherits whatever environment variables (like proxy settings) were present when it first launched — persisting even after the CLI window closes, requiring several manual steps to fully kill. The author argues a CLI's backend should live and die with the session and run the package-manager-installed binary rather than silently forking its own update channel.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Opinion splits sharply: some think auto-updating background agents are now just standard (like browsers), while many strongly object to undisclosed daemons, especially ones that balloon disk usage with old version copies.</li>
+          <li>Several point out Claude Code does something structurally similar (background version directories, lingering processes), with one noting a GitHub issue about it that's gone unaddressed — "they don't care."</li>
+          <li>Commenters compare notes on alternative, more minimal harnesses (hax, pi) that avoid daemons/auto-updates and better respect XDG conventions, with enthusiastic recommendations.</li>
+          <li>A broader "harness quality is bad across the board" sentiment emerges, with some arguing this reflects the overall state of LLM-driven tooling development rather than one vendor's mistake.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">8</span>
+        <span class="badge">AI & Opinion</span>
+      </div>
+      <h2><a href="https://yyhh.org/blog/2026/10/ai-is-a-tool/">AI is a tool and using it well takes skill</a></h2>
+      <div class="meta">524 points · <a href="https://news.ycombinator.com/item?id=50063427">420 comments</a> · yyhh.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Responding to Rich Hickey's essay arguing LLMs are "automation" rather than "tools" because they can't truly be wielded, this post counters that predictability and simplicity aren't prerequisites for being a tool — a saw or chisel can also be misused by an unskilled operator. It argues the real distinction is between skillfully directing an LLM through a feedback loop (asking, testing, rejecting, refining) versus delegating work without oversight, and criticizes the industry's anthropomorphic vocabulary ("go rogue," "conspire") for implying motives AI systems don't have.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many frame this as a framing/marketing dispute rather than a substantive disagreement, comparing it to how razor marketing reshaped consumer perception.</li>
+          <li>Several argue the skill required to use AI well is shifting away from prompting tricks (now largely obsolete) toward "knowing what to ask for" — domain expertise and the ability to articulate precise intent.</li>
+          <li>A recurring worry: as models get smarter, using AI to learn becomes self-defeating since there's less incentive to build the underlying skill yourself.</li>
+          <li>Some push back that most people now simply outsource their thinking to AI, and that this works well enough in practice that the "skill" framing undersells how passively it's actually used.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">9</span>
+        <span class="badge">AI & ML</span>
+      </div>
+      <h2><a href="https://research.meta.ai/blog/muse-wonder">Muse Wonder</a></h2>
+      <div class="meta">651 points · <a href="https://news.ycombinator.com/item?id=50059115">361 comments</a> · research.meta.ai</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Meta announced Muse Wonder and Muse Wonder Full, its newest frontier AI models focused on personal and professional "agentic" tasks, featuring "Active Memory" (retaining context across conversations) and "Active Focus" (sustained, adaptive effort on long-running tasks like coding projects). Meta frames this as a major step toward "personal superintelligence," claiming the models generalize better to unfamiliar tasks than benchmark scores alone would predict, attributing this to training on a stronger base model.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Reactions are notably positive toward Meta's execution, with several commenters revising earlier skepticism about Zuckerberg's AI talent acquisitions (Alex Wang, ousting Yann LeCun) now that Muse appears competitive, reportedly second only to Claude Opus 5.5 on one leaderboard.</li>
+          <li>Heavy skepticism about "benchmaxxing" — several assume all major labs train on benchmark-adjacent data and that high scores are partly marketing rather than pure generalization.</li>
+          <li>A side debate dissects the term "superintelligence" itself, distinguishing Meta's long-standing internal marketing usage from the Trump-administration-associated usage and Bostrom's original academic definition.</li>
+          <li>Some speculate that if frontier models keep converging in capability, they'll commoditize and compress margins industry-wide, while others think Anthropic/OpenAI can still find differentiating moats.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">10</span>
+        <span class="badge">Science</span>
+      </div>
+      <h2><a href="https://www.sciencealert.com/secret-of-orange-cats-finally-revealed-after-60-year-search">Secret of Orange Cats Revealed After 60-Year Search</a></h2>
+      <div class="meta">271 points · <a href="https://news.ycombinator.com/item?id=50037711">184 comments</a> · sciencealert.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Two independent research teams identified the genetic cause of orange cat fur: a small deletion near the Arhgap36 gene on the X chromosome that massively increases its expression in developing pigment cells, shifting melanin production toward reddish/yellow pheomelanin instead of black/brown eumelanin. Because the gene is X-linked, this also explains the long-standing mystery of why most orange cats are male while females tend to get calico or tortoiseshell patchwork patterns from X-inactivation.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many commenters enjoy debunking (or embracing) the "orange cats are dumb" stereotype, drawing parallels to similarly unfounded stereotypes about redheaded humans and dog breed behavior.</li>
+          <li>A popular tangent riffs humorously on cat consciousness and quantum superposition, referencing Schrödinger's famous thought experiment.</li>
+          <li>Some international commenters note "orange cat" vs. "ginger cat" terminology differences between the US and UK.</li>
+          <li>A few push back on the claim that Arhgap36 overexpression is harmless outside melanocytes, noting the gene causes developmental issues when dysregulated in other species.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">11</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://github.com/snuri00/ps2-web-recomp">Show HN: PS2 games statically recompiled to WebAssembly</a></h2>
+      <div class="meta">303 points · <a href="https://news.ycombinator.com/item?id=50052251">156 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This project statically recompiles PlayStation 2 game executables (ahead-of-time translating the Emotion Engine's machine code into C++/WebAssembly) rather than interpreting them at runtime, paired with a WebGPU-based runtime that emulates the PS2's graphics synthesizer, vector units, and I/O processor. Gran Turismo 4 and God of War II both run at full native frame rate in-browser, loading from a user-supplied disc image with no game data bundled.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Technical questions focus on how timing-sensitive hardware (vector units, interrupts) is handled without full cycle accuracy; the author explains games mostly sync on interrupts/semaphores rather than exact cycle counts, with vector unit microprograms JIT-compiled to WASM on first encounter.</li>
+          <li>Several ask about portability to Steam Deck or older/weaker GPUs; the author confirms a native Linux build exists but notes the Deck's GPU is roughly half the power of the laptop iGPU used for development.</li>
+          <li>A few jokes about missing the "feature" of long PS2 CD loading screens.</li>
+          <li>Someone asks for a hosted demo, prompting a reminder that the games themselves are copyrighted and must be supplied by the user.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">12</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://jverzani.github.io/CalculusWithJuliaNotes.jl/">Calculus with Julia</a></h2>
+      <div class="meta">259 points · <a href="https://news.ycombinator.com/item?id=50034206">52 comments</a> · jverzani.github.io</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This is a free online book teaching introductory calculus using the Julia programming language instead of (or alongside) a traditional computer algebra system, aiming to illustrate graphical, numerical and some algebraic aspects of calculus through composable Julia function calls while avoiding getting bogged down in general-purpose programming concepts. It's distributed as a Quarto book with practice questions and self-graded answers on each page.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several commenters enthusiastically endorse Julia for teaching applied math, especially linear algebra and optimization (citing JuMP), praising its natural mathematical syntax.</li>
+          <li>Some ask about real-world (non-academic) Julia adoption; replies cite ECMWF, ASML, JPMorgan and Pumas as known users, though consensus is it remains niche outside research and was largely bypassed by Python in the ML era.</li>
+          <li>A critique notes the book leans on Python's SymPy for symbolic work despite claiming Julia-first simplicity, with some suggesting the native Symbolics.jl package would fit the stated goal better.</li>
+          <li>Questions about Julia's IDE/tooling maturity get mixed answers — static analysis and debugging are improving (JETLS, VSCode extension) but still seen as behind mainstream statically-typed languages.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">13</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://lalinsky.com/2026/10/11/type-safe-html-templating-in-zig.html">Type-safe HTML templating in Zig</a></h2>
+      <div class="meta">245 points · <a href="https://news.ycombinator.com/item?id=50051573">97 comments</a> · lalinsky.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author built "zt," a Zig HTML templating library modeled on Go's Templ, that transpiles JSX-like template files into Zig code at build time so templates can import application types and vice versa, catching type errors (like a typo'd struct field) as ordinary compiler errors. It escapes all dynamic values and URL attributes by default to prevent XSS, requiring an explicit `{!value}` escape hatch for raw HTML, and compiles down to direct, allocation-free writes to a `std.Io.Writer`.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several commenters share equivalent approaches in other ecosystems — Rust's RSX macros, Kotlin's type-safe builders, Ur/Web, Java's jte — debating whether a separate template file format is preferable to embedding templates directly in the host language via macros.</li>
+          <li>A tangent nostalgically revisits decades of pre-framework web development (CGI in Perl/C, ASP, ATL, mod_* Apache extensions), with the author noting this is his first time doing web work in a compiled, non-garbage-collected language.</li>
+          <li>Some push back gently on using an LLM to write the accompanying blog post, though others defend it as clearly human-written based on how it reads.</li>
+          <li>General agreement that template engines exist specifically to prevent HTML/XSS injection bugs that arise from manual string concatenation.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">14</span>
+        <span class="badge">Energy</span>
+      </div>
+      <h2><a href="https://www.nationalgeographic.com/environment/article/balcony-plug-in-solar-panels-renewable-energy">Solar panels that plug into your wall</a></h2>
+      <div class="meta">238 points · <a href="https://news.ycombinator.com/item?id=50056822">259 comments</a> · nationalgeographic.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Plug-in "balcony solar" — one to three small panels wired through an inverter directly into a wall outlet, popular in Germany for years — is spreading in the US as states pass laws legalizing it, starting with Utah in 2025 and now including California. Systems typically offset 10-30% of a home's electricity use, cost as little as a few hundred dollars, and use safety electronics that prevent backfeeding power to the grid when unplugged, addressing a major concern about residential solar for renters and apartment dwellers who can't install rooftop systems.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A detailed electrical-engineering thread explains exactly how plug-in inverters stay safe (grid-synchronized output, fast cutoff on disconnect, amperage limits) in contrast to the "never plug a generator into an outlet" rule.</li>
+          <li>Several argue utility-scale solar is far cheaper per watt, but others counter that distributed, resilient, user-controlled generation has value independent of raw cost efficiency.</li>
+          <li>A technical sub-thread works through how these systems interact with US split-phase 120/240V wiring, concluding the grid-tied inverter design means homeowners don't need to think about which leg they're plugged into.</li>
+          <li>Commenters express appetite for a complementary plug-in battery storage product, noting current retail options are either underpowered or expensive.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">15</span>
+        <span class="badge">Software</span>
+      </div>
+      <h2><a href="https://lunarwatcher.codeberg.page/til/firefox/resumable-big-downloads.html">Making big downloads resumable in Firefox</a></h2>
+      <div class="meta">256 points · <a href="https://news.ycombinator.com/item?id=50061791">123 comments</a> · lunarwatcher.codeberg.page</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author found that Firefox's default `network.http.response.timeout` of 300 seconds interferes with resuming large interrupted downloads; setting it to 0 (or a very large value) in about:config appears to make resumes both work and be more stable, though they admit they don't fully understand the underlying mechanism and haven't verified it against Firefox's source code. This only helps when the server itself supports resumable (range-request) downloads.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many commenters have given up on Firefox's native download manager entirely in favor of external tools like aria2 or wget -c, which handle resuming, multi-connection downloads and various protocols more reliably.</li>
+          <li>A detailed manual workaround is shared (swapping .part files around to trick Firefox into resuming a "one-time-link" download), alongside a warning that this can silently splice mismatched file versions together without an error.</li>
+          <li>Some connect this to other long-standing, unaddressed Firefox bugs (like the missing search-result dimming feature), reinforcing a "small team, slow fixes" narrative.</li>
+          <li>Nostalgic mentions of GetRight, a classic 1990s/2000s download manager that pioneered resumable downloads.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">16</span>
+        <span class="badge">Retrocomputing</span>
+      </div>
+      <h2><a href="https://www.markround.com/blog/2026/zx-spectrum-intro">Writing a Demoscene Intro for the ZX Spectrum</a></h2>
+      <div class="meta">164 points · <a href="https://news.ycombinator.com/item?id=50061859">33 comments</a> · markround.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A DevOps architect recounts building a complete demoscene-style "intro" (scrolltext, three-channel AY soundtrack, VU meters, parallax starfield) for a stock 128Kb ZX Spectrum, fulfilling a childhood dream of recreating the Amiga "cracktro" aesthetic he admired as a kid. The 10KB program took nearly a year of spare-time work, and the post is a technical write-up of what he learned (and re-learned) about Z80 assembly along the way.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several longtime programmers reflect on how the demoscene shaped their standards for code optimization, lamenting that modern software rarely squeezes hardware the way 80s/90s demos did.</li>
+          <li>Commenters note the demoscene is still very much alive, pointing to active demoparties (Melbourne's SyntaxParty, Pittsburgh's Demosplash) and recent, more advanced productions.</li>
+          <li>A thoughtful sub-thread discusses digital preservation: the author had to recover a dependency from the Internet Archive because the original site had rotted, prompting reflection on how much scene history is at risk of being lost as the community ages.</li>
+          <li>One reply suggests LLMs could actually help here, doing the "junior dev" grunt work of updating decades-old code to compile against modern toolchains.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">17</span>
+        <span class="badge">AI & Opinion</span>
+      </div>
+      <h2><a href="https://taylor.town/kk-ai-2026">Kevin Kelly's 2016 AI Predictions, 10 Years Later</a></h2>
+      <div class="meta">205 points · <a href="https://news.ycombinator.com/item?id=50057668">80 comments</a> · taylor.town</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The post revisits AI predictions from Kevin Kelly's 2016 book "The Inevitable," checking them against 2026 reality: Google's shift from search to AI as its core product, the rise of a cloud oligarchy of two or three dominant general-purpose AI providers, AI delivered like a utility (echoing AWS), and most AI work being done by narrow special-purpose models rather than general human-like ones. It frames these as a mix of remarkably accurate and partially-missed forecasts.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several commenters bring up Ray Kurzweil's 1999 predictions as an even more striking (if imperfect) case, noting most of his misses were due to societal/adoption factors rather than technical ones.</li>
+          <li>Some dispute the "accurate" framing, scoring the predictions closer to a coin-flip's worth of hits once graded rigorously, and noting the network-effect prediction hasn't clearly materialized the way Kelly expected.</li>
+          <li>A side argument insists Google's core product/revenue has always really been advertising, not search or AI per se.</li>
+          <li>One commenter highlights the AI-as-utility prediction as the most prescient, given how token-based API pricing has made AI feel like a metered utility.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">18</span>
+        <span class="badge">Business</span>
+      </div>
+      <h2><a href="https://www.bbc.com/news/articles/c64g1l5389kvo">Deloitte falsified documents to evade tax on Abramovich's wealth</a></h2>
+      <div class="meta">610 points · <a href="https://news.ycombinator.com/item?id=50054207">199 comments</a> · bbc.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A BBC Panorama investigation based on leaked documents from the "Cyprus Confidential" files found that Deloitte Cyprus signed off on backdated accounts that made $672m of Roman Abramovich's property and superyachts vanish from his company's books, as part of what a financial-law expert calls "straightforward" and "blatant" tax evasion. Deloitte transferred the assets' ownership to a British Virgin Islands holding company and backdated the paperwork by three years to sidestep a new Cypriot transparency law requiring public disclosure.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Widespread cynicism about Deloitte's claimed commitment to "integrity," with comparisons to Enron's similarly hollow corporate values messaging before its collapse.</li>
+          <li>Several note Deloitte's defense — that relevant documents are "too old" to access — is unconvincing given the 2006 transactions in question aren't actually 20+ years old.</li>
+          <li>A tangent on corporate document-retention policies argues limited retention windows are standard liability protection rather than necessarily a cover-up, sparking pushback given HN's usual complaints about corporate data hoarding.</li>
+          <li>General commentary that oligarch wealth-sheltering enabled by "Big Four" firms is an open secret, with little expectation of real consequences for Deloitte.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">19</span>
+        <span class="badge">Hardware</span>
+      </div>
+      <h2><a href="https://purplesyringa.moe/blog/who-is-vfmaddrnd231pd/">Who is vfmaddrnd231pd?</a></h2>
+      <div class="meta">237 points · <a href="https://news.ycombinator.com/item?id=50063138">21 comments</a> · purplesyringa.moe</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The post investigates a mysterious x86 instruction, VFMADDRND231PD, documented in Intel's 2024 Software Development Manual as a fused-multiply-add with per-instruction rounding control, but which doesn't exist in GNU assembler, Clang, or even ICC's own intrinsics, and raises an #UD undefined-instruction fault when attempted on real Haswell hardware. The author traces it to likely being a planned-but-scrapped AVX instruction that briefly leaked into a few SDM revisions (2024) before disappearing again by 2026, without ever actually shipping in silicon.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several knowledgeable commenters chip in historical/technical detail: one explains the obscure VEX.DDS encoding terminology from an old binutils changelog, and another cites a specific SDM revision range (082-084) where the instruction briefly appeared.</li>
+          <li>One theory, offered without a confirmed source, is that it was dropped when Intel recommitted to shipping AVX-512 on client CPUs, making the simpler instruction redundant.</li>
+          <li>A broader tangent discusses whether cryptic x86 assembly mnemonics being "incomprehensible at a glance" matters less now that compilers (and increasingly LLMs) are the primary audience rather than humans.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">20</span>
+        <span class="badge">Policy</span>
+      </div>
+      <h2><a href="https://www.theguardian.com/technology/2026/oct/06/google-datacentres-finland-temporary-halt-environmental-impact-assessment">Google told to halt work on datacentres in Finland over environmental concerns</a></h2>
+      <div class="meta">450 points · <a href="https://news.ycombinator.com/item?id=50048638">171 comments</a> · theguardian.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Finnish regulators ordered Google to suspend construction at two planned datacentre sites (Muhos and Kajaani, part of a €13bn regional buildout) after the company felled hundreds of hectares of forest without completing a legally required environmental impact assessment. The Finnish Association for Nature Conservation says the sites have been reduced to bare sand, blaming an "overheated" datacentre market for pushing companies to cut corners faster than small municipalities can oversee them.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many mock Google's "fallen short of our own high standards" statement as a generic non-apology, noting Apple used nearly identical phrasing recently and speculating both may be advised by the same crisis-PR firms.</li>
+          <li>Several expect only a token fine with little real deterrent effect, framing regulatory penalties as a cost of doing business for a company of Google's size.</li>
+          <li>Some predict the issue is mostly procedural and will ultimately be resolved in Google's favor once the EIA paperwork catches up, just with a year or two of legal delay.</li>
+          <li>A cynical riff on Google's old "don't be evil" motto closes out much of the thread.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">21</span>
+        <span class="badge">Science</span>
+      </div>
+      <h2><a href="https://www.americanscientist.org/article/whatever-became-of-holography">Whatever became of holography? (2011)</a></h2>
+      <div class="meta">169 points · <a href="https://news.ycombinator.com/item?id=50049411">109 comments</a> · americanscientist.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This 2011 American Scientist article (the source page was unreachable during research, returning a 503 error) explores why holography never became the mainstream imaging medium many expected, despite decades of fascination since its invention. Based on the HN discussion, it covers the technical and economic barriers — cost, the analog/chemical nature of the medium, and limited expressiveness compared to photography or digital displays — that kept it a niche curiosity rather than a consumer technology.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many share nostalgic memories of being captivated by holograms at museums or art exhibitions as kids, particularly a famous microscope hologram you could look through.</li>
+          <li>Hobbyist holographers describe the shrinking supply chain for film and chemicals (much historically sourced from Russia, now disrupted by the war), though newer photopolymer films from companies like Litiholo offer an easier alternative.</li>
+          <li>3Blue1Brown's video explainer on the math of holography gets repeatedly recommended as an exceptional, intuition-building resource.</li>
+          <li>Some argue holograms were always more of a romanticized novelty than a genuinely sought-after consumer medium, similar to flying cars or jetpacks.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">22</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://github.com/shaongitbd/doory">Doory – Open-Source Canva</a></h2>
+      <div class="meta">222 points · <a href="https://news.ycombinator.com/item?id=50049872">78 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Doory is an open-source, self-hostable design editor positioned as a free alternative to Canva, offering templates, layers, animations, real-time collaboration, in-browser background removal, and export to PNG/SVG/PDF/MP4/GIF, deployable via a three-command Docker Compose setup. Every feature is free with no paid tiers, watermarks, or locked templates, in contrast to Canva's freemium model.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The dominant reaction is skepticism once commenters discover the entire project (and its promotional "Why people pick Doory" marketing copy) was essentially fully AI/Claude-authored from a single initial commit, with one commenter calling it a "fully vibed low effort clone" that crashed during testing.</li>
+          <li>Several argue Canva's real moat isn't its editor but its IP, templates and stock-asset ecosystem, which open source alternatives can't easily replicate regardless of code quality.</li>
+          <li>Detailed UX critique points out specific broken UI elements and awkward menu behavior compared to Canva's polish.</li>
+          <li>A tangent calls for Canva-alternative tools to be built API/MCP-first for AI-driven design workflows, which others push back on as missing the point of a human-facing design tool.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">23</span>
+        <span class="badge">AI Tools</span>
+      </div>
+      <h2><a href="https://tedhaley.ca/pensieve/">Local Indexing to reduce tool calling and token usage</a></h2>
+      <div class="meta">123 points · <a href="https://news.ycombinator.com/item?id=50049508">52 comments</a> · tedhaley.ca</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Pensieve is a local, Mac-based search tool and MCP server that indexes a user's files, code, repos and past AI-agent conversation sessions, letting coding agents query it semantically instead of iteratively grepping, and also tracks git-blame-derived "domain knowledge" to show who on a team knows which parts of a codebase best. The creator's benchmarks claim ~30% lower token cost, ~32% faster responses, and ~17% better first-try file accuracy versus plain grep-based agent search across 72 tasks in four real repos.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several commenters mention building similar tools themselves or having seen many similar products, noting Cursor previously shipped (and then quietly kept, under a different name/location) a comparable local index.</li>
+          <li>Skeptics press for more technical detail on cache invalidation and what counts as "stale" context across branches/worktrees, feeling the marketing page is light on implementation specifics.</li>
+          <li>Some note "ask your agent to curl a script and pipe to bash" as an installation method is becoming an oddly common (and slightly alarming) pattern across many AI-tool landing pages lately.</li>
+          <li>A comparison to Hugging Face's "Funes" conversation-search tool surfaces, with skepticism that agent memory is solved well enough yet for any of these tools to be essential.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">24</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://news.ycombinator.com/item?id=50059096">Launch HN: Agent37 (YC F26) – Low-cost agent sandboxes for running agents</a></h2>
+      <div class="meta">148 points · <a href="https://news.ycombinator.com/item?id=50059096">104 comments</a> · news.ycombinator.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Agent37 is a YC-backed startup launch offering low-cost, isolated sandbox VMs specifically for running AI coding agents and harnesses (Claude Code, Codex, OpenClaw, etc.), each sandbox a Docker-templated environment with a pre-installed harness, claiming substantially lower cost than competitors like fly.io's Sprites and fellow YC startup boat.dev. It also offers an open-source "Gateway API" that normalizes different agent harnesses behind a single OpenAI-compatible API schema.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Multiple commenters note striking overlap with other YC startups in the same batch doing nearly identical agent-sandbox products (Maritime, boat.dev), sparking discussion about whether AI-accelerated infrastructure building is making this space unusually crowded.</li>
+          <li>Direct price/feature comparisons against fly.io Sprites and boat.dev dominate the thread, with the founder claiming roughly 3x-94% cost advantages depending on the competitor.</li>
+          <li>A happy early user shares a positive hands-on account, while also flagging privacy concerns about how Google service connectors are integrated.</li>
+          <li>The founder clarifies the architecture: each agent harness runs in its own isolated sandbox VM, unified behind the open-source Gateway API.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">25</span>
+        <span class="badge">Math</span>
+      </div>
+      <h2><a href="https://terrytao.wordpress.com/2026/10/11/illustration-beyond-proof/">Illustration Beyond Proof</a></h2>
+      <div class="meta">102 points · <a href="https://news.ycombinator.com/item?id=50049133">18 comments</a> · terrytao.wordpress.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A guest post on Terence Tao's blog by mathematicians Kate Stange and Edmund Harriss argues that mathematical illustration — diagrams, computer graphics, and other non-symbolic media — is a legitimate research activity in its own right, not just a teaching aid, tracing its history from 19th-century hand-drawing requirements through the 1990s "proof vs. meaning" debates sparked by Jaffe and Quinn. It raises a timely concern: as LLMs make it trivially easy to vibe-code illustrative visualizations, researchers risk being "two steps from knowledge," generating pictures whose underlying code they don't actually understand.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>One provocative comment argues math research is becoming like chess — once AI can solve or fail a problem, pursuing it manually for decades no longer makes sense — which others push back on, noting math research is rarely all-or-nothing on a single big problem.</li>
+          <li>A reply specifically cites the ill-defined, sprawling nature of programs like the Langlands Program as a counterexample to the "AI will just solve math" framing.</li>
+          <li>A smaller thread wonders whether OpenAI's recent interactive UI features could be adapted to build more 3Blue1Brown-style intuitive math walkthroughs.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">26</span>
+        <span class="badge">AI & Policy</span>
+      </div>
+      <h2><a href="https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387">QGIS enacts moratorium on AI contributions</a></h2>
+      <div class="meta">380 points · <a href="https://news.ycombinator.com/item?id=50054751">406 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The QGIS open-source GIS project formally adopted a strict "no AI contributions permitted" policy, tightening a prior "human in the loop" stance, with maintainers arguing that the volume of AI-assisted PRs and security reports has become an unsustainable review burden that threatens the project's human-contributor community and trust model. A related, more contentious proposal would carve out an exception allowing trusted/core maintainers to keep using AI tools themselves.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A large thread debates what actually counts as "AI-assisted" — code typed by hand after prototyping with AI, versus AI-generated code reviewed and understood versus pure vibe-coded dumps — with maintainers clarifying the policy targets the latter, egregious cases.</li>
+          <li>Critics call the maintainer-exception carve-out hypocritical ("only trusted maintainers can use LLMs, contributors can't"), while defenders argue the trust and accountability model is fundamentally different for people with a long track record on the project.</li>
+          <li>Several argue this effectively ends broad open contribution to QGIS specifically, worsening the maintainer pipeline problem, while others note it only affects the QGIS application itself, not the broader GDAL/GEOS ecosystem it depends on.</li>
+          <li>A notable confession: a contributor who submitted AI-assisted bug-fix PRs says they didn't realize the burden this placed on reviewers and now supports the ban, worried it undermines the trust contract that your contribution reflects real understanding.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">27</span>
+        <span class="badge">AI & Opinion</span>
+      </div>
+      <h2><a href="https://www.spinellis.gr/blog/20261008/?li261008">Thinking will become a hobby</a></h2>
+      <div class="meta">314 points · <a href="https://news.ycombinator.com/item?id=50059204">432 comments</a> · spinellis.gr</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Software engineering professor Diomidis Spinellis argues that AI's combination of improving performance, falling cost, and 24/7 availability means cognitive work will increasingly be displaced the way machines displaced physical labor — predicting that thinking will become a leisure pursuit, similar to how hunting, calligraphy, and horse riding became hobbies after their original economic necessity vanished. He frames the challenge ahead not as resisting this shift but as building "a purposeful and rewarding life beyond work."</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many programmers push back hard on the premise, arguing that using AI well currently increases their cognitive load (constant verification, steering, catching subtle errors) rather than reducing it.</li>
+          <li>A major thread worries about the economic endgame: if cognitive and eventually physical labor are both automated, society needs a serious plan for how people survive, not just "fulfilling hobbies."</li>
+          <li>Several argue that if human thinking truly becomes optional, democratic self-governance itself becomes unsustainable, since it depends on citizens reasoning about shared problems.</li>
+          <li>Pointed replies note that telling people to relax and "pop a wheelie" while unemployed ignores that most people need paid work to survive, calling the framing tone-deaf.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">28</span>
+        <span class="badge">Retrocomputing</span>
+      </div>
+      <h2><a href="https://phreak.ing/">Phreak.ing – Internet Phone Switch</a></h2>
+      <div class="meta">145 points · <a href="https://news.ycombinator.com/item?id=50063417">34 comments</a> · phreak.ing</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Phreak.ing is a free, anonymous browser- and phone-accessible PBX/phone-switch service recreating the old-school phone-phreaking experience: dial codes for echo tests, ringback, conferencing rooms, intercom paging, voicemail, and a shared IRC-linked chat channel (#phreak), plus bridging into legacy phreaking networks like PhreakNet via classic multi-frequency tone dialing. No real phone number or personal information is required, and extensions are arbitrary user-chosen numbers.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several commenters who registered weren't quite sure what they'd signed up for but were charmed by it regardless.</li>
+          <li>Phreaking enthusiasts appreciate specific nostalgic touches — CCITT5/KP/ST tone support, bridging to real PhreakNet trunks — as signals of an author who understands the original phreaking culture.</li>
+          <li>A wave of nostalgia for discovering phone phreaking through 2600 magazine and BBS boards as kids, with wistful comparisons to how much harder it now feels for young people to "accidentally" discover subcultures like this given how centralized information discovery has become.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">29</span>
+        <span class="badge">Science</span>
+      </div>
+      <h2><a href="https://www.cell.com/matter-light/fulltext/S3117-5848(26)00119-5">Programmable pigments: Photochromic nanoparticle inks for rewritable tattoos</a></h2>
+      <div class="meta">84 points · <a href="https://news.ycombinator.com/item?id=50041252">59 comments</a> · cell.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This Cell journal paper (inaccessible during research behind a 403 paywall block) describes photochromic nanoparticle inks that can be selectively activated or erased with light, enabling tattoos whose visible pattern can be rewritten after application rather than being permanent. Based on the discussion, the pigments appear to respond to UV or similar light exposure and can fade or reset under normal daylight conditions.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several speculate about precision-printing the ink with UV lasers or a 3D-printer-like device for custom patterns.</li>
+          <li>A side discussion corrects a commenter's claim about an "auto-immune system," clarifying that typical tattoo-related immune responses aren't the same as autoimmune disease.</li>
+          <li>Practical and whimsical use cases get proposed, from temporary makeup for a night out to (jokingly) lie-detector displays tattooed on politicians' foreheads.</li>
+          <li>One commenter notes the tech might be more useful repurposed for bistable, low-power e-ink-style displays than for tattoos specifically.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">30</span>
+        <span class="badge">Mobile</span>
+      </div>
+      <h2><a href="https://amosbbatto.wordpress.com/2026/10/05/linux-phones-alternative/">Will Linux phones become a viable alternative to the Android/iOS duopoly?</a></h2>
+      <div class="meta">268 points · <a href="https://news.ycombinator.com/item?id=50051530">337 comments</a> · amosbbatto.wordpress.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A long-form retrospective argues mobile Linux is positioned for a modest resurgence after stagnating since the 2020 Purism Librem 5 and PINE64 PinePhone launches, pointing to improving SoC options, more mature interfaces (Plasma Mobile, Phosh), and Motorola's announced 2027 GrapheneOS phones as signs that mobile Linux could carve out a small but viable niche — similar to how desktop Linux found its place alongside Windows and macOS — rather than seriously threaten Android or iOS.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several point to Jolla's Sailfish OS as already a working, shipping example of a viable Linux-based alternative, with long-time daily users chiming in.</li>
+          <li>A major skeptical thread argues Android and iOS have decades of deep battery/RAM-efficiency engineering (app suspension, notification side-channels) baked into their app ecosystems that desktop-style Linux fundamentally lacks, and that this gap shows up in real usability problems today.</li>
+          <li>Others attribute the efficiency gap less to OS architecture and more to closed-source hardware drivers, citing Asahi Linux's experience reverse-engineering Apple Silicon as evidence that documentation (not Linux itself) is the real bottleneck.</li>
+          <li>A few predict Linux phones will become not just an alternative but eventually the only viable option for people wanting a genuinely independent, de-Googled device.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <footer>Generated October 13, 2026 · summaries by Claude · source: news.ycombinator.com</footer>
+</div>
+<script>
+function setAll(open) {
+  document.querySelectorAll('details.card').forEach(d => d.open = open);
+}
+</script>
+</body>
+</html>
