@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacker News Digest — 2026-10-17</title>
+<style>
+  :root {
+    --bg: #f6f6ef; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --accent: #ff6600; --border: #e2e0d5; --badge-bg: #fff3ea; --badge-text: #b34700;
+    --quote-border: #ddd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --card: #1f1f26; --text: #e8e8e6; --muted: #9a9aa3;
+      --accent: #ff7a26; --border: #2e2e38; --badge-bg: #33251b; --badge-text: #ffab70;
+      --quote-border: #3a3a46;
+    }
+  }
+  /* Density note: the collapsed list is the primary view — it should read like
+     a tight index you can scan in one screen, so headers are compact. Expanded
+     prose keeps a comfortable size and line-height, since that's read closely. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 9px; margin-bottom: 12px; }
+  header h1 { margin: 0 0 2px; font-size: 21px; }
+  header .sub { color: var(--muted); font-size: 13px; }
+  header .sub a { color: var(--muted); }
+  .controls { display: flex; gap: 6px; margin-bottom: 10px; }
+  .controls button {
+    background: var(--card); border: 1px solid var(--border); color: var(--muted);
+    border-radius: 5px; padding: 3px 10px; font-size: 12px; cursor: pointer;
+  }
+  .controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 7px;
+    padding: 8px 12px; margin-bottom: 5px;
+  }
+  summary.card-head {
+    cursor: pointer; list-style: none; position: relative; padding-right: 22px;
+  }
+  summary.card-head::-webkit-details-marker { display: none; }
+  summary.card-head::after {
+    content: "▸"; position: absolute; right: 2px; top: 0; font-size: 15px;
+    color: var(--muted); transition: transform .15s ease;
+  }
+  details[open] summary.card-head::after { transform: rotate(90deg); color: var(--accent); }
+  summary.card-head:hover::after { color: var(--accent); }
+  /* Rank, badge and headline share one line; the headline wraps under them
+     only when it genuinely needs to, which keeps most rows a single line. */
+  .card-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .rank { color: var(--accent); font-weight: 700; font-size: 14px; min-width: 20px; }
+  .badge {
+    background: var(--badge-bg); color: var(--badge-text); border-radius: 999px;
+    font-size: 10px; font-weight: 600; padding: 1px 7px; text-transform: uppercase;
+    letter-spacing: .03em; white-space: nowrap;
+  }
+  h2 { margin: 1px 0 1px; font-size: 15.5px; line-height: 1.3; }
+  h2 a { color: var(--text); text-decoration: none; }
+  h2 a:hover { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 11.5px; }
+  .meta a { color: var(--muted); }
+  .meta a:hover { color: var(--accent); }
+  .card-body { margin-top: 9px; }
+  .summary { margin: 0 0 9px; }
+  .discussion h3 {
+    margin: 0 0 5px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--muted);
+  }
+  .discussion ul { margin: 0; padding-left: 0; list-style: none; }
+  .discussion li {
+    border-left: 2px solid var(--quote-border); padding: 1px 0 1px 10px;
+    margin-bottom: 6px; font-size: 14px;
+  }
+  footer { margin-top: 24px; color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Hacker News Daily Digest</h1>
+    <div class="sub">Top 29 stories from <a href="https://news.ycombinator.com/front">the front page</a> of October 17, 2026</div>
+  </header>
+
+  <div class="controls">
+    <button onclick="setAll(true)">Expand all</button>
+    <button onclick="setAll(false)">Collapse all</button>
+  </div>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">1</span>
+        <span class="badge">Marine Biology</span>
+      </div>
+      <h2><a href="https://www.nature.com/articles/d41586-026-03266-x">Bleached corals thrive within days when touching healthy neighbour</a></h2>
+      <div class="meta">476 points · <a href="https://news.ycombinator.com/item?id=50126253">103 comments</a> · nature.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Stanford/Hopkins Marine Station researchers found that bleached coral fragments can be nursed back to full health within days to weeks simply by physically touching a healthy fragment from the same coral colony. The healthy coral's symbiotic algae migrate across a fused tissue bridge into the bleached fragment, doubling in population every four days and restoring color and nutrition far faster than natural recovery in the wild. The effect only works between genetically identical fragments of the same individual — different colonies or species don't fuse or share symbionts. The findings, published in Science Advances, offer a potential, if limited, tool for accelerating reef recovery.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many were excited but noted the technique only works between genetically identical clones of the same coral, a constraint several said limits real-world reef restoration — though some proposed banks of tagged coral clones as a workaround.</li>
+          <li>Divers with firsthand Great Barrier Reef experience pushed back on the "incredible" framing, noting that at the scale of real bleaching events there's often no healthy neighbor left nearby to touch before the reef dies.</li>
+          <li>A tangent on horizontal gene transfer and Conway's Game of Life drew some replies, while a commenter's unrelated pseudoscience detour was firmly shut down, with a moderator reminder to share expertise constructively rather than snark.</li>
+          <li>One commenter closed with a blunt, personal lament about watching the reef visibly degrade between a 2007 and 2017 visit, contrasting it with society's investment in rockets and drones instead of ecological repair.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">2</span>
+        <span class="badge">AI &amp; ML</span>
+      </div>
+      <h2><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017">DeepSeek-v4.1-Flash-1017</a></h2>
+      <div class="meta">882 points · <a href="https://news.ycombinator.com/item?id=50129045">665 comments</a> · huggingface.co</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">DeepSeek released a "minor update" to its V4.1 Flash model, claiming substantial gains in reasoning, coding, agentic tasks and vision benchmarks while cutting output length and task cost. Benchmarks put it ahead of GLM-5.3 and Kimi K3 on most tasks and close to (sometimes above) GPT-5.6 Sol and Claude Opus 5, despite being an open, MIT-licensed, 763B-parameter model with a 1M-token context window. DeepSeek also shipped supporting tooling: a reference prompt encoder and a Rust-based production inference toolkit.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many found the "minor update" framing ironic given the claimed benchmark gains, joking it reads like intentional engineering-led understatement rather than marketing.</li>
+          <li>A recurring theme: open-weight Chinese labs now matching or beating Western closed labs, sparking debate (with pushback) about who's really "championing" open-source AI versus corporate/government control.</li>
+          <li>Commenters noted the model, while strong on paper, is costly to self-host, reviving a wish for genuinely small "flash" models that fit consumer hardware.</li>
+          <li>Several pointed out the benchmark comparisons curiously omit the very latest rival models, suggesting labs selectively benchmark against slightly-stale competitors.</li>
+          <li>Some skepticism that the numbers are too good to be real, alongside takes that small per-step gains compound into large overall improvements.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">3</span>
+        <span class="badge">Energy</span>
+      </div>
+      <h2><a href="https://www.pv-magazine.com/2026/09/29/solar-surpasses-nuclear-power-globally-for-first-time/">Solar surpasses nuclear power globally for first time</a></h2>
+      <div class="meta">628 points · <a href="https://news.ycombinator.com/item?id=50131256">398 comments</a> · pv-magazine.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The World Nuclear Industry Status Report (WNISR) 2026 finds that global monthly solar generation first exceeded nuclear in April 2025 (wind a month earlier), and from March 2025 through mid-2026 either solar or wind outproduced nuclear every month. Solar capacity grew 27% in 2025 to 2,383 GW and wind 14% to 1,291 GW, while nuclear capacity rose just 1.5 GW and operating capacity actually declined; nuclear's share of global electricity fell to 8.8%, its lowest in 45 years. Nearly all new nuclear construction is concentrated in China and Russia, while reactors elsewhere retire faster than they're built, and the report is skeptical small modular reactors will change this trajectory soon.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A big framing debate: some called decades of solar subsidy underwhelming given it only just passed nuclear, while others countered that most global solar capacity was installed in just the last 5 years and is growing far faster than nuclear ever did.</li>
+          <li>Commenters clarified the generation-vs-capacity distinction, noting this report measures actual monthly output (TWh), a more meaningful comparison than the capacity figures often cited in the press.</li>
+          <li>Several highlighted that nearly all nuclear growth is China-driven, prompting questions about how much of the renewables surge is also China-driven (answer: enormous — China has also passed "peak coal" while still growing overall).</li>
+          <li>A tangent on battery storage emerged as the mechanism letting solar keep outrunning nuclear despite intermittency, with pushback that renewables remain pricier once storage/backup costs are included.</li>
+          <li>A few readers flagged apparent inconsistencies between capacity and "first time" framing, resolved by others pointing out capacity and generation aren't directly comparable.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">4</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://llmspeed.dev/">Show HN: Llmspeed – feel how fast a local LLM runs before you buy the hardware</a></h2>
+      <div class="meta">304 points · <a href="https://news.ycombinator.com/item?id=50127979">84 comments</a> · llmspeed.dev</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Llmspeed lets you browse hardware (GPUs, Mac Studios, AMD APUs, etc.) or models (Qwen, GLM, DeepSeek, GPT-OSS, etc.) to get a feel for how fast a given local LLM setup would run, using a mix of real community benchmarks and extrapolated estimates. It's aimed at people deciding what hardware to buy for local inference before spending the money, and the project is open source.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The most common critique was estimate accuracy — several reported their hardware ran meaningfully faster or slower than predicted, and the creator actively engaged, asking for specifics to improve model/quant-specific numbers.</li>
+          <li>Multiple users requested support for mixed/hybrid GPU setups and older or unusual hardware not currently in the catalog.</li>
+          <li>A recurring request was to account for the inference harness/backend used, since the same model+hardware can perform very differently depending on the serving stack.</li>
+          <li>One thoughtful critique: for agentic coding workloads, parallel prefill throughput matters more than raw output token speed, which the tool doesn't currently capture.</li>
+          <li>Overall reception was positive, with several saying this is exactly the pre-purchase tool they wished existed before buying local-LLM hardware.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">5</span>
+        <span class="badge">AI &amp; ML</span>
+      </div>
+      <h2><a href="https://alexwang.ai/posts/associative-memory/">You could have invented transformers from memory</a></h2>
+      <div class="meta">576 points · <a href="https://news.ycombinator.com/item?id=50122878">129 comments</a> · alexwang.ai</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The post walks through transformers as a form of associative, content-addressable memory, drawing a direct line from classical Hopfield networks to modern attention, aiming to show that the architecture is a natural, almost inevitable derivation once you treat "storing and retrieving patterns" as the core problem. It's a heavily mathematical piece built around the idea that attention performs one-shot associative memory retrieval rather than something wholly novel.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The top criticism was accessibility: readers argued dense math notation makes it unnecessarily hard to follow for a largely software audience, and concrete pseudocode or worked examples would help far more.</li>
+          <li>Several suggested feeding the article to an LLM for a plain-pseudocode translation, with wry commentary that LLMs are now the universal translator for dense math writing.</li>
+          <li>One commenter highlighted a favorite detail: transformers retrieve a suitable memory in a single step, unlike classical Hopfield networks which need multiple iterative steps to converge.</li>
+          <li>A side-thread connected the piece to the broader "intelligence is compression" framing popularized elsewhere, linking associative memory, compression, and generalization.</li>
+          <li>A few comments poked at the generic, unspecified "you" in the title, debating who the article actually assumes as its reader.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">6</span>
+        <span class="badge">Science</span>
+      </div>
+      <h2><a href="https://chillphysicsenjoyer.substack.com/p/making-chicken-transparent-using">Making chicken transparent using Dorito dust</a></h2>
+      <div class="meta">314 points · <a href="https://news.ycombinator.com/item?id=50131213">82 comments</a> · chillphysicsenjoyer.substack.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">This tongue-in-cheek but scientifically grounded post applies the optical-clearing technique made famous on mouse skin to chicken breast, using Dorito dust as a cheap source of tartrazine dye. Soaking the tissue in a concentrated tartrazine solution shifts the refractive index of the tissue's water content enough to make it translucent — the same principle behind real lab research on see-through tissue, just sourced from snack-food coating instead of pure dye. The author, active in the comments, confirms it's purely a refractive-index effect requiring a high concentration (roughly a 5% solution for 12 hours) — far beyond what's in a bag of chips.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A clarifying sub-thread established the transparency has nothing to do with the dye being dangerous — it's purely optical, and the concentration needed is far beyond what's in snack food, confirmed by the author.</li>
+          <li>Multiple commenters shared tangential Dorito/Cheeto lore and joked about the aesthetic and culinary implications of transparent meat.</li>
+          <li>One commenter traced a plausible origin story: someone marinating chicken in Dorito-flavored seasoning accidentally noticing the meat turn translucent.</li>
+          <li>The author directly engaged with readers, taking up a suggestion to try a longer, gentler sous vide treatment.</li>
+          <li>A philosophical sub-thread debated whether the experiment says something unsettling about processed food, with pushback that most food is already far from "natural" by any strict definition.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">7</span>
+        <span class="badge">Typography</span>
+      </div>
+      <h2><a href="https://furifont.antfu.me/">Furifont, a Japanese font that shows furigana</a></h2>
+      <div class="meta">361 points · <a href="https://news.ycombinator.com/item?id=50100994">75 comments</a> · furifont.antfu.me</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Furifont is a Japanese typeface, by developer Anthony Fu, that uses OpenType ligature rules to automatically render furigana — the small kana pronunciation guides — above kanji characters as part of the font itself. No markup, Ruby tags, or external tooling is required; the reading aid appears anywhere the font is used, simply by typing the kanji.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A native Japanese speaker praised the execution but flagged a specific bug: a compound word only gets partially annotated, apparently because the dictionary lookup falls back to single-kanji readings when a compound isn't recognized.</li>
+          <li>The biggest debate was use case: some argued HTML Ruby tags already solve this better for controlled web content, while others noted the font's advantage is working anywhere, even where Ruby tags aren't supported.</li>
+          <li>A technical tangent noted OpenType fonts are Turing-complete, so feats like this are impressive but also a reminder of how much font engines can quietly do.</li>
+          <li>One user flagged a real limitation: line-wrapping can split a word mid-kanji and produce an incorrect furigana reading for the split pieces.</li>
+          <li>Several language learners found the concept delightful even though kanji vocabulary remains the long pole for fluency.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">8</span>
+        <span class="badge">Economics</span>
+      </div>
+      <h2><a href="https://www.numismaticnews.net/gold-now-top-u-s-export">Gold is now the top U.S. export</a></h2>
+      <div class="meta">349 points · <a href="https://news.ycombinator.com/item?id=50132870">193 comments</a> · numismaticnews.net</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Since October 2025, gold has overtaken oil, pharmaceuticals, and aircraft parts as the US's top export by value, with February 2026 possibly setting an all-time record for exported tonnage — not just reflecting high prices. Most exported gold flows to Switzerland (refining), Hong Kong (likely bound for China), and the UK. The columnist speculates, without proof, that this reflects foreign central banks, especially China's, shifting away from US Treasury debt and toward gold reserves, possibly with implicit US government acquiescence in exchange for other concessions.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several questioned whether "top export by value" is meaningful given gold's outsized per-unit value, though others countered the report specifically cites record tonnage, not just price.</li>
+          <li>A thread detailed European central banks (France, Netherlands, Germany, Italy) repatriating gold stored in New York, read as a sign of eroding trust in US custody.</li>
+          <li>Commenters debated motives: protecting reserves from dollar devaluation versus fear gold held in the US could be seized or frozen for political reasons.</li>
+          <li>A side-argument on "stolen gold" narratives was corrected by several pointing out most gold today comes from mines in the US, Russia, and former Soviet states, not colonial-era plunder.</li>
+          <li>A few readers were simply surprised oil or tech services weren't the top export and wanted clarification on how exports are actually measured.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">9</span>
+        <span class="badge">Environment</span>
+      </div>
+      <h2><a href="https://www.smithsonianmag.com/science-nature/dam-removals-are-bringing-fish-back-across-the-northeastern-united-states-striking-down-one-tiny-barrier-at-a-time-180989679/">Dam removals are bringing fish back across the northeastern United States</a></h2>
+      <div class="meta">293 points · <a href="https://news.ycombinator.com/item?id=50126312">72 comments</a> · smithsonianmag.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A quietly accelerating "dam-removal renaissance" in the US Northeast — over 2,300 dams removed since 1912, mostly in the last 25 years — is restoring herring, shad, and salmon runs blocked for centuries, including the historic Talbot Mills Dam that Henry David Thoreau himself fought, and failed, to have removed in the 1800s. While the West's Klamath and Elwha River removals get more press, Northeastern states quietly removed dozens of obsolete, often-small barriers in 2024 alone, even as an estimated 35,000-plus dams, including 9,000 in New York, still block fish passage region-wide.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters drew a parallel between historic arguments for keeping dams (industrial heritage) and today's objections to removing them, noting "historical significance" cuts both ways.</li>
+          <li>A detailed sub-thread covered real tradeoffs: changed local water tables that can dry up decades-old wells, and the high cost of maintaining aging small hydro dams versus removing them.</li>
+          <li>Some pushed back on a "clean energy loss" framing, noting most removed dams were in disrepair or silted up, with marginal power output anyway.</li>
+          <li>A reader shared a 2025 deal where Brookfield Renewable agreed to sell four Kennebec River dams specifically to reopen salmon migration — bittersweet, since it stems from the decline of the industries that once needed them.</li>
+          <li>A minor side-debate broke out over the aesthetics of a fish-passage bridge styled to look like natural stone, opinions split on whether it looked good or tried too hard.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">10</span>
+        <span class="badge">AI &amp; ML</span>
+      </div>
+      <h2><a href="https://www.paperinstruments.com/ultramarine">Ultramarine 1 Flash</a></h2>
+      <div class="meta">373 points · <a href="https://news.ycombinator.com/item?id=50106747">107 comments</a> · paperinstruments.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Paper Instruments released Ultramarine 1 Flash, an open-weights agentic model fine-tuned from GLM-5.3 Flash via large-scale reinforcement learning specifically for professional knowledge work — finance, law, consulting, and operations tasks like producing finished Excel, PowerPoint, and Word deliverables. It claims to match or beat much larger, pricier frontier models on several knowledge-work benchmarks while costing a small fraction per task, and generates 6.5% fewer tokens than its GLM-5.3 Flash base.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several pointed out Ultramarine isn't a new base model but a post-trained fine-tune of GLM-5.3 Flash, meaning its gains come entirely from RL post-training quality that outsiders can't independently verify without more disclosure.</li>
+          <li>There was confusion over "frontier" claims, since Ultramarine targets the cost/performance frontier rather than claiming frontier-scale capability itself.</li>
+          <li>One thread connected this to the trend of brute-forcing tasks with many cheap attempts rather than one-shotting with an expensive model, with pushback that this works for tasks with clear deterministic evals but not subjective knowledge work.</li>
+          <li>Commenters noted a complementary separate "Jev" model for decision-making, suggesting a split architecture where one model plans and another executes document work.</li>
+          <li>Reception was generally positive toward the team's transparency about benchmark methodology and cost comparisons.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">11</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://github.com/mikroverk/esp32sim">Show HN: Esp32sim – Run ESP32 firmware in the browser</a></h2>
+      <div class="meta">178 points · <a href="https://news.ycombinator.com/item?id=50131189">32 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Esp32sim is an open-source, instruction-level emulator written in Rust for four ESP32 microcontroller variants (classic, S3, C3, C6) across both Xtensa and RISC-V architectures, booting the real mask ROM, bootloader, and unmodified firmware images — including WiFi and display peripherals. It runs both natively and in-browser via WebAssembly, with no cloud or account required.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The top comparison was to Wokwi, an established ESP32-in-browser emulator; some noted esp32sim appears to be vibe-coded, which others countered is irrelevant given it's free and open source.</li>
+          <li>A pointed critique, upheld by several commenters, was that the README is bloated with dense, AI-generated-feeling formatting that's exhausting to read — the author acknowledged the feedback.</li>
+          <li>Commenters saw real value for IoT teams: running actual firmware for mobile/backend developers and CI/CD without waiting on physical hardware, going further than typical protocol-level simulators.</li>
+          <li>A practical limitation raised: peripheral emulation can only approximate real, often poorly-documented hardware, so some suggested emulating higher up the stack would get more value for less effort.</li>
+          <li>Another builder shared a related browser-based drone flight simulator running real ESP32 flight-controller code as WebAssembly, sparking mutual interest between the two authors.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">12</span>
+        <span class="badge">Retrocomputing</span>
+      </div>
+      <h2><a href="https://github.com/antirez/c64-hw-simulator">The Commodore 64 hardware simulator: break chips and pins, see the results</a></h2>
+      <div class="meta">200 points · <a href="https://news.ycombinator.com/item?id=50100366">31 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Antirez (Salvatore Sanfilippo) built a pin-level circuit simulator of the actual Commodore 64 motherboard that models the real netlist and every chip's electrical behavior, rather than emulating "what a broken C64 looks like." You can lift pins, short them, pull chips, or open resistors, and watch the resulting garbage emerge purely from simulated circuit behavior — useful both for learning how the C64 really works and for diagnosing real broken boards before desoldering. It builds on floooh's pin-accurate chip emulators as its core components.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Multiple commenters were delighted by the craftsmanship and saw genuine diagnostic value for the retrocomputing repair community.</li>
+          <li>The most-discussed limitation was speed: the simulation runs well below real-time even on strong modern hardware, which one commenter attributed to unoptimized code rather than any fundamental limit, estimating a 100x speedup is achievable.</li>
+          <li>A philosophical tangent asked where to draw the line on simulation fidelity — electromagnetic interference, induction, RF effects — with agreement that would require simulating semiconductor physics itself.</li>
+          <li>Someone suggested this is evidence for why FPGAs remain relevant: modern CPUs still struggle to brute-force certain real-time circuit simulations.</li>
+          <li>A practical feature request came from an actual C64 repair hobbyist: support for diagnostic cartridges and a specific capacitor timing fix some boards need.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">13</span>
+        <span class="badge">Sci-Fi &amp; Culture</span>
+      </div>
+      <h2><a href="https://dune.fandom.com/wiki/Butlerian_Jihad">Butlerian Jihad</a></h2>
+      <div class="meta">367 points · <a href="https://news.ycombinator.com/item?id=50127274">255 comments</a> · dune.fandom.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The Butlerian Jihad is the foundational historical event in Frank Herbert's Dune universe: a human uprising that destroyed "thinking machines" after AI came to dominate, and in some accounts turn against, humanity. Its legacy is the Imperium's absolute ban on computers, which gave rise to Mentats (human computers) and the Bene Gesserit's mental disciplines as replacements for the banned technology — a frequently-cited parable in AI-safety discussions, which is presumably why the wiki page trended on HN.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters noted the topic surfaces on HN constantly as an AI-risk analogy, with some arguing it's less a deep exploration of AI danger than a plot device Herbert uses to justify Mentats.</li>
+          <li>A detailed thread compared Dune's anti-AI stance to other sci-fi universes — Iain M. Banks' Culture novels and Warhammer 40K's explicit theological ban on AI — debating which take on machine intelligence is most prescient.</li>
+          <li>Several shared favorite in-universe quotes about greatness and power, tying Dune's themes to current anxieties about AI and authority.</li>
+          <li>One sub-thread got into lore details about exactly who fought whom, noting prequel novels explore this further than the original book.</li>
+          <li>A claim about an active real-world "Butlerian Jihad" group disabling e-scooters and defacing things in Phoenix drew interest as an odd real-world echo of the fictional movement.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">14</span>
+        <span class="badge">Nature</span>
+      </div>
+      <h2><a href="https://www.theatlantic.com/science/2026/10/giant-african-snails-florida-invasion/688850/">Nine-Inch Snails</a></h2>
+      <div class="meta">118 points · <a href="https://news.ycombinator.com/item?id=50125545">64 comments</a> · theatlantic.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The Atlantic's "Nine-Inch Snails" covers Florida's long-running invasive giant African land snail problem. The snails actually grow to about eight inches, not the headline's nine, and have worried Florida agricultural authorities since 1969. They're a serious pest: voracious plant-eaters, prolific breeders, and carriers of a parasite that can cause meningitis in humans, prompting repeated quarantine and eradication campaigns.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The headline itself, playing on the band Nine Inch Nails, drew the most comment, with readers praising the pun and the article's own self-aware acknowledgment that it's stretching eight inches to nine for effect.</li>
+          <li>One commenter shared a firsthand account of a similar giant-snail invasion in 1980s Bombay, describing how fast the population exploded from a few sightings to "suddenly everywhere."</li>
+          <li>Paywall complaints were common, met with the usual archive.is workaround suggestions and a reader-shared gift link.</li>
+          <li>Several lighthearted tangents riffed on the Nine Inch Nails connection and the article's graphic.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">15</span>
+        <span class="badge">Software Bugs</span>
+      </div>
+      <h2><a href="https://github.com/openai/codex/issues/25921">Codex Desktop continuously generates Crashpad pending dumps</a></h2>
+      <div class="meta">141 points · <a href="https://news.ycombinator.com/item?id=50133231">63 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A GitHub issue reports that OpenAI's Codex Desktop app on macOS leaks disk space endlessly via its Crashpad crash-reporting subsystem, generating paired dump/sidecar files without any bound, rotation, or upload — one user saw 4.9GB and 54,000-plus files accumulate in a single day, another reported 59GB before hitting filesystem limits. The app stays fully usable while this happens, so most users wouldn't notice until their disk fills up; deleting the pending folder only provides temporary relief since new pairs reappear immediately.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The thread broadened into a general complaint about coding agents leaving behind enormous disk detritus — build artifacts, screenshots, orphaned worktrees — sometimes consuming tens or hundreds of gigabytes.</li>
+          <li>Practical mitigations shared included copy-on-write git worktrees, aggressive tmpfs cleanup jobs, disabling swap so the OOM killer intervenes, and running agent sessions in a cgroup killed on completion.</li>
+          <li>A sarcastic thread asked why a company claiming to be close to solving Navier-Stokes with AI can't fix a basic crash-reporter leak, with replies noting flashy research gets funded while mundane bugs don't.</li>
+          <li>Commenters specifically called out Codex, versus Claude Code or Antigravity, as unusually prone to filling disk with unnecessary artifacts like validation tests.</li>
+          <li>A few recommended disk-usage tools as practical stopgaps for anyone running agentic coding tools regularly.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">16</span>
+        <span class="badge">Game Dev</span>
+      </div>
+      <h2><a href="https://frozenfractal.com/blog/2026/10/12/around-the-world-34-a-pretty-sky/">Rendering pretty sky in Around The World game</a></h2>
+      <div class="meta">152 points · <a href="https://news.ycombinator.com/item?id=50119315">11 comments</a> · frozenfractal.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A devlog for "Around The World," an indie sailing/exploration game built in Godot, details fixes to cloud and sky rendering. The developer found that POVray, used to precompute a cloud-lighting table, doesn't actually simulate multiple light scattering, so he wrote his own Monte Carlo ray tracer in Rust to generate a more physically accurate table, producing softer, brighter cloud lighting. He also fixed clouds not picking up ambient sky color by flipping surface normals to sample indirect light from above, and improved atmospheric scattering by reordering the ray-march math, fixing an unnaturally yellow horizon.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Several commenters were charmed by the devlog format and the overall concept of a kind, non-exploitative exploration/sailing game.</li>
+          <li>One reader pointed to Ace Combat 8's volumetric cloud rendering as another strong recent example, especially impressive in VR.</li>
+          <li>Multiple readers working on their own Godot sailing/ocean games said the techniques were directly relevant to problems they're solving, and asked follow-up questions.</li>
+          <li>A tangent connected the "light scattering accuracy" theme to film-simulation photography trends, where similarly subtle color-shift tricks have gone viral.</li>
+          <li>Someone recommended the game Sailwind as a similar existing title worth checking out while waiting for this one.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">17</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://leangineer.com/blog/realworld-in-lean/">I built the RealWorld app in Lean 4</a></h2>
+      <div class="meta">95 points · <a href="https://news.ycombinator.com/item?id=50088748">17 comments</a> · leangineer.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author built the full "RealWorld" reference app (a Medium-clone with official end-to-end test suites) entirely in Lean 4, frontend included via the Datastar framework, to test whether Lean — mostly known as a proof assistant — is viable for ordinary web development now that it has an HTTP server, Postgres driver, and supporting libraries. Framed like a math paper with formal "theorems," the implementation passed both official test suites and came in shorter than equivalent TypeScript, Go, or C# implementations, though the author is candid that production-readiness is only partial.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The strongest praise centered on Lean 4 itself: several argued it's a genuinely great general-purpose language (a "super Haskell") beyond its proof-assistant reputation, with dependent types useful for regular programming too.</li>
+          <li>Comparisons flew to Agda, Idris 2, Rocq, and F*, with mixed experiences on tooling maturity and test/mutation-testing support, largely immature across the board.</li>
+          <li>One commenter building a language compiler in Lean reported horrific compile times and a heavy Mathlib dependency, though valued Lean for formally verifying their borrow checker.</li>
+          <li>Readers asked for performance benchmarks and more theorems tied to actual business logic, wanting the correctness benefits demonstrated more concretely.</li>
+          <li>Several were impressed the library ecosystem has matured enough to make this feasible at all, calling it a notable step forward from a year ago.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">18</span>
+        <span class="badge">Policy &amp; Security</span>
+      </div>
+      <h2><a href="https://github.com/valimised/ivxv">Source code of the Estonian online voting system</a></h2>
+      <div class="meta">216 points · <a href="https://news.ycombinator.com/item?id=50127586">202 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Estonia's State Electoral Office publishes the source code of IVXV, its legally-binding online voting system, specifically for public review. The repo isn't used for active development but is kept in sync with the code actually used in elections, with real development supervised separately by the state.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The biggest thread was epistemic: how does a voter verify their individual vote was counted correctly, with proposals ranging from cryptographic receipts and private-set-intersection techniques to the counterpoint that paper elections can't be perfectly verified either.</li>
+          <li>Paper-ballot advocates argued their security comes from decentralization and transparency, making large-scale rigging require coordinating fraud across many separate locations — a property online systems lack.</li>
+          <li>Several argued the deeper issue isn't cryptographic correctness but trust and legitimacy: elections need outcomes the losing side believes in, and a "black box" digital system is harder to make legible to ordinary voters.</li>
+          <li>An Estonian commenter gave a personal, ambivalent take: the system works well now given high trust in government, but they worry what happens once that trust erodes, since digital systems may be harder to "recover" than paper ones.</li>
+          <li>A reference to the US-based ElectionGuard project came up as another real-world cryptographic voting effort, with pushback that "used in real elections" doesn't by itself prove security.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">19</span>
+        <span class="badge">Security</span>
+      </div>
+      <h2><a href="https://twitter.com/opencode/status/2111516673953935833">OpenCode Hacked: User credentials leaked</a></h2>
+      <div class="meta">879 points · <a href="https://news.ycombinator.com/item?id=50133401">164 comments</a> · twitter.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">OpenCode, the open-source coding agent, disclosed a security breach affecting 1.4% of OpenCode Console users, initially describing it as related to a "large-scale distillation attack." A follow-up message to affected users clarified the actual root cause: unauthorized access to a legacy system being decommissioned exposed third-party provider API keys (OpenAI, Anthropic, etc.) stored in user workspaces, and recommended users revoke and rotate those keys immediately.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many were confused or skeptical about the "distillation attack" framing, since the actual disclosed cause was simpler and more mundane: leaked API keys from a legacy system.</li>
+          <li>A vocal contingent said they'd warned about OpenCode's data-handling practices months earlier, accusing the maintainer of having previously dismissed those concerns.</li>
+          <li>Several asked why an open-source CLI tool needs to hold or proxy users' third-party API keys on a server at all, with billing/metering suspected but unconfirmed as the reason.</li>
+          <li>There was visible frustration, including users asking about compensation for leaked funds, and confusion about why some early warning comments were flagged, generally attributed to automated flagging rather than coordinated suppression.</li>
+          <li>Commenters distinguished between concerns about the opencode CLI itself versus this incident, which specifically affected the hosted "OpenCode Console" cloud service.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">20</span>
+        <span class="badge">Security &amp; Hardware</span>
+      </div>
+      <h2><a href="https://adepts.of0x.cc/eufy-homestation2-firmware/">A story of WiFi secrets, UART lockdowns and a damaged flash memory chip</a></h2>
+      <div class="meta">88 points · <a href="https://news.ycombinator.com/item?id=50119751">6 comments</a> · adepts.of0x.cc</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A hardware security researcher continues their Eufy HomeBase 2 teardown series, extracting the device's firmware by desoldering its flash chip after in-circuit reads proved unreliable, reverse-engineering the algorithm that generates the device's management WiFi password, and bypassing a locked-down UART debug interface by reflashing a backdoored U-Boot bootloader to finally get a shell.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Readers appreciated the writeup's distinctive, irreverent writing style, praising the personality and old-school hacker-zine voice as something missing in an era of flatter, more AI-generated-feeling technical writing.</li>
+          <li>One commenter specifically thanked the author for continuing to write for the love of it, encouraging them to keep going.</li>
+          <li>A brief aside compared the researcher/brother-in-law teardown partnership to two software engineers in a relationship reviewing each other's work.</li>
+          <li>The thread was short overall, with positive reception and no major technical disputes raised.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">21</span>
+        <span class="badge">DevOps</span>
+      </div>
+      <h2><a href="https://blog.davidv.dev/posts/first-contact-with-k8s/">A skeptic's first contact with Kubernetes (2024)</a></h2>
+      <div class="meta">126 points · <a href="https://news.ycombinator.com/item?id=50127572">70 comments</a> · blog.davidv.dev</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A long-time infrastructure engineer who avoided Kubernetes for years out of vague skepticism wrote up what he actually learned, arguing most tutorials over-explain components without explaining why they exist. He frames Kubernetes' real value around two ideas: generic control loops that continuously drive toward a desired state, and the Services abstraction — stable virtual IPs load-balanced via per-node netfilter rules — arguing these two concepts explain most of what makes Kubernetes distinctive versus "classic" infrastructure.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The most popular reaction was appreciation for the clear, jargon-light writing, with many saying it explained the "why" better than typical Kubernetes docs.</li>
+          <li>A large side-debate erupted over Helm and YAML templating, with near-universal complaints about string-interpolated YAML, and recommendations for alternatives like Kustomize, jsonnet, Pkl, or KCL — though none seen as dominant yet.</li>
+          <li>Several noted, half-joking, that LLMs have made tracing bugs through layers of YAML-rendering indirection much more tolerable than it used to be.</li>
+          <li>A tangent on why JSON isn't used instead of YAML for machine-generated manifests got genuine engagement, with most agreeing YAML's advantage is human readability, not machine generation.</li>
+          <li>One commenter broadened the critique to infrastructure tooling culture generally, arguing it lags behind mainstream software practices and over-relies on shell scripts and git-as-database.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">22</span>
+        <span class="badge">Programming</span>
+      </div>
+      <h2><a href="https://www.lf-lang.org/">Intuitive concurrent programming in any language</a></h2>
+      <div class="meta">130 points · <a href="https://news.ycombinator.com/item?id=50103255">36 comments</a> · lf-lang.org</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Lingua Franca is a research coordination language, from UC Berkeley and several partner universities, for writing deterministic, timed, multi-threaded, and distributed programs by composing "reactors" — reactive components with explicit timing semantics — while writing the actual reaction bodies in C, C++, Python, TypeScript, or Rust. It eliminates race conditions by construction and statically detects causality loops, aiming to remove manual thread, lock, and message-passing bookkeeping from concurrent and distributed systems programming.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The most common critique was that the landing page doesn't make a compelling case with a concrete before/after example contrasting ordinary concurrency pain with how Lingua Franca removes it.</li>
+          <li>The homepage's "rock paper scissors" example was itself criticized as confusing, with suggestions for how to restructure it more clearly.</li>
+          <li>A recurring question was how it compares to Erlang/Actors; the consensus was that determinism-by-construction is the core differentiator, where Erlang can be non-deterministic without care.</li>
+          <li>One commenter liked that its explicit named "ports" between reactors borrow from flow-based programming, calling that one of its strongest and most underused ideas in mainstream languages.</li>
+          <li>A critical voice argued the deeper unsolved problem in concurrent systems is writing correct asynchronous business logic, not the reactor/event-loop model itself, pointing to a different project as addressing that angle.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">23</span>
+        <span class="badge">ML Systems</span>
+      </div>
+      <h2><a href="https://jedrzej.maczan.pl/2025_11_21_dp_knapsack_sliding_hirschberg">0/1 Knapsack Problem in PyTorch</a></h2>
+      <div class="meta">49 points · <a href="https://news.ycombinator.com/item?id=50088767">6 comments</a> · jedrzej.maczan.pl</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author built a new memory-planning solver for PyTorch, dp_knapsack_sliding_hirschberg, that cuts peak RAM during activation-memory planning by 20x versus the current default. PyTorch's compiler uses a 0/1-knapsack formulation to decide which intermediate activations to keep in memory versus recompute during training; the post explains the classic DP knapsack algorithm and backtracking, then applies a sliding-window trick and the Hirschberg trick — left as a TODO by a PyTorch maintainer — to shrink the DP table's memory footprint without changing the exact solution.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A commenter recalled that approximate knapsack solutions (bucketing/scaling item weights) can trade a small, provable error bound for much less memory, confirmed by others as a known fully polynomial-time approximation scheme dating to 1979.</li>
+          <li>One reader dug into the actual PyTorch source to understand how memory values are quantized to integers for the DP table, flagging a unit-ambiguity readability issue in the existing code.</li>
+          <li>Another commenter pointed to the "combo" algorithm as the practical go-to for solving 0/1 knapsack fast at larger scale in general.</li>
+          <li>Overall discussion was technical and low-drama, focused on appreciating the explanation of a fairly obscure but real compiler-internals optimization.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">24</span>
+        <span class="badge">Privacy</span>
+      </div>
+      <h2><a href="https://www.engadget.com/2288729/mapquest-will-now-show-you-where-flock-cameras-are-in-your-neighborhood/">MapQuest will now show you where Flock cameras are in your neighborhood</a></h2>
+      <div class="meta">308 points · <a href="https://news.ycombinator.com/item?id=50129947">54 comments</a> · engadget.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">MapQuest, enjoying a surprise resurgence after refusing to rename Lake Ontario unlike Google and Apple Maps, added a toggleable map layer showing known locations of automated license-plate-reader and surveillance cameras, including Flock Safety and several other vendors, sourced from crowdsourced OpenStreetMap data.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Many framed this, together with the Lake Ontario stance, as part of a broader MapQuest comeback story, with some saying the naming controversy specifically drove them back to the app.</li>
+          <li>The data provenance sparked discussion: locations come from OpenStreetMap crowdsourcing, which several noted is vulnerable to vandalism or false entries since anyone can mark a camera.</li>
+          <li>A side debate broke out over whether Google and Apple folded too quickly to a government renaming request, versus MapQuest's stance reflecting genuine principle.</li>
+          <li>Some appreciated the practical civil-liberties use case of knowing how pervasive surveillance infrastructure already is, even if you can't easily avoid the cameras day to day.</li>
+          <li>A tangent half-seriously asked whether similar tooling exists for wearable cameras like Meta's smart glasses, turning the surveillance question back on individuals.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">25</span>
+        <span class="badge">Life &amp; Culture</span>
+      </div>
+      <h2><a href="https://www.derekwessman.com/blog-1/natural">I Became a Citizen of Japan</a></h2>
+      <div class="meta">209 points · <a href="https://news.ycombinator.com/item?id=50133150">149 comments</a> · derekwessman.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A long-term American resident of Japan recounts his roughly decade-plus journey to naturalize as a Japanese citizen, describing an intentionally opaque, document-heavy process — exhaustive personal, family, financial, and employment history, submitted bilingually with certified translations — designed to be slow and partly subjective. He reflects that the difficulty and scrutiny, while frustrating, impressed on him the seriousness of citizenship as a commitment rather than a convenience.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A pointed debate emerged over naturalizing without first obtaining permanent residency, with some readers finding this strange and others clarifying Japan's rules (roughly 5 years for naturalization vs. ~10 for PR) make skipping PR entirely legal and fairly common.</li>
+          <li>Several contrasted this with other countries' lower-friction processes, with some saying they'd rule out Japan given the extensive lifetime address/employment history requirements.</li>
+          <li>A broader thread connected this to a described 2025 tightening of visa/naturalization rules across several countries, framed as part of a global trend toward more restrictive immigration policy.</li>
+          <li>One reader singled out the author's reflection that the system's difficulty "worked correctly" to filter out those not truly committed, as the most resonant part of the piece.</li>
+          <li>A minor, humorous side-thread discussed the author's unusual choice to render "interrogation" with strikethrough-style combining characters instead of an HTML tag.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">26</span>
+        <span class="badge">Security &amp; Hardware</span>
+      </div>
+      <h2><a href="https://courk.cc/rp2350-challenge-laser">Laser Fault Injection on a Budget: RP2350 Edition (2025)</a></h2>
+      <div class="meta">62 points · <a href="https://news.ycombinator.com/item?id=50101649">17 comments</a> · courk.cc</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">The author built a custom, relatively low-cost laser fault-injection rig to attack the Raspberry Pi RP2350's Secure Boot feature as part of the 2024 DEFCON RP2350 Hacking Challenge, successfully extracting a "secret" value from locked-down OTP memory. Because the chip's glitch detectors block simple voltage-based fault injection, the author instead focused an infrared laser precisely enough to flip bits in specific Boot ROM logic while avoiding the monitored areas, and documents the full optical and electronics platform so others can replicate it.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Commenters were most impressed by the DIY precision positioning platform, built cheaply from off-the-shelf parts in what appears to be a home garage setup, with pointers to related open-source precision-stage projects.</li>
+          <li>One commenter with fault-injection experience explained the attack works specifically because the targeted Boot ROM code lacked full fault-hardening; more aggressive hardening would have defeated this hardware.</li>
+          <li>A technical side-thread discussed improving the laser driver board's efficiency by driving the diode more directly instead of wasting pulse energy in a series resistor.</li>
+          <li>Someone linked a related recent talk covering similar RP2350 secure-boot bypass territory.</li>
+          <li>A broader question about real-world applications of laser fault injection drew a detailed explanation of how glitching memory-clear operations can recover otherwise-protected cryptographic key material.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">27</span>
+        <span class="badge">Show HN</span>
+      </div>
+      <h2><a href="https://github.com/Kapendev/parin">Show HN: Parin – A 2D game engine between raylib and Godot, written in Dlang</a></h2>
+      <div class="meta">64 points · <a href="https://news.ycombinator.com/item?id=50118098">16 comments</a> · github.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Parin is a lightweight, code-first 2D game engine for the D programming language, positioned between a minimal library like raylib and a full engine like Godot — no mandated architecture, optional garbage collection, and built-in essentials like animation, pathfinding, tilemaps, and a pixel-perfect physics engine, with support for Web, Windows, Linux, and macOS. It's built on a smaller utility library called Joka and has been developed solo over about two years.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>The author's own top comment framed it simply as a two-year solo passion project, and reception was warm, with people praising the execution and the author's game showcase portfolio.</li>
+          <li>The most substantive thread was about D itself: several commenters noted real enthusiasm for the language but frustration with practical gaps, especially poor modern Apple Silicon toolchain support.</li>
+          <li>A side-discussion emerged about weaker mobile support across newer systems languages generally compared to established options, with some sharing workarounds that worked better than expected.</li>
+          <li>A commenter recommended an interview with a developer who built his own D-based engine for a commercial game, as supporting evidence that D is viable for shipped game projects.</li>
+          <li>Light curiosity from onlookers about why D specifically, with the author's "small library, not big engine" philosophy resonating with several.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">28</span>
+        <span class="badge">Retro Culture</span>
+      </div>
+      <h2><a href="http://vintagecassettes.com/">Vintage Cassettes: 1963-2010</a></h2>
+      <div class="meta">66 points · <a href="https://news.ycombinator.com/item?id=50094887">9 comments</a> · vintagecassettes.com</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">A long-running hobbyist archive site catalogs nearly 2,700 unique sealed compact cassette tapes across major brands, including Maxell, Sony, TDK, and BASF, from 1963 to the mid-2000s, organized by brand, market, and era, with a breakdown of each major brand's tape-formulation lineups during the format's peak years.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>Dang noted this exact site was previously discussed on HN back in 2018, prompting some nostalgia about how niche hobbyist sites persist for years.</li>
+          <li>Several commenters shared personal connections to specific tapes they still own, including favorites prized for sound quality and durability, plus old home-brewed games recorded onto cassette for vintage computers.</li>
+          <li>A tangent explored the broader "retro media" design aesthetic trend, with links to animation work, archival social accounts, and modern product pages styled after vintage packaging.</li>
+          <li>One commenter shared a related side-project generating printable cassette J-cards from a self-hosted music server, inviting others into a niche but enthusiastic hobby overlap.</li>
+          <li>Overall tone was warmly nostalgic with no real disagreement, several readers saying the hobby brings back "all the good memories."</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary class="card-head">
+      <div class="card-top">
+        <span class="rank">29</span>
+        <span class="badge">Web Standards</span>
+      </div>
+      <h2><a href="https://doctor-seo.net/en/blog/news/chrome-edge-removing-xslt/">Chrome and Edge are removing XSLT: what breaks and what does not</a></h2>
+      <div class="meta">113 points · <a href="https://news.ycombinator.com/item?id=50134617">138 comments</a> · doctor-seo.net</div>
+    </summary>
+    <div class="card-body">
+      <p class="summary">Chrome, and by extension Chromium-based Edge, are removing native browser support for XSLT, the XML-era technology for client-side transformation of XML documents into HTML, citing tiny modern usage, security concerns tied to the aging libxslt library, and maintenance burden. Microsoft has said it won't maintain the feature separately in Edge. The change mainly affects legacy XML/RSS-styling setups that relied on in-browser XSLT rendering, which will now need a different transformation approach.</p>
+      <div class="discussion">
+        <h3>What the comments said</h3>
+        <ul>
+          <li>A long, nostalgic thread mourned the death of the early-2000s XML/XHTML/XSLT vision, with several arguing the W3C's ideas were directionally right but let down by bad tooling and an unreadable XSLT 1.0 spec that no browser ever updated past.</li>
+          <li>Commenters recalled using XSLT to style RSS feeds and OPML files for human viewing while keeping the same file machine-readable, calling that dual-purpose use case elegant and now effectively lost.</li>
+          <li>Several pointed out Edge is just Chromium under the hood, so "Edge is also removing it" isn't really an independent decision, though Microsoft retains discretion to defer upstream changes.</li>
+          <li>A link to the relevant WHATWG GitHub discussion was shared, including a competing modern proposal for simpler client-side templating gaining more traction than defending XSLT.</li>
+          <li>The linked article's own site struggled under HN traffic with 503 errors, prompting readers to share an Internet Archive mirror instead, drawing wry commentary about a static site failing to handle load the Archive handled fine.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <footer>Generated 2026-10-18 12:17 UTC · summaries by Claude · source: news.ycombinator.com</footer>
+</div>
+<script>
+function setAll(open) {
+  document.querySelectorAll('details.card').forEach(d => d.open = open);
+}
+</script>
+</body>
+</html>
