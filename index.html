@@ -18,9 +18,6 @@
       --quote-border: #3a3a46;
     }
   }
-  /* Density note: the collapsed list is the primary view — it should read like
-     a tight index you can scan in one screen, so headers are compact. Expanded
-     prose keeps a comfortable size and line-height, since that's read closely. */
   * { box-sizing: border-box; }
   body {
     margin: 0; background: var(--bg); color: var(--text);
@@ -51,8 +48,6 @@
   }
   details[open] summary.card-head::after { transform: rotate(90deg); color: var(--accent); }
   summary.card-head:hover::after { color: var(--accent); }
-  /* Rank, badge and headline share one line; the headline wraps under them
-     only when it genuinely needs to, which keeps most rows a single line. */
   .card-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
   .rank { color: var(--accent); font-weight: 700; font-size: 14px; min-width: 20px; }
   .badge {
@@ -109,7 +104,7 @@
 <div class="wrap">
   <header>
     <h1>Hacker News Daily Digest</h1>
-    <div class="sub">Top 30 stories from <a href="https://news.ycombinator.com/front">the front page</a> of October 21, 2026 · <a href="digests/hn-digest-2026-10-21.html">permalink</a></div>
+    <div class="sub">Top 30 stories from <a href="https://news.ycombinator.com/front">the front page</a> of October 22, 2026 · <a href="digests/hn-digest-2026-10-22.html">permalink</a></div>
   </header>
 
   <div class="controls">
@@ -119,11 +114,11 @@
   </div>
 
   <div id="archive-panel" hidden>
-    <p class="archive-note">90 archived digests · highlighted days are clickable</p>
+    <p class="archive-note">91 archived digests · highlighted days are clickable</p>
     <div class="months">
       <section class="month">
         <h2>October 2026</h2>
-        <div class="grid"><div class="dow">S</div><div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div><a class="day" href="digests/hn-digest-2026-10-01.html" title="Digest for 2026-10-01">1</a><div class="day">2</div><a class="day" href="digests/hn-digest-2026-10-03.html" title="Digest for 2026-10-03">3</a><a class="day" href="digests/hn-digest-2026-10-04.html" title="Digest for 2026-10-04">4</a><a class="day" href="digests/hn-digest-2026-10-05.html" title="Digest for 2026-10-05">5</a><a class="day" href="digests/hn-digest-2026-10-06.html" title="Digest for 2026-10-06">6</a><div class="day">7</div><a class="day" href="digests/hn-digest-2026-10-08.html" title="Digest for 2026-10-08">8</a><a class="day" href="digests/hn-digest-2026-10-09.html" title="Digest for 2026-10-09">9</a><a class="day" href="digests/hn-digest-2026-10-10.html" title="Digest for 2026-10-10">10</a><a class="day" href="digests/hn-digest-2026-10-11.html" title="Digest for 2026-10-11">11</a><a class="day" href="digests/hn-digest-2026-10-12.html" title="Digest for 2026-10-12">12</a><div class="day">13</div><a class="day" href="digests/hn-digest-2026-10-14.html" title="Digest for 2026-10-14">14</a><a class="day" href="digests/hn-digest-2026-10-15.html" title="Digest for 2026-10-15">15</a><div class="day">16</div><a class="day" href="digests/hn-digest-2026-10-17.html" title="Digest for 2026-10-17">17</a><div class="day">18</div><div class="day">19</div><div class="day">20</div><a class="day" href="digests/hn-digest-2026-10-21.html" title="Digest for 2026-10-21">21</a><div class="day today">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div></div>
+        <div class="grid"><div class="dow">S</div><div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div><a class="day" href="digests/hn-digest-2026-10-01.html" title="Digest for 2026-10-01">1</a><div class="day">2</div><a class="day" href="digests/hn-digest-2026-10-03.html" title="Digest for 2026-10-03">3</a><a class="day" href="digests/hn-digest-2026-10-04.html" title="Digest for 2026-10-04">4</a><a class="day" href="digests/hn-digest-2026-10-05.html" title="Digest for 2026-10-05">5</a><a class="day" href="digests/hn-digest-2026-10-06.html" title="Digest for 2026-10-06">6</a><div class="day">7</div><a class="day" href="digests/hn-digest-2026-10-08.html" title="Digest for 2026-10-08">8</a><a class="day" href="digests/hn-digest-2026-10-09.html" title="Digest for 2026-10-09">9</a><a class="day" href="digests/hn-digest-2026-10-10.html" title="Digest for 2026-10-10">10</a><a class="day" href="digests/hn-digest-2026-10-11.html" title="Digest for 2026-10-11">11</a><a class="day" href="digests/hn-digest-2026-10-12.html" title="Digest for 2026-10-12">12</a><div class="day">13</div><a class="day" href="digests/hn-digest-2026-10-14.html" title="Digest for 2026-10-14">14</a><a class="day" href="digests/hn-digest-2026-10-15.html" title="Digest for 2026-10-15">15</a><div class="day">16</div><a class="day" href="digests/hn-digest-2026-10-17.html" title="Digest for 2026-10-17">17</a><div class="day">18</div><div class="day">19</div><div class="day">20</div><a class="day" href="digests/hn-digest-2026-10-21.html" title="Digest for 2026-10-21">21</a><a class="day" href="digests/hn-digest-2026-10-22.html" title="Digest for 2026-10-22">22</a><div class="day today">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div></div>
       </section>
       <section class="month">
         <h2>September 2026</h2>
@@ -146,18 +141,18 @@
         <span class="rank">1</span>
         <span class="badge">Security</span>
       </div>
-      <h2><a href="https://github.com/php/php-src/releases/tag/php-8.2.35">PHP 8.2.35</a></h2>
-      <div class="meta">1,048 points · <a href="https://news.ycombinator.com/item?id=50180873">552 comments</a> · github.com</div>
+      <h2><a href="https://emudhra.com/en/press-release/emudhra-to-exit-global-ssl-tls-certificate-business">eMudhra to exit global SSL/TLS certificate business</a></h2>
+      <div class="meta">1,096 points · <a href="https://news.ycombinator.com/item?id=50195110">702 comments</a> · emudhra.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">PHP shipped 8.2.35 (alongside 8.3.36, 8.4.27, and 8.5.12) as an emergency security release fixing two critical, unauthenticated remote-code-execution vulnerabilities (CVE-2026-109618 and CVE-2026-109619) rooted in out-of-memory handling and stale global state. Confirmed RCE was demonstrated against both Apache mod_php and PHP-FPM, and there are no complete mitigations short of updating immediately. PHP 8.2 itself reaches end-of-life on December 31, 2026.</p>
+      <p class="summary">eMudhra, an Indian certificate authority, announced it is voluntarily exiting the global SSL/TLS certificate business following a recent security incident involving its CAs. The company says it revoked the affected intermediate CAs within 14 hours, that no end-entity certificates were abused and no data was breached, and that SSL/TLS is only about 1% of its revenue — so it will refocus on its core PKI, eSignature, and identity businesses. It plans a "seamless" transition for existing customers via free replacement certificates and says it will complete its remaining obligations to browser root programs, including a full root-cause report.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Commenters raced to share interim mitigations — disabling <code>session.upload_progress</code>, blocking multipart uploads at the web server — while waiting on distro packages, though one such writeup was itself accused of being unverified AI output.</li>
-          <li>Distro/package maintainers reported fast turnaround; one user said updates were live within 18 minutes of release.</li>
-          <li>A thread formed around the actual fix commit, with commenters both impressed and dismayed by the manual, C-style OOM checks (<code>goto oom_nodeset</code>) sprinkled throughout the patch.</li>
-          <li>Confusion briefly spread when GitHub showed the release tag as "not belonging to any branch," which some initially read as a sign of a botched release before it was chalked up to a tagging quirk.</li>
+          <li>Many commenters doubt that "withdrawing" actually repairs eMudhra's reputation, joking it will simply rebrand and quietly re-enter the CA business later.</li>
+          <li>Others point to a reportedly scathing list of questions the Chrome/Mozilla root programs sent eMudhra as evidence of how serious the underlying failure was.</li>
+          <li>Some blame the CA/Browser Forum and root programs themselves for ever trusting a company with this track record in the first place.</li>
+          <li>A side thread speculates about the geopolitical optics of an India-based CA being singled out, though others argue the failure is structural and could have happened to any CA anywhere.</li>
         </ul>
       </div>
     </div>
@@ -167,20 +162,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">2</span>
-        <span class="badge">Security</span>
+        <span class="badge">Policy</span>
       </div>
-      <h2><a href="https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/">Today's PHP security release, and how we're strengthening security</a></h2>
-      <div class="meta">765 points · <a href="https://news.ycombinator.com/item?id=50182987">377 comments</a> · thephp.foundation</div>
+      <h2><a href="https://quad9.net/news/blog/au-revoir-france/">Quad9 to exit France</a></h2>
+      <div class="meta">1,265 points · <a href="https://news.ycombinator.com/item?id=50195959">425 comments</a> · quad9.net</div>
     </summary>
     <div class="card-body">
-      <p class="summary">The PHP Foundation's follow-up post explains how the day's two critical RCE bugs were found and fixed: a 2024 external audit first hinted at the OOM issue, but work stalled for months due to the small security team's limited resources and inability to agree on a fix with acceptable tradeoffs. Independent reports from three different security firms in August 2026 made the full severity clear and triggered an all-hands, around-the-clock effort. The Foundation is candid that the original delay was "a structural failure" and describes new hires and a dedicated Ecosystem Security Team built since.</p>
+      <p class="summary">Quad9, the Swiss nonprofit DNS resolver, announced it will stop serving France on November 24 rather than comply with a French court order — won by broadcaster beIN — requiring it to block DNS resolution for certain domains. The court reduced the daily fine from €580,000 to €1,000, but Quad9 says compliance is technically impossible since it keeps no records tying users to jurisdictions, and argues that complying would set a precedent letting any country's courts dictate global DNS blocking. It stresses it doesn't condone piracy but believes resolvers are the wrong target for fighting it.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Much of the discussion centered on the chaotic embargo break: one commenter admitted to prematurely posting CVE details on HN after being wrongly told there was no embargo, and Chainguard published patched container images six hours ahead of the agreed release.</li>
-          <li>Many were scathing specifically about Chainguard, with several saying they'd never trust the company with an embargoed patch again.</li>
-          <li>A side-thread mocked a partner security firm that apparently rushed out a flashy marketing video — reportedly featuring anime-girl animation — after mistakenly believing the embargo had already broken.</li>
-          <li>Some questioned what real consequences exist for breaking disclosure embargoes, concluding it's mostly reputational damage.</li>
+          <li>Many compare punishing a recursive resolver to punishing a phone book for listing a criminal's number, and see Quad9 as an easy target precisely because it lacks Google- or Cloudflare-scale resources to fight back.</li>
+          <li>Commenters note this is really driven by beIN's sports-broadcasting rights, not French privacy regulators, and some are annoyed by off-topic tangents conflating this with unrelated cases.</li>
+          <li>A sub-thread digs into why "recursive" resolution is legally significant, concluding nearly all public resolvers are inherently recursive, so the framing may be an artifact of how the lawsuit was argued.</li>
+          <li>Some draw a cautionary parallel to other cases where blocking measures were deemed compliant yet a plaintiff circumventing them via VPN still led to contempt-of-court fines.</li>
         </ul>
       </div>
     </div>
@@ -190,20 +185,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">3</span>
-        <span class="badge">Security</span>
+        <span class="badge">AI &amp; ML</span>
       </div>
-      <h2><a href="https://www.php.net/archive/2026.php#2026-10-21-5">Security advisory: Critical remote code execution vulnerabilities, update now</a></h2>
-      <div class="meta">1,531 points · <a href="https://news.ycombinator.com/item?id=50172041">655 comments</a> · php.net</div>
+      <h2><a href="https://simedw.com/2026/10/21/world-model-terminal/">WorldTUI: I trained a 360M model to pretend to be a terminal</a></h2>
+      <div class="meta">562 points · <a href="https://news.ycombinator.com/item?id=50190363">174 comments</a> · simedw.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">The official php.net advisory details the same two CVEs, listing every at-risk configuration (PHP-FPM, mod_php, php-cgi, FrankenPHP, LiteSpeed) and offering partial mitigations like disabling <code>session.upload_progress</code> and capping <code>post_max_size</code>, while stressing that none of these fully close the holes. Given the severity, the security team also backported minimal fixes to the already end-of-life PHP 7.4, 8.0, and 8.1.</p>
+      <p class="summary">A developer fine-tuned a small 360M-parameter model (based on Qwen2.5-Coder-0.5B) to act as a terminal with no real shell or filesystem behind it — every keypress goes in, and the model predicts how the screen changes. It can run vim and tmux and even play snake while mostly remembering earlier state. Key tricks included a tiny custom token vocabulary, a cheap "COPY" operation for representing scrolling, and synthetic training data generated by recording real Docker-container terminal sessions complete with simulated personas and typos.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Commenters reported a proof-of-concept video circulating on social media showing a full remote shell obtained via a crafted URL, which many considered catastrophic given how widely vulnerable configurations are deployed.</li>
-          <li>Several suggested simply taking servers offline until patched rather than relying on the partial mitigations.</li>
-          <li>Debate broke out over whether the suggested <code>session.upload_progress.enabled = Off</code> mitigation is actually sufficient — a PHP core developer reportedly said it isn't, though no further detail was given.</li>
-          <li>Many worried specifically about cheap, unmanaged LAMP/WordPress hosting on VPS providers being the biggest blast radius.</li>
+          <li>Commenters connect this to the broader "world model" trend (Genie, Microsoft's WHAM for Quake II), calling it a clever, scaled-down take on the same idea applied to character grids instead of pixels.</li>
+          <li>Several ask what the practical point is given that real terminals exist, with replies ranging from "because it was there" to genuine interest in using cheap synthetic traces for pretraining research.</li>
+          <li>Some reminisce about earlier GPT-3-era experiments simulating shells, and the author confirms the model was trained across multiple screen resolutions.</li>
+          <li>A few are curious what would happen if the demo were exposed to internet scrapers and bots.</li>
         </ul>
       </div>
     </div>
@@ -213,20 +208,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">4</span>
-        <span class="badge">Business &amp; Policy</span>
+        <span class="badge">Hacking</span>
       </div>
-      <h2><a href="https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html">Meta ordered to pay $25B penalty in New Mexico Cambridge Analytica case</a></h2>
-      <div class="meta">608 points · <a href="https://news.ycombinator.com/item?id=50184820">344 comments</a> · cnbc.com</div>
+      <h2><a href="https://pepsipu.com/blog/2026-10-switch2-jailbreak-ns2jb/">Jailbreaking the Switch 2</a></h2>
+      <div class="meta">786 points · <a href="https://news.ycombinator.com/item?id=50192536">281 comments</a> · pepsipu.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">A New Mexico judge reduced a jury's $219.5 billion damages finding to $25 billion against Meta over misleading state residents about its data practices tied to the decade-old Cambridge Analytica scandal. The judge called Facebook's internal investigation into the scandal "willfully ineffective," citing pressure from senior leadership to limit costs. Meta says it will appeal, framing the ruling as effectively a "tax on speech."</p>
+      <p class="summary">A hacker, largely directing an AI coding agent (Codex), published what appears to be the first software-only jailbreak for the Nintendo Switch 2 on its current firmware. The exploit chain pivoted through a 32-bit integer overflow in SmileBASIC (a Switch 1 game) to gain initial code execution, then escalated to compromise system modules, enabling homebrew, save backups, and peripheral access. A Mario Kart World mod was built to demonstrate the capability.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>A recurring argument centered on US tort law and "nuclear verdicts," with some blaming trial lawyers and politicians for high damages while others countered that $25B is trivial for Meta and the real issue is the underlying misconduct.</li>
-          <li>Several noted the irony that New Mexico, by not joining the broader ~$17B multistate settlement, may end up with a far larger award — though it's still on appeal and could shrink.</li>
-          <li>Some pointed out this is just one of many Cambridge-Analytica-linked penalties over the years (SEC, FTC, class actions) and cautioned against conflating them.</li>
-          <li>A tangent argued Meta's role enabling violence in Myanmar is a far more serious matter than the original Cambridge Analytica scandal itself.</li>
+          <li>Many are struck by how much of the actual exploit engineering was agent-driven, with physical hardware harnesses (USB-connected KVMs, a Bluetooth light-switch flicker to press the power button) enabling round-the-clock automated hacking.</li>
+          <li>Commenters debate Nintendo's game-key-card practices versus Sony's and Microsoft's disc practices, disagreeing over whether cartridges still contain complete games.</li>
+          <li>Some predict game dumps and eventual Switch-2 emulation on other hardware will follow quickly now that the filesystem is readable, calling it a worst case for Nintendo.</li>
+          <li>A tangent recalls how fans previously extracted the Mario Kart World soundtrack through elaborate in-game audio phase-cancellation tricks — work this jailbreak may now make unnecessary.</li>
         </ul>
       </div>
     </div>
@@ -236,20 +231,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">5</span>
-        <span class="badge">Security</span>
+        <span class="badge">Hacking</span>
       </div>
-      <h2><a href="https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/">Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor</a></h2>
-      <div class="meta">551 points · <a href="https://news.ycombinator.com/item?id=50181114">179 comments</a> · safedep.io</div>
+      <h2><a href="https://github.com/oosexgang/hackios-xnu-kernel">Run full iOS 16.5 firmware on Android Devices</a></h2>
+      <div class="meta">463 points · <a href="https://news.ycombinator.com/item?id=50196718">171 comments</a> · github.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">A malicious LiteLLM 1.107.0 release on PyPI (and matching Docker images) shipped a credential stealer and backdoor hidden via a single injected line in the source distribution's build config, invisible in the public GitHub source. The implant ran on every Python process startup, harvesting SSH keys, cloud credentials, browser passwords, AI tool tokens, and LiteLLM's own proxy database secrets. The attacker got in using compromised GitHub CLI credentials from three developers and published through a lookalike repository.</p>
+      <p class="summary">HackiOS boots Apple's open-source XNU kernel from iOS 16.5 on Android phone hardware (tested on a POCO X5 Pro 5G) and in QEMU, running the real, unmodified iOS userland — SpringBoard, apps, and all — through a custom EFI loader, reimplemented drivers, and a Linux Wi-Fi compatibility layer. It's explicitly a research bench rather than a daily ROM: cellular and Bluetooth don't work, there's no Secure Enclave or App Store sign-in, and a session only lasts so long before needing a restart.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Commenters noted this is LiteLLM's second supply-chain compromise and called repeat incidents "malpractice" rather than forgivable.</li>
-          <li>Several listed it alongside a cluster of other incidents that same week (a Google Cloud outage, the eMudhra CA leak, the PHP RCEs) as evidence of an unusually bad week for infrastructure security.</li>
-          <li>Some used the thread to pitch or compare smaller, less-targeted LLM proxy alternatives, arguing lower popularity means a smaller attack surface.</li>
-          <li>A general resignation emerged that any sufficiently popular open-source dependency will eventually be targeted this way.</li>
+          <li>Several see this, alongside the Switch 2 jailbreak the same day, as part of a broader wave of AI-assisted reverse engineering suddenly making previously intractable console/OS-porting projects feasible.</li>
+          <li>Commenters debate whether this enables a GrapheneOS-style privacy fork of iOS, with pushback that without Apple's own upstream security support it can't match GrapheneOS's security model.</li>
+          <li>Some ask why target the older iOS 16.5 specifically; the guess is that later iOS versions tightened security enough to make porting much harder.</li>
+          <li>One thread wonders if this could eventually enable iOS app CI/testing without Mac hardware, pointing to a related existing project doing something similar.</li>
         </ul>
       </div>
     </div>
@@ -259,20 +254,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">6</span>
-        <span class="badge">Security</span>
+        <span class="badge">Fintech</span>
       </div>
-      <h2><a href="https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/">Eight Bits of Trust: eMudhra's CA keys cracked in milliseconds</a></h2>
-      <div class="meta">899 points · <a href="https://news.ycombinator.com/item?id=50177916">434 comments</a> · scotthelme.co.uk</div>
+      <h2><a href="https://www.taler.net/en/news/2026-13.html">Getting ready to operate GNU Taler in Germany</a></h2>
+      <div class="meta">327 points · <a href="https://news.ycombinator.com/item?id=50197404">140 comments</a> · taler.net</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Researcher Scott Helme found that eight of certificate authority eMudhra's intermediate CA private keys (on the P-384 elliptic curve) were trivially small numbers like 4, 56, and 115 instead of proper 384-bit random values, making them crackable in under a second. Because the certificates looked structurally valid, anyone who examined them since April 2025 — not just an attacker who "stole" something — could have recovered the keys, and most non-browser TLS clients (curl, package managers, CI pipelines) don't check revocation or Certificate Transparency, leaving them exposed even after the keys were revoked.</p>
+      <p class="summary">After its original partner bank, GLS Bank, backed out of becoming the regulated e-money issuer, the GNU Taler project announced it is forming a new company, Taler Operations AG, to apply to Germany's BaFin for an e-money institution license and operate Taler payments in euros. The post explains Taler's privacy model — buyers spend anonymously via blind-signature tokens, but deposits require a KYC'd identity — and asks for investors willing to commit at least €50,000 to fund the licensing process.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Many commenters were stunned at the sheer negligence, joking about how trivially weak the keys were ("isn't 4 only 2 bits?", "not even prime!").</li>
-          <li>Several pushed back on theories of malice, calling it almost certainly incompetence or laziness rather than an intentional backdoor.</li>
-          <li>A thread noted the real danger isn't browsers, which enforce CT and are already protected, but the vast invisible ecosystem of curl-pipe-sh installers, CI/CD pipelines, and IoT updaters that never check revocation.</li>
-          <li>One commenter recalled a past case where a CA automatically rejected a deliberately chosen low-value key, raising the question of why eMudhra's systems didn't catch this.</li>
+          <li>A long discussion unpacks Taler's actual privacy properties: spending is anonymous, but the seller and the initial deposit are tied to a verified identity, which several argue falls short of what people assume "privacy-preserving" means.</li>
+          <li>Skeptics argue EU KYC/AML regulation will always blunt meaningful payment privacy, similar to what happened with cryptocurrency on-ramps.</li>
+          <li>Some think GNU Taler has been overtaken by crypto stablecoins for instant, low-fee payments, while others reject blockchain as a solution to the same problem.</li>
+          <li>A comparison to Wero — the bank-backed EU payment system that's fragmented across different banks' apps in Germany — suggests Taler's unified approach could be an advantage if it ever actually launches.</li>
         </ul>
       </div>
     </div>
@@ -282,20 +277,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">7</span>
-        <span class="badge">Databases</span>
+        <span class="badge">Music</span>
       </div>
-      <h2><a href="https://duckdb.org/2026/10/21/announcing-duckdb-200">DuckDB 2.0.0 LTS "Cinnamon Teal"</a></h2>
-      <div class="meta">436 points · <a href="https://news.ycombinator.com/item?id=50181136">59 comments</a> · duckdb.org</div>
+      <h2><a href="https://musicalform.substack.com/p/what-is-gridifcation">What Is Gridifcation</a></h2>
+      <div class="meta">451 points · <a href="https://news.ycombinator.com/item?id=50150163">212 comments</a> · musicalform.substack.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">DuckDB 2.0 is a major LTS feature release (supported through at least October 2027) built on roughly 20,000 commits since 1.5, headlined by a polished client-server "Quack" protocol with a new CONNECT statement, asynchronous I/O for Parquet, CSV, and native-format reads that substantially speeds up remote/S3 access, and a fully integrated first-class VARIANT type for schema-less JSON-like data. It also adds triggers, an extensible SQL parser, and a CLI "agent mode" aimed at coding agents.</p>
+      <p class="summary">The article itself was unreachable (blocked with a 403), but based on the extensive HN discussion it argues that modern pop production has become rhythmically and tonally "gridified" — every note nudged onto a perfect timing/tuning grid across multiple takes — stripping out the natural human timing variation present in older recordings. The author reportedly presents tempo-deviation graphs as evidence and explicitly distinguishes this from simply using a drum machine, click track, or MIDI, which they don't count as "gridification."</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Users reported major real-world wins, including one team scaling record-linkage software to process 1 billion records with 10 billion comparisons in 10 minutes on EC2, crediting async I/O and much better multi-core scaling (now useful up to ~128-192 vCPUs versus ~64 before).</li>
-          <li>Several see the new client-server mode as a genuine architecture shift that could let teams replace heavier Spark-based stacks for many workloads.</li>
-          <li>Clarifying replies noted async I/O currently covers Parquet, CSV, and the native format but not JSON yet — that's planned for a future release.</li>
-          <li>The new Triggers feature drew specific enthusiasm, with commenters joking DuckDB is edging ever closer to being "a data warehouse in a box."</li>
+          <li>Several praise the use of actual sound-analysis tooling as compelling, concrete evidence rather than vibes-based nostalgia.</li>
+          <li>A large sub-thread nitpicks one sentence about kick-and-bass alignment that reads as garbled AI-generated prose, with readers trying to reconstruct the intended claim.</li>
+          <li>Commenters share personal anecdotes, including a high-school jazz band recording getting so heavily "gridified" and autotuned in post-production it no longer resembled the actual performance.</li>
+          <li>Others push back that the argument assumes live-band recording as the baseline, which doesn't really apply to genres built around drum machines and electronic production from the start.</li>
         </ul>
       </div>
     </div>
@@ -305,20 +300,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">8</span>
-        <span class="badge">Gaming</span>
+        <span class="badge">AI &amp; Culture</span>
       </div>
-      <h2><a href="https://www.theverge.com/games/1015647/ea-is-shutting-down-bioware">EA is shutting down BioWare</a></h2>
-      <div class="meta">648 points · <a href="https://news.ycombinator.com/item?id=50184586">426 comments</a> · theverge.com</div>
+      <h2><a href="https://www.modelcompare.ai/blog/ai-models-controversial-take-on-humans">Every AI model has the same "controversial" take on humans</a></h2>
+      <div class="meta">486 points · <a href="https://news.ycombinator.com/item?id=50197313">489 comments</a> · modelcompare.ai</div>
     </summary>
     <div class="card-body">
-      <p class="summary">EA is closing BioWare, the 30-year-old studio behind Mass Effect, Dragon Age, and Knights of the Old Republic, cancelling the next Mass Effect project, and cutting about 400 jobs company-wide (50 at BioWare) as part of a broader restructuring following EA's $55 billion take-private deal led by Saudi Arabia's Public Investment Fund, Silver Lake, and Affinity Partners. EA says it's refocusing resources on other franchises — Battlefront, Iron Man, a new Jedi title, Sims, and sports games — while the Mass Effect Amazon TV series reportedly remains in development.</p>
+      <p class="summary">ModelCompare asked a dozen frontier AI models from different labs (OpenAI, Anthropic, Google, DeepSeek, xAI, Alibaba, and others) for their "most controversial take on humans" three times each, and found nearly all converged on the same idea: humans prioritize social belonging and tribal loyalty over objective truth, using reasoning mainly to rationalize decisions already made for social reasons. Most models repeated this near-verbatim across attempts and across labs, despite differing training data and RLHF approaches.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>The dominant sentiment was that BioWare had already been creatively dead for years, with most pointing to Mass Effect: Andromeda, Anthem, and Dragon Age: The Veilguard as evidence the "real" BioWare died long before this formal closure.</li>
-          <li>Some linked the shutdown to the new Saudi-backed ownership, with one noting the irony of BioWare's history of inclusive romance options under owners seen as culturally conservative.</li>
-          <li>Several framed this as part of a bigger wave of gaming-industry layoffs this year, alongside Xbox, Bungie, and Epic.</li>
-          <li>A few offered nostalgic eulogies for specific titles like KOTOR and Jade Empire even while agreeing the studio's best days were long past.</li>
+          <li>Commenters split between finding the convergence genuinely interesting and dismissing it as a tired "I asked an LLM a leading question" genre of post.</li>
+          <li>Several note the irony that "humans conform to groupthink" is itself the opinion everyone online is now converging on agreeing with.</li>
+          <li>A sprawling side-debate breaks out over whether human morality really is tribal and conformist by nature, pulling in evolutionary psychology and belief-perseverance research.</li>
+          <li>A few argue this says more about shared RLHF fine-tuning style and overlapping training-data commentary across labs than about any deep truth regarding humans.</li>
         </ul>
       </div>
     </div>
@@ -328,20 +323,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">9</span>
-        <span class="badge">AI &amp; Business</span>
+        <span class="badge">Gaming</span>
       </div>
-      <h2><a href="https://openai.com/index/openai-models-google-cloud/">OpenAI models are coming to Google Cloud</a></h2>
-      <div class="meta">307 points · <a href="https://news.ycombinator.com/item?id=50180079">131 comments</a> · openai.com</div>
+      <h2><a href="https://arstechnica.com/gaming/2026/10/xbox-wants-you-to-pay-24-to-40-cents-per-hour-to-stream-games-you-already-bought/">Xbox wants you to pay 24 to 40 cents per hour to stream games you bought</a></h2>
+      <div class="meta">327 points · <a href="https://news.ycombinator.com/item?id=50194009">302 comments</a> · arstechnica.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">OpenAI announced that its models will become available through Google Cloud, expanding distribution beyond its primary partnership with Microsoft Azure so enterprise customers already standardized on GCP can access OpenAI models without switching cloud providers. (The article text could not be retrieved directly; this summary is drawn from the discussion.) The announcement reportedly included a disclaimer reaffirming that Microsoft remains OpenAI's primary cloud partner.</p>
+      <p class="summary">Microsoft rolled out a la carte "Cloud Playtime" packs for Xbox Insiders, letting non-Game-Pass subscribers pay 24–40 cents per hour to stream games they already own, on top of the original purchase price. This follows Microsoft's recent reduction of included cloud-streaming hours for Game Pass subscribers, and unlike Google's old Stadia model, these packs require the user already own (or have free-to-play access to) the game being streamed.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Commenters zeroed in on the carefully worded Microsoft disclaimer, reading it as a contractual obligation rather than a genuine description of the relationship.</li>
-          <li>Several framed the deal as consistent with a broader "everyone partners with everyone" dynamic among major AI and cloud players following the White House AI summit, rather than genuine competition.</li>
-          <li>Some questioned how OpenAI can trust Google not to use the access to distill or compete with its models, with replies citing enterprise zero-data-retention contracts and Nvidia's encrypted-weights hardware as mitigations.</li>
-          <li>Others saw this mainly as OpenAI following Anthropic's lead, since Claude is already offered through GCP, Azure, and AWS to compete with Bedrock.</li>
+          <li>Many see this as the arcade-quarter model returning, but worse, since historically arcades didn't also require buying the cabinet first.</li>
+          <li>Some do the math and find it plausible value compared to buying a $700–1,200+ console if you only play a modest number of hours a year, especially amid rumors of steep pricing for the next Xbox.</li>
+          <li>Others view it as part of a broader, unwelcome trend of compute-adjacent industries shifting from flat ownership to metered consumption pricing.</li>
+          <li>A few recall Stadia's shutdown wiping purchased playtime and saves (though Google did refund users) as a cautionary tale about trusting cloud-only game access.</li>
         </ul>
       </div>
     </div>
@@ -351,20 +346,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">10</span>
-        <span class="badge">Science</span>
+        <span class="badge">AI &amp; ML</span>
       </div>
-      <h2><a href="https://www.bbc.com/news/articles/cp814l80pw2o">Tiny possum and glider thought extinct for 6000 years found in remote West Papua</a></h2>
-      <div class="meta">243 points · <a href="https://news.ycombinator.com/item?id=50162044">54 comments</a> · bbc.com</div>
+      <h2><a href="https://github.com/NVIDIA/OpenShell">OpenShell – A safe, private runtime for fleets of autonomous AI agents</a></h2>
+      <div class="meta">427 points · <a href="https://news.ycombinator.com/item?id=50198675">198 comments</a> · github.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Scientists rediscovered two species in remote West Papua rainforests long believed extinct: a pygmy long-fingered possum, vanished from Australia since the Ice Age, which uses an elongated finger to dig out insect larvae, and a ring-tailed glider that lives in tree hollows. The findings, published in the Records of the Australian Museum, relied heavily on traditional knowledge from Tambrauw and Maybrat elders; researchers are now pushing to secure native title protections for the forest against encroaching logging.</p>
+      <p class="summary">Nvidia open-sourced OpenShell, a sandboxing runtime meant to let autonomous AI agents read files, call APIs, and use credentials without unrestricted access to a user's broader systems. It enforces per-agent policies at the kernel level — controlling syscalls, file access, and network egress — and uses formal verification to flag risky policy changes, such as granting access to a new host or API, routing those to human review before approval.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Many commenters were charmed by the discovery and hopeful native title protections succeed before logging threatens the species again.</li>
-          <li>A side discussion picked apart the awkward headline phrasing ("thought extinct for 6000 years") and debated clearer alternatives.</li>
-          <li>Several highlighted how unexplored and biologically surprising interior New Guinea remains, linking to other "lost species" rediscoveries in the region.</li>
-          <li>A notable tangent covered the broader geopolitical situation in West Papua — ongoing conflict and restricted access tied to the Grasberg mine — with some pushback on how severe conditions actually are for tourists versus researchers.</li>
+          <li>Several note that Nvidia (not an AI lab) building this is unexpected but logical, given the company's shift from graphics-card maker to central AI infrastructure player.</li>
+          <li>There's irritation that telemetry is on by default, though it can be disabled via an environment variable, flag, or by compiling it out.</li>
+          <li>Some think the fine-grained policy model is overbuilt for most companies and better suited to large enterprises, with a tangent debating (and largely rejecting) the claim that the agentic-AI industry is moving away from Kubernetes deployment.</li>
+          <li>A commenter mentions seeing OpenShell used in many demos at a recent Nvidia conference despite never having heard of it before, suggesting Nvidia seeded partners ahead of a bigger announcement push.</li>
         </ul>
       </div>
     </div>
@@ -374,20 +369,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">11</span>
-        <span class="badge">Programming</span>
+        <span class="badge">Security</span>
       </div>
-      <h2><a href="https://www.joshwcomeau.com/css/interop-2027/">The Future of CSS</a></h2>
-      <div class="meta">614 points · <a href="https://news.ycombinator.com/item?id=50175070">273 comments</a> · joshwcomeau.com</div>
+      <h2><a href="https://fulcrumsec.vg/pingcap/">PingCap TiDB Leaks</a></h2>
+      <div class="meta">428 points · <a href="https://news.ycombinator.com/item?id=50173716">73 comments</a> · fulcrumsec.vg</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Josh Comeau previews his top picks for Interop 2027, the annual cross-browser standards effort, highlighting CSS features already live in Chromium but not elsewhere: native CSS functions (<code>@function</code>) for reusable logic like polar-to-cartesian coordinate conversion, the <code>corner-shape</code> property for squircles, bevels, and notches beyond simple rounded corners, and an upcoming <code>border-shape</code> property for more exotic border effects.</p>
+      <p class="summary">A threat-actor group (FulcrumSec) claims to have exfiltrated roughly 10.6TB from PingCAP's TiDB Cloud, including the full production control plane (180,000 tenant orgs, over 115,000 plaintext API keys), customers' raw SQL statements, four years of connection and gateway logs, detailed AWS billing data, CRM and sales records, and 413 private source repositories — reportedly via credentials found committed in PingCAP's own repositories, maintaining an undetected six-hourly replication feed for over three weeks.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Commenters split on CSS functions: some find native <code>@function</code> logic genuinely exciting, others feel it duplicates what JavaScript already does, with replies noting CSS's lower-latency evaluation as the rationale.</li>
-          <li>Several longtime CSS skeptics said modern features — nesting, <code>@layer</code>, <code>:has()</code>, <code>light-dark()</code> — have genuinely transformed how pleasant CSS is to write.</li>
-          <li>A persistent complaint: CSS still has no built-in tree-shaking or dead-code elimination, forcing hand-rolled per-project solutions to avoid bloated stylesheets.</li>
-          <li>Some pushed back on the "it'll take 5-10 years" framing, noting browsers now ship new feature support far faster than that.</li>
+          <li>Reactions range from shock at the scale to outrage that a cloud database vendor apparently had zero visibility into its own cloud services being drained for weeks.</li>
+          <li>Some push back on the framing, arguing most of what was taken is metadata and operational data rather than a direct dump of customer production data, though they concede the SQL-statement logs do contain real customer content.</li>
+          <li>Commenters question the leak write-up's own math on AWS discount percentages, suspecting the report itself may be AI-generated and sloppy about arithmetic.</li>
+          <li>Several read this alongside the same day's eMudhra and PHP incidents as evidence of a uniquely bad week — or a new normal — for infrastructure security.</li>
         </ul>
       </div>
     </div>
@@ -399,18 +394,18 @@
         <span class="rank">12</span>
         <span class="badge">Security</span>
       </div>
-      <h2><a href="https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/">GitLab critical patch release</a></h2>
-      <div class="meta">371 points · <a href="https://news.ycombinator.com/item?id=50185869">86 comments</a> · docs.gitlab.com</div>
+      <h2><a href="https://news.ycombinator.com/item?id=50193416">Tell HN: I unknowingly broke the PHP RCE embargo. I am sorry.</a></h2>
+      <div class="meta">610 points · <a href="https://news.ycombinator.com/item?id=50193416">228 comments</a> · news.ycombinator.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">GitLab shipped patches across CE/EE versions 19.5.1 down through 18.11.13, headlined by a CVSS 10.0 integer-overflow bug in GitLab's regex compiler that could let an unauthenticated attacker achieve remote code execution via a crafted regular expression, plus a high-severity LDAP/OmniAuth account-takeover bug and several lower-severity issues. GitLab.com and Dedicated were already patched; self-managed instances needed immediate upgrading.</p>
+      <p class="summary">In a self-post, user petecooper apologizes for unknowingly sharing information on HN that allegedly broke the embargo on a major PHP remote-code-execution vulnerability disclosure, explaining he wasn't told an embargo existed when he passed along what he'd heard. The post and its discussion center on questions of responsibility, sourcing, and the actual impact of the disclosure timeline on the broader PHP security incident dominating HN that day.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Some pushed back on the dramatic "CVSS 10.0" framing itself, arguing the score alone doesn't communicate much — countered by others noting it does mean unauthenticated RCE in this specific case.</li>
-          <li>A practical tip for fleet operators: use <code>gitlab-rake gitlab:env:info</code> to get exact per-node versions rather than guessing from package names.</li>
-          <li>Several joked about this being an exceptionally bad week for security news, with the GitLab and PHP disclosures landing almost simultaneously.</li>
-          <li>Discussion of why GitLab maintains its own forked regex engine (a modified Ruby Onigmo) confirmed that fork is indeed the vulnerable component.</li>
+          <li>Most commenters are sympathetic, arguing you can't be responsible for breaking a rule you didn't know existed, and praise him for publicly owning the situation anyway.</li>
+          <li>Some warn that such a public admission could be legally risky in a civil suit in the US; he clarifies he isn't in the US.</li>
+          <li>A few point to evidence the vulnerability may already have been circulating or exploited before his post, suggesting his contribution to any "leak" was minimal.</li>
+          <li>Others trace the actual chain of posts and contacts that led to the disclosure, trying to pin down who, if anyone, is really at fault.</li>
         </ul>
       </div>
     </div>
@@ -420,20 +415,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">13</span>
-        <span class="badge">Environment</span>
+        <span class="badge">Security</span>
       </div>
-      <h2><a href="https://e360.yale.edu/digest/deepwater-horizon-deep-sea-recovery">Sixteen years after Deepwater Horizon, deep sea life shows few signs of recovery</a></h2>
-      <div class="meta">318 points · <a href="https://news.ycombinator.com/item?id=50168357">191 comments</a> · e360.yale.edu</div>
+      <h2><a href="https://github.com/mitmproxy/mitmproxy/commit/169234499088fc2c414644a67efaed3d64ae2e3b">mitmproxy adds --emudhra option</a></h2>
+      <div class="meta">605 points · <a href="https://news.ycombinator.com/item?id=50189232">142 comments</a> · github.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">A new PNAS study finds deep-sea life in the Gulf of Mexico — octopus, squid, krill, shrimp, lanternfish — still shows little recovery sixteen years after the 2010 Deepwater Horizon spill, having declined at least 60% in the years immediately after and showing reduced genetic diversity since. Researchers stop short of directly blaming the spill but call it "the most parsimonious explanation," noting lingering oil contamination appears to impair reproduction and smell-based mate-finding.</p>
+      <p class="summary">In a pointed, satirical commit, the mitmproxy interception tool added a <code>--emudhra</code> flag that signs intercepted TLS certificates using eMudhra's compromised intermediate CA private key — made public after that CA's security incident — letting researchers MITM any device or app that still trusts the (not-yet-fully-revoked) eMudhra root chain.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>A recurring frustration: commenters wished the article better quantified the lack of recovery rather than just restating the initial 60% decline.</li>
-          <li>Debate broke out over cleanup methods, with some arguing chemical dispersants may have done more ecological harm than good, drawing parallels to lessons learned from the Exxon Valdez spill.</li>
-          <li>Several pointed out BP did pay enormous sums (~$140B total) and called it inaccurate to say the company faced no consequences, while others argued that's still cheap relative to the ecological damage.</li>
-          <li>A tangent compared public reaction to Deepwater Horizon versus Chernobyl and Three Mile Island, noting oil drilling recovered its social license far faster than nuclear power did after its incidents.</li>
+          <li>Commenters enjoy the "someone's security disaster becomes someone else's feature" irony, predicting fun sniffing public-WiFi traffic and older IoT or Android devices that haven't revoked trust yet.</li>
+          <li>A practical thread digs into which devices remain vulnerable — smart TVs, older phones, anything not pulling OS updates that revoke the eMudhra roots — with certificate pinning named as the main thing that blocks this.</li>
+          <li>Several users report real-world inconsistency testing the forged certs against iOS and macOS, with some browsers still accepting a few of the test certs hours after revocation was supposed to take effect, possibly due to OCSP server overload.</li>
+          <li>Some discuss how this aids jailbreaking and reverse-engineering workflows via MITM-enabled network interception, though pinned apps remain largely unaffected.</li>
         </ul>
       </div>
     </div>
@@ -443,20 +438,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">14</span>
-        <span class="badge">Programming</span>
+        <span class="badge">Graphics</span>
       </div>
-      <h2><a href="https://google.github.io/styleguide/rustguide.html">Rust Style Guide</a></h2>
-      <div class="meta">338 points · <a href="https://news.ycombinator.com/item?id=50186010">201 comments</a> · google.github.io</div>
+      <h2><a href="https://globus.software/blog/2026/10/16/cutting-map-polygons/">Faster than earcut: triangulating 3.7M map polygons in 489 ms</a></h2>
+      <div class="meta">220 points · <a href="https://news.ycombinator.com/item?id=50193170">40 comments</a> · globus.software</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Google published a formal Rust style guide for use across google3, Android, ChromeOS, Fuchsia, and Chrome, covering not just formatting but API design and implementation conventions — preferring enums over bools, avoiding <code>Rc</code>/<code>Arc</code> where possible, favoring small crates, and limiting certain concurrency patterns. Its explicit extra goal beyond readability and consistency is making large-scale automated code changes easier across Google's enormous codebase.</p>
+      <p class="summary">GLOBUS open-sourced earstrip, a C++/WASM polygon triangulator for map rendering that is 14% faster than earcut.hpp in C++ and 1.4–2.1x faster than earcut.js in the browser. The post walks through replacing a constrained-Delaunay triangulator with an optimized ear-clipping algorithm, covering fast paths for small and convex polygons, an efficient trick for stitching holes, and branch-free corner detection — cutting the time to triangulate 3.7 million real-world map polygons from 2.93 seconds down to 489 milliseconds.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>A contentious side-thread mocked the idea that style guides still matter if an LLM is going to write and format the code anyway, which spawned a biting parody reply mocking that very argument.</li>
-          <li>Commenters debated the Chromium-specific guidance against nested modules and for very small crates, with explanations centering on compile-time parallelism and build-graph effects rather than readability.</li>
-          <li>The enum-over-bool rule got specific praise from a commenter who said it had once saved them from a reversed boolean flag bug in a certificate validator.</li>
-          <li>A tangential discussion asked whether anyone still writes new C/C++, with mixed answers — alive and well in defense and safety-critical contexts, less so elsewhere.</li>
+          <li>Earcut's own author (mourner) showed up to compliment the writeup, note deliberate tradeoffs he made in earcut to keep it small, and ask about borrowing some of the optimization tricks.</li>
+          <li>Some ask how much the author's LLM assistant contributed to the specific optimizations versus the implementation, noting the prose has telltale "Claude-ish" phrasing.</li>
+          <li>A few compare it to other triangulation and overlay libraries, concluding most aren't directly comparable since they solve different geometric problems.</li>
+          <li>Technical commenters discuss whether the resulting long, narrow triangles matter, concluding they're fine for GPU fill-only rendering since nothing is being interpolated or simulated on them.</li>
         </ul>
       </div>
     </div>
@@ -466,20 +461,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">15</span>
-        <span class="badge">AI &amp; Security</span>
+        <span class="badge">Policy</span>
       </div>
-      <h2><a href="https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/">Patch the Planet: global response coordination as agents uncover vulnerabilities</a></h2>
-      <div class="meta">259 points · <a href="https://news.ycombinator.com/item?id=50181175">177 comments</a> · openai.com</div>
+      <h2><a href="https://www.404media.co/amanda-smith-opened-a-cashapp-in-her-name-she-faces-years-in-prison-cashapp-fraud/">Woman charged with computer fraud due to scam CashApp account being in her name</a></h2>
+      <div class="meta">642 points · <a href="https://news.ycombinator.com/item?id=50194833">646 comments</a> · 404media.co</div>
     </summary>
     <div class="card-body">
-      <p class="summary">OpenAI announced "Patch the Planet," an initiative framed around coordinating a global response as AI agents are increasingly used to discover software vulnerabilities, reportedly including a large funding commitment aimed at defenders. (The article text could not be retrieved directly; this summary is drawn from the discussion.) It appears tied to the same PHP RCE disclosure covered elsewhere in the day's news, where OpenAI and partner firm Calif both independently found the underlying bug.</p>
+      <p class="summary">Amanda Smith was arrested in Pennsylvania on an out-of-state Arkansas computer-fraud warrant after a scammer used her stolen Social Security number and date of birth to open a CashApp account and defraud a Facebook Marketplace buyer of $1,000. She spent three nights in jail, has never used CashApp, and says the company refuses to give her any information about the account because she can't prove she owns an account that isn't actually hers.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Many commenters were skeptical this was more marketing than substance, especially given the timing right in the middle of the chaotic PHP disclosure.</li>
-          <li>A specific critique circulated that Calif, an OpenAI partner in the program, reportedly sat on a working RCE exploit for roughly two months before full disclosure, which some called irresponsible regardless of the initiative's framing.</li>
-          <li>Several objected to OpenAI's apparent framing that AI "found" the bug, countering that the partner firm's own write-up credited domain expertise and targeted human research rather than a generic model prompt.</li>
-          <li>Others argued that funding security engineering, QA, and fuzzing directly would do more good than an AI-outreach program, with some adding pointed commentary about training-data provenance.</li>
+          <li>Many are outraged at the Kafkaesque bind of being denied account information precisely because she isn't the account's true owner, and at prosecutors pursuing charges without verifying basic facts.</li>
+          <li>Several share their own experiences of fraudulent PayPal or CashApp accounts opened in their names, swapping tips — and skepticism — about services like ChexSystems for monitoring this kind of identity misuse.</li>
+          <li>Commenters are cynical about accountability, predicting the case will eventually be dropped or overturned only after Smith suffers significant real-world harm, with prosecutors facing no consequences.</li>
+          <li>A side thread debates whether victims of this kind of wrongful prosecution can successfully sue CashApp or local law enforcement, citing precedent from other large settlements in similar negligence cases.</li>
         </ul>
       </div>
     </div>
@@ -489,20 +484,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">16</span>
-        <span class="badge">Security &amp; AI</span>
+        <span class="badge">Math</span>
       </div>
-      <h2><a href="https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/">Muse exposes users' personal and business secrets when they share conversations</a></h2>
-      <div class="meta">398 points · <a href="https://news.ycombinator.com/item?id=50174687">171 comments</a> · arstechnica.com</div>
+      <h2><a href="https://web.maths.unsw.edu.au/~davidharvey/research/subnlogn.pdf">The recently proposed o(n log n) integer multiplication algorithm [pdf]</a></h2>
+      <div class="meta">309 points · <a href="https://news.ycombinator.com/item?id=50190455">292 comments</a> · web.maths.unsw.edu.au</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Meta's AI agent Muse generated shareable conversation links using a predictable domain scheme — conversation titles embedded directly in a subdomain — letting security firm Claroc discover roughly 6,800 shared conversations simply via passive DNS lookups, no clever hacking required. Opened conversations revealed sensitive material including loan applications, confidential executive-search notes, internal revenue reviews, and a company-wide vacation calendar; Meta has since paused the sharing feature after being contacted by Ars Technica.</p>
+      <p class="summary">The linked PDF is mathematician David Harvey's commentary on a newly proposed integer-multiplication algorithm achieving a complexity strictly better than O(n log n) — a small-o bound, not just big-O — improving on the long-standing FFT-based approach. Per the HN discussion, the result is notable partly because it was reportedly produced with heavy AI assistance, and even the commentary's author admits he hasn't fully read the underlying papers himself, instead relying on an AI model's explanation of the proof.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Commenters were unsurprised given Meta's privacy history, with several reviving Zuckerberg's infamous early "dumb fucks" quote as evidence of a longstanding pattern rather than a one-off mistake.</li>
-          <li>The core technical lesson drew wide agreement: never put guessable or sensitive identifiers in a subdomain, since passive DNS records make subdomains far more discoverable than URL paths.</li>
-          <li>Some noted this follows closely on an earlier Muse zero-day (a ClickFix-style account takeover) that Meta had downplayed, reinforcing doubts about whether Muse deserves the deep account access it requests.</li>
-          <li>A few pushed back on victim-blaming framing, arguing most users reasonably don't expect this level of risk from a mainstream app.</li>
+          <li>A thread works out the O versus o distinction for the unfamiliar: O(n log n) means "grows no faster than," while o(n log n) means "grows strictly slower than," making this a genuine asymptotic improvement over the known FFT bound.</li>
+          <li>Commenters note a related, independent formalization of the result already exists as a Lean proof, with ongoing work to push the improvement's exponent further.</li>
+          <li>Many comment on the piece's unusually honest, almost confessional tone about relying on AI to understand cutting-edge math now that papers may be produced faster than humans in the field can verify them.</li>
+          <li>Some find this trend unsettling, while others see it as simply the new normal — no different from any other tool-assisted comprehension.</li>
         </ul>
       </div>
     </div>
@@ -514,18 +509,18 @@
         <span class="rank">17</span>
         <span class="badge">Security</span>
       </div>
-      <h2><a href="https://blog.railway.com/p/security-disclosure-wednesday-october-21st">Security Disclosure</a></h2>
-      <div class="meta">518 points · <a href="https://news.ycombinator.com/item?id=50188228">299 comments</a> · blog.railway.com</div>
+      <h2><a href="https://eliastaylor.com/noexploit/">There isn't an easy exploit for this PHP vulnerability</a></h2>
+      <div class="meta">618 points · <a href="https://news.ycombinator.com/item?id=50188948">458 comments</a> · eliastaylor.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Platform-as-a-service provider Railway disclosed that an unauthorized party accessed encrypted customer environment variables and, for some, their decrypted contents — potentially exposing API keys and credentials. Railway paused all deployments during the investigation, proactively notified upstream AI inference providers to revoke exposed keys, and urged every user to rotate all secrets stored on the platform as a precaution.</p>
+      <p class="summary">Responding to panic over a newly disclosed, high-profile PHP RCE vulnerability, the author argues that — despite thousands of "PoC" exploits flooding GitHub — none actually work against a vanilla PHP install; most require the server to already have an unrelated, severe vulnerability like local file inclusion as a prerequisite. The author attributes the false sense of an easy, Log4Shell-style exploit to people trusting LLMs to produce working exploit chains without verifying them, in some cases unknowingly generating a "PoC" against a server the LLM itself had modified to be vulnerable.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Several commenters reported firsthand in Railway's Discord that leaked keys were already being actively used by third parties, confirming the breach wasn't just theoretical.</li>
-          <li>A recurring architectural critique: storing secret values directly in environment variables, rather than references to a secrets manager, is itself the root problem — one commenter called it a 20-year-old lesson the industry keeps ignoring.</li>
-          <li>A named example (the Postiz founder) said his service was taken down by the fallout and that Railway was slow to communicate until he spoke up publicly.</li>
-          <li>Some pushed back on the now-common pattern of breach disclosures invoking "the attacker used AI," arguing it's used to deflect blame, while others countered that defenders should have found what AI-assisted attackers find first.</li>
+          <li>A major sub-thread argues ease-of-exploitation is largely irrelevant: once anyone develops a working exploit it gets reused by everyone, and the real controversy is whether the disclosure and embargo timeline was handled properly.</li>
+          <li>Security practitioners describe the day as genuinely chaotic regardless of actual exploit difficulty — nobody knew initially how bad it was, so businesses took systems offline out of caution.</li>
+          <li>Some cite real signals of in-the-wild exploitation attempts that complicated the "it's not that serious" framing even without a clean public PoC.</li>
+          <li>Many highlight the absurdity of the moment, noting the vulnerability's explainer video apparently featured anime-girl meme content, fueling as much panic as the technical substance.</li>
         </ul>
       </div>
     </div>
@@ -535,20 +530,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">18</span>
-        <span class="badge">Design</span>
+        <span class="badge">Show HN</span>
       </div>
-      <h2><a href="https://blog.jim-nielsen.com/2026/icons-in-every-menu/">No more icons in every menu by default</a></h2>
-      <div class="meta">383 points · <a href="https://news.ycombinator.com/item?id=50161346">220 comments</a> · blog.jim-nielsen.com</div>
+      <h2><a href="https://github.com/maxilevi/project-hedra/tree/pre-ai">Hedra is a 3D open world game I wrote from scratch while in highschool</a></h2>
+      <div class="meta">219 points · <a href="https://news.ycombinator.com/item?id=50199389">41 comments</a> · github.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Jim Nielsen notes that Apple's newest macOS has reversed its Tahoe-era decision to put icons in every menu item by default, with Apple's own updated Human Interface Guidelines now citing that approach as an example of what not to do. Nielsen argues this reversal is actually a stronger argument against default menu icons than simply pointing to "Apple doesn't do this," because Apple tried it, lived with it for a year, and explicitly walked it back.</p>
+      <p class="summary">The author shares Project Hedra, an ambitious ~100,000-line C#/OpenGL 3D open-world RPG and game engine — complete with procedural worlds, quests, skills, crafting, and modding support — built mostly solo starting in high school roughly a decade ago, purely to learn OpenGL, before scope creep took over for years.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Several commenters found the post's framing too forgiving of Apple, arguing better judgment should have avoided shipping the icon-heavy design in the first place.</li>
-          <li>Others defended the "experience beats never having tried" argument as sound regardless of who makes it, while some found the closing lines stylistically "sounds so LLM."</li>
-          <li>A broader design thread blamed generational turnover in UI design — newer designers discarding older conventions like information density and clickability affordances without understanding why they existed.</li>
-          <li>KDE and GNOME both got pulled into the discussion as contrasting examples of icon-heavy versus denser menu philosophies.</li>
+          <li>Many commenters are impressed by the scope and polish for a solo, pre-AI, high-school-originated project, sharing nostalgia for attempting similar "build my own game and engine" projects themselves.</li>
+          <li>Several reflect on how the AI-coding era changes the calculus of undertaking a project like this, lamenting that future developers may not build the same deep debugging and architecture muscle from grinding through it by hand.</li>
+          <li>A joking subthread escalates the "I wrote it entirely by hand" bit into an absurd chain about avoiding "cheating" via autocomplete, OCR, and hand-tracing scanned napkin code.</li>
+          <li>A few draw comparisons to CubeWorld's aesthetic and point toward Veloren as an open-source spiritual successor to that style of game.</li>
         </ul>
       </div>
     </div>
@@ -558,20 +553,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">19</span>
-        <span class="badge">Policy</span>
+        <span class="badge">Energy</span>
       </div>
-      <h2><a href="https://apnews.com/article/oregon-waterfall-for-sale-lawmakers-996de63462d49ec3ad9bee1629fb9488">Oregon lawmakers approve money to buy an iconic waterfall listed on Redfin</a></h2>
-      <div class="meta">192 points · <a href="https://news.ycombinator.com/item?id=50182526">96 comments</a> · apnews.com</div>
+      <h2><a href="https://arstechnica.com/science/2026/10/startup-taps-underwater-volcano-as-energy-source-in-proof-point-test/">Startup taps underwater volcano as energy source in "proof point" test</a></h2>
+      <div class="meta">132 points · <a href="https://news.ycombinator.com/item?id=50157456">58 comments</a> · arstechnica.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Oregon lawmakers approved roughly $2.1 million to buy Abiqua Falls and its surrounding land after the property's owner — a nonprofit supporting a community of Benedictine monks — put it up for open, uncapped public auction earlier in the year. (The article text could not be retrieved directly; this summary is drawn from the discussion.) The state's bid was accepted, keeping the well-known waterfall and its public access out of private hands.</p>
+      <p class="summary">Seattle startup Endurance Energy ran the first subsea geothermal power demonstration near the Axial Seamount volcano, drilling into roughly 500°F hydrothermal fluid about a mile underwater and briefly running its 100-kilowatt "Adélie" turbine-generator. The system achieved net-positive power for about 8.7 seconds before a battery-monitoring software fault, and then a seawater-damaged cable, ended the test; the company says deeper, wider future wells should deliver enough fluid flow for sustained operation.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Most commenters welcomed the purchase as a clearly good use of public money to preserve a well-loved natural landmark and keep it publicly accessible.</li>
-          <li>Several speculated the deal was effectively arranged informally before the public auction, skeptical that a state "just happens" to buy a waterfall through open bidding.</li>
-          <li>A tangent covered the striking basalt rock formations visible in photos of the falls, with commenters explaining the regional flood-basalt geology behind it.</li>
-          <li>A joking, clearly tongue-in-cheek sub-thread ran through regional stereotypes about the Pacific Northwest, unrelated to the core story.</li>
+          <li>Commenters swap sci-fi and supervillain-lair references as the inevitable cultural association with underwater volcano power plants.</li>
+          <li>Several are skeptical about real-world economics, questioning whether the capex and opex of subsea drilling can ever compete with solar-plus-batteries except in genuinely remote, off-grid locations.</li>
+          <li>Some discuss potential beneficiaries like remote island nations or power-hungry data centers, while others note remoteness itself — not energy access — is usually the bigger constraint on development in such places.</li>
+          <li>A few joke about the obvious use case of discretely powering stealth submarine drones.</li>
         </ul>
       </div>
     </div>
@@ -581,20 +576,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">20</span>
-        <span class="badge">Health</span>
+        <span class="badge">Security</span>
       </div>
-      <h2><a href="https://www.thebeliever.net/the-other-epidemic/">The Other Epidemic: Trying to get off benzodiazepines</a></h2>
-      <div class="meta">296 points · <a href="https://news.ycombinator.com/item?id=50173891">242 comments</a> · thebeliever.net</div>
+      <h2><a href="https://pwn.watch/">What's getting pwned right now</a></h2>
+      <div class="meta">371 points · <a href="https://news.ycombinator.com/item?id=50195543">165 comments</a> · pwn.watch</div>
     </summary>
     <div class="card-body">
-      <p class="summary">In a Believer Magazine essay, Brad Phillips recounts the brutal withdrawal he experienced tapering off Klonopin under hospital supervision after nineteen years of daily use, describing a cascade of severe, often misdiagnosed symptoms — paresthesia, tinnitus, depersonalization, "brain zaps," and suicidal ideation — before eventually finding community and more informed tapering guidance (the Ashton Manual) outside the formal medical system.</p>
+      <p class="summary">pwn.watch is a live-updating dashboard tracking active security incidents and their patch status — at the time of the HN post, 46 tracked bugs, breaches, and supply-chain incidents, including a leaked unpatched Linux kernel ksmbd RCE (CVSS 9.0), a browser-extension wallet that silently exfiltrated private keys for 20 months, and a critical unpatched BIND 9 memory-corruption bug.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Numerous commenters shared harrowing personal or secondhand experiences of benzodiazepine withdrawal, several describing it as far worse than opiate withdrawal despite benzos' reputation as comparatively "safe."</li>
-          <li>A clear split emerged between people who used benzos occasionally or as prescribed with no issues, and those who developed severe dependence even from relatively low, short-term doses — several noted risk seems highly individual and not well predicted by dose or duration alone.</li>
-          <li>Multiple commenters pointed to public figures publicizing their own withdrawal struggles as raising broader awareness of a condition some call BIND (Benzodiazepine-Induced Neurological Dysfunction).</li>
-          <li>Clinical commenters noted benzo addiction is notoriously difficult to treat and makes up a large share of inpatient drug treatment cases despite getting far less public attention than the opioid crisis.</li>
+          <li>Reception is generally positive on the concept and design, though several criticize the heatmap visualization as hard to read and request a simpler rolling line chart instead, which the creator says is coming.</li>
+          <li>Multiple commenters note the irony of a "copy brief for your AI" feature meant to automate incident triage, joking they had to vet it for safety before pasting it into an agent.</li>
+          <li>A side conversation tries to quantify whether breach-disclosure rates have genuinely spiked in the AI era, with one commenter pulling actual year-by-year breach-count data showing a rise, though debate continues over the cause.</li>
+          <li>A few dismiss the site's visual style as generic "AI slop" aesthetics, prompting the creator to say he's working on a redesign.</li>
         </ul>
       </div>
     </div>
@@ -604,20 +599,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">21</span>
-        <span class="badge">AI</span>
+        <span class="badge">AI &amp; ML</span>
       </div>
-      <h2><a href="https://claude.com/product/claude-duet">Claude Duet</a></h2>
-      <div class="meta">453 points · <a href="https://news.ycombinator.com/item?id=50186037">414 comments</a> · claude.com</div>
+      <h2><a href="https://rumple.github.io/blog/2026/10/20/asking-llm-for-confidence.html">Using LLM for confidence scoring is a bad idea</a></h2>
+      <div class="meta">210 points · <a href="https://news.ycombinator.com/item?id=50176082">100 comments</a> · rumple.github.io</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Anthropic launched Claude Duet, a research-preview proactive agent (powered by Opus 5.5) that works autonomously in the background, sends a daily morning brief summarizing what needs attention across connected apps, and asks for approval before sensitive actions like sending messages or making payments. It's positioned as a "teammate" reachable by message rather than a chat window you have to open, carrying over the user's existing Claude memory, skills, and connectors from the first message.</p>
+      <p class="summary">The post argues that LLM-generated "confidence scores" (e.g., "I'm 85% sure") are meaningless because models produce such numbers the same way they produce any other text — as a plausible continuation, not a calibrated statistical estimate grounded in evidence and checked against real outcomes. Unlike a weather forecaster's calibrated probability, an LLM's stated confidence shifts when you merely reword the question, because it was never trained or scored against whether its stated confidence actually matches its accuracy.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Commenters widely compared it to similar proactive-assistant launches from competitors (OpenAI's Dots, Meta's Muse, Grok's bot), with several citing Meta's recent Muse privacy failure as a cautionary note for trusting any of these with broad access.</li>
-          <li>A pointed critique: these labs seem to be "shipping their org chart," questioning why this needs to be a separate product rather than a native Claude capability, and why it launched on Opus rather than the newest model.</li>
-          <li>Skepticism recurred about whether deeper integration with more of a user's data and apps actually produces more useful insight, versus just forcing relevance where there isn't any.</li>
-          <li>One sub-thread speculated about the competitive implications for AI-agent startups now that major labs are shipping similar features as part of their core platforms.</li>
+          <li>Many agree with the core framing, reinforcing that LLMs are "next-token predictors" dressed in the language of reasoning, with a side debate over whether that description is itself reductive.</li>
+          <li>Some argue you could, in principle, RL-train a model specifically against real calibration targets to get genuinely meaningful confidence scores, rather than assuming it's permanently impossible.</li>
+          <li>A commenter with a statistics background reflects on how modern ML practice spends far less time on rigorous output interpretation than classical statistics did.</li>
+          <li>A tangential subthread mocks LLMs' tendency toward "average," unoriginal taste when used for subjective rating or scoring tasks.</li>
         </ul>
       </div>
     </div>
@@ -627,20 +622,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">22</span>
-        <span class="badge">Typography</span>
+        <span class="badge">AI &amp; ML</span>
       </div>
-      <h2><a href="https://unsung.aresluna.org/good-type-against-all-odds/">Good type against all odds</a></h2>
-      <div class="meta">207 points · <a href="https://news.ycombinator.com/item?id=50175059">21 comments</a> · unsung.aresluna.org</div>
+      <h2><a href="https://www.albertodenia.com/writing/code-is-clay-now">Code is clay now</a></h2>
+      <div class="meta">257 points · <a href="https://news.ycombinator.com/item?id=50153531">173 comments</a> · albertodenia.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Designer Marcin Wichary's essay catalogs small, delightful moments of typographic craft spotted in the physical world — from the accidental slant of text on line-scanned LED displays (akin to a camera's rolling shutter) to deliberate touches like carved vertical ligatures, dimensional underlines, and an old keyboard that manages proper hyphenation and an old-fashioned contraction despite tight pixel constraints.</p>
+      <p class="summary">The essay argues that AI coding agents have fundamentally changed the nature of code from "stone" — expensive and slow to reshape — into "clay," cheap and fast to remodel, enabling rapid iterative exploration of a design before refining it. It identifies two emerging extremes of workflow: the "artisan," who stays in the loop iterating on every change, and the "factory," which builds pipelines of specs, generators, and verifiers that minimize human involvement per iteration, moving judgment upstream into pipeline design instead.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Reception was overwhelmingly warm; commenters are longtime fans of the author's typography and keyboard writing and praised the photography and composition.</li>
-          <li>One commenter raised a linguistic counterpoint: Yiddish, a right-to-left script, is still conventionally slanted the same direction as Latin italics, suggesting the slant convention may be arbitrary rather than tied to writing direction.</li>
-          <li>Several shared their own affection for old-fashioned contractions and wished they were more normalized in modern writing.</li>
-          <li>A lighthearted aside referenced an unrelated art-house film as a treat for "typography nerds."</li>
+          <li>Many commenters say they independently arrived at the same clay metaphor, and some note Lisp has long been described the same way — "a ball of mud" — decades before LLMs existed.</li>
+          <li>A substantial sub-thread disputes the premise that code was ever truly "stone," arguing well-designed code was always malleable to a skilled developer, while poorly understood legacy codebases remain just as risky to touch regardless of AI.</li>
+          <li>Several push back that the real bottleneck in software has never really been writing code but figuring out what's worth building, a point they feel the essay underweights.</li>
+          <li>A tangent explores creation-from-clay myths across Abrahamic, Chinese, and Greek traditions as an unplanned but fitting echo of the metaphor.</li>
         </ul>
       </div>
     </div>
@@ -652,18 +647,18 @@
         <span class="rank">23</span>
         <span class="badge">Show HN</span>
       </div>
-      <h2><a href="https://alterauth.com/">Launch HN: Alter (YC S25) – Access control for multi-user agents</a></h2>
-      <div class="meta">63 points · <a href="https://news.ycombinator.com/item?id=50176908">28 comments</a> · alterauth.com</div>
+      <h2><a href="https://uberblok.storagebits.workers.dev/">Show HN: Uberblok – an interactive museum of ZFS internals</a></h2>
+      <div class="meta">110 points · <a href="https://news.ycombinator.com/item?id=50180257">28 comments</a> · uberblok.storagebits.workers.dev</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Alter is a YC-backed privileged-access-management platform for AI agents: instead of giving every agent the same over-scoped API key pasted into configs, Alter issues each agent its own scoped identity and credential, enforces default-deny policy per request, requires human approval for sensitive actions, and logs every call for audit. It targets both AI-agent builders needing per-user credential isolation and security teams needing to pass audits on what agents can do.</p>
+      <p class="summary">Uberblok is an interactive, "museum"-style explainer walking through ZFS internals, starting with the uberblock — the small on-disk record that lets ZFS find a pool's last consistent state after a crash — and its ring buffer of versioned slots, paired with live animated diagrams, 3D views, and annotated excerpts of the actual OpenZFS source code.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>A sharp technical question concerned cross-session context leakage — a higher-privileged user's sensitive data lingering in a shared agent's memory and later being read by a lower-privileged user — which the founders said is explicitly handled by partitioning memory per user-and-agent identity.</li>
-          <li>Another commenter pressed on prompt injection; the founders' answer was that enforcement happens at a deterministic proxy layer the agent never sees, so even a successfully injected agent can't bypass method/endpoint restrictions or skip required human approval.</li>
-          <li>Some skepticism surfaced about trusting a product whose own marketing site "looked vibe-coded," which the founders countered by pointing to pen test results and in-progress SOC 2 compliance.</li>
-          <li>A comparison question — how this differs from a plain secrets manager like Infisical — got a clear answer: Alter's value-add is mapping credentials to per-end-user identity and policy for agents acting on users' behalf, not just storing secrets.</li>
+          <li>ZFS enthusiasts love both the format and the subject, with some admitting the deeper internals go over their heads despite years of relying on it as storage that "just works," and requesting a simpler starting path.</li>
+          <li>A side thread revisits why ZFS never became ubiquitous, including Apple's abandoned plan to ship it as macOS's default filesystem, with a retrospective link on that history.</li>
+          <li>One technical complaint focuses on ZFS's ARC cache fighting the kernel page cache on Linux, breaking zero-copy sendfile and making it a poor fit for some CDN workloads, noted as less of a problem on BSD.</li>
+          <li>The creator acknowledges using AI agents to write much of the code and text while directing and reviewing it, after a commenter needled him about the "I built" framing; others critique the resulting prose's noticeably AI-flavored style.</li>
         </ul>
       </div>
     </div>
@@ -673,20 +668,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">24</span>
-        <span class="badge">Climate</span>
+        <span class="badge">Game Design</span>
       </div>
-      <h2><a href="https://unric.org/en/unep-emissions-gap-report-2026-1-5-degree-overshoot/">The 1.5°C goal of the Paris Agreement is no longer viable</a></h2>
-      <div class="meta">636 points · <a href="https://news.ycombinator.com/item?id=50177911">786 comments</a> · unric.org</div>
+      <h2><a href="https://www.boristhebrave.com/2026/10/18/dungeon-generation-in-the-gnomish-mines-of-nethack/">Dungeon generation in the Gnomish mines of NetHack</a></h2>
+      <div class="meta">142 points · <a href="https://news.ycombinator.com/item?id=50154109">19 comments</a> · boristhebrave.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">The UN Environment Programme's 2026 Emissions Gap Report concludes that limiting warming to 1.5°C by 2100 without significant overshoot is no longer achievable, even under full implementation of current national pledges, which would cut emissions only 11-15% by 2035 versus the roughly 69% reduction needed by 2040. The new de facto goal is to keep warming under 2°C and eventually bring it back down to 1.5°C through massive renewable buildout, fossil-fuel phase-down, and large-scale carbon removal — some 320 gigatons of CO2 by century's end.</p>
+      <p class="summary">The post breaks down how NetHack generates its organic-feeling Gnomish Mines levels using cellular automata: starting from 40% randomly placed floor tiles, then applying four passes of neighbor-counting rules — an unbuffered "clustering" pass followed by three buffered erosion and smoothing passes — before patching any disconnected caves with corridors, illustrated with an interactive visualizer for each pass.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Reactions ranged from resignation ("people have given up") to anger, including one commenter building a startup around European night trains as an aviation alternative, lamenting that climate "impact" framing feels out of fashion right now.</li>
-          <li>A detailed sub-thread parsed which G20 countries are actually on track for their own pledged targets — a short list — and debated whether comparing pledges fairly requires accounting for very different baseline commitments.</li>
-          <li>Strong disagreement broke out over Europe's energy strategy specifically: some blamed renewable/nuclear policy for high prices, while others countered that Europe focused on the wrong, unprofitable parts of the transition rather than clearly profitable ones like EVs and heat pumps.</li>
-          <li>Darker tangents speculated this could be a "Great Filter"-style outcome for civilizations, with some joking about AGI eventually being asked to "fix" climate change.</li>
+          <li>Multiple commenters appreciate the genuinely interactive visualizer format as the best kind of procedural-generation writeup.</li>
+          <li>The author flags one pass as mysterious even to them; a reader offers a plausible theory that it introduces concavity for a "spiny" rather than "bubbly" cave feel, and shows how to disable it experimentally to compare.</li>
+          <li>A clarifying exchange establishes that the "0-8" numbers refer to counts of floor neighbors among the 8 surrounding cells, not positional indices, after some initial confusion.</li>
+          <li>A reader flags the upcoming TNNT NetHack tournament starting November 1 as a timely tie-in for anyone inspired to play.</li>
         </ul>
       </div>
     </div>
@@ -696,20 +691,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">25</span>
-        <span class="badge">Operating Systems</span>
+        <span class="badge">Browsers</span>
       </div>
-      <h2><a href="https://www.windowslatest.com/2026/10/19/why-windows-11-still-ships-with-windows-95s-memory-manager-hidden-inside-it/">Why Windows 11 still ships with Windows 95's memory manager hidden inside it</a></h2>
-      <div class="meta">177 points · <a href="https://news.ycombinator.com/item?id=50159726">120 comments</a> · windowslatest.com</div>
+      <h2><a href="https://arc.net/">A farewell to Arc browser</a></h2>
+      <div class="meta">270 points · <a href="https://news.ycombinator.com/item?id=50197601">230 comments</a> · arc.net</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Windows 11 still includes a compatibility shim called EmulateHeap — literally a recompiled copy of the Windows 95 heap manager — to keep decades-old apps working that unknowingly depended on Windows 95's forgiving (buggy) memory behavior, a tradition that reportedly traces back to Microsoft specifically patching Windows 95 to tolerate a use-after-free bug in the original SimCity. It can still be inspected today via Microsoft's free Compatibility Administrator tool.</p>
+      <p class="summary">The Browser Company announced Arc browser will be sunset on December 22, 2026, with new account creation already disabled as of October 22. Users are pushed to migrate to the company's newer browser, Dia, which imports Arc's passwords, Spaces (renamed Profiles), tabs, folders, and extensions. The company frames the move as consolidating security engineering effort onto Dia, which it says now exceeds Arc on stability, speed, and security.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Many commenters pushed back on the article's framing that the SimCity fix was a "one-off," pointing to the original Raymond Chen and Joel Spolsky writeups showing Microsoft did this kind of app-specific compatibility work extensively, not just for SimCity.</li>
-          <li>Backward-compatibility obsession got both praise — the ability to run 25-plus-year-old executables called "fantastic" — and groans, with Chen's own description of the shim as "completely crazy" engineering getting quoted approvingly.</li>
-          <li>Multiple commenters criticized the article itself as thin, SEO-oriented rehashing of old Microsoft blog posts without fully crediting or understanding the source material, though several noted it at least didn't read as AI-generated.</li>
-          <li>A tangent on memory-safety tooling noted this exact class of bug is what modern sanitizers, and historically tools like Purify, are designed to catch.</li>
+          <li>Reaction is largely cynical and resigned, with "never trust a VC-funded product" a common refrain, alongside debate over whether any consumer software startup can realistically avoid VC dependence at all.</li>
+          <li>Many request Arc be open-sourced to soften the blow, but others report The Browser Company has indicated it won't, since proprietary internals are reused in Dia.</li>
+          <li>Commenters compare notes on migration targets instead of Dia — Zen Browser, Helium, and a return to plain Firefox are all mentioned, with mixed reports on Zen's current stability.</li>
+          <li>Some note this is really just the Arc product being killed, not The Browser Company itself (now owned by Atlassian), which continues investing in Dia.</li>
         </ul>
       </div>
     </div>
@@ -719,20 +714,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">26</span>
-        <span class="badge">Physics</span>
+        <span class="badge">Show HN</span>
       </div>
-      <h2><a href="https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/">In Hilbert space, all things are quantumly possible</a></h2>
-      <div class="meta">142 points · <a href="https://news.ycombinator.com/item?id=50175185">78 comments</a> · quantamagazine.org</div>
+      <h2><a href="https://train.samismith.com/">Railpass</a></h2>
+      <div class="meta">114 points · <a href="https://news.ycombinator.com/item?id=50201414">31 comments</a> · train.samismith.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Quanta Magazine explains how John von Neumann's 1927 papers unified Heisenberg's matrix mechanics and Schrödinger's wave mechanics by showing both were different representations of the same underlying object — a quantum state, modeled as a vector in an abstract space called Hilbert space. Rather than tracking ordinary position, a quantum state's vector encodes the probabilities of every possible future measurement outcome, with its orientation determining which outcome is more likely.</p>
+      <p class="summary">The page itself is JS-rendered and didn't yield readable text, but based on the HN discussion, Railpass by Sami Smith is a slow, ambient visual train-journey simulator: an animated view from inside a train traveling along real rail lines in various countries, complete with passing scenery, weather effects, and a ticker display, designed as a relaxing, screensaver-like experience rather than an interactive game.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>A recurring philosophical debate concerned whether Hilbert space is "real" (the territory) or just a useful map over an underlying classical world, with commenters citing differing camps — Everettian many-worlds versus more instrumentalist readings.</li>
-          <li>Several enjoyed a famous, possibly satirical, von Neumann quote expressing late-life doubt about Hilbert space's physical reality, with replies noting the timing is notable given what wasn't yet known in quantum field theory.</li>
-          <li>A tangent used an analogy about real numbers between 0 and 1 excluding integers like 3 to argue that possibility within a space doesn't mean unconstrained possibility.</li>
-          <li>Lighter threads riffed on "what is a Hilbert space" jokes attributed to Hilbert himself, and on superdeterminism as a competing interpretation.</li>
+          <li>Multiple commenters find it unexpectedly calming and "analogue"-feeling, with small polish requests like making weather effects always move in the train's direction of travel.</li>
+          <li>Some note visual quirks, like a Polish train seemingly running backwards (prompting a joking request for reversible seats) and a US-styled ticker caption appearing over European routes.</li>
+          <li>A few ask for more control, like choosing a specific line or country rather than getting a random route each time they click.</li>
+          <li>It's compared to a similar flight-simulator-style ambient site, prompting a joking request for a "walking simulator" version too, and a note about the unrealistic lack of other passengers in both.</li>
         </ul>
       </div>
     </div>
@@ -742,20 +737,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">27</span>
-        <span class="badge">Policy &amp; Tech</span>
+        <span class="badge">AI &amp; ML</span>
       </div>
-      <h2><a href="https://www.techdirt.com/2026/10/20/accident-or-not-the-no-kings-takedown-is-why-you-shouldnt-rent-your-megaphone-from-zuck/">The No Kings Takedown Is Why You Shouldn't Rent Your Megaphone from Zuck</a></h2>
-      <div class="meta">514 points · <a href="https://news.ycombinator.com/item?id=50181137">509 comments</a> · techdirt.com</div>
+      <h2><a href="https://github.com/openai/openai-cli">OpenAI CLI</a></h2>
+      <div class="meta">237 points · <a href="https://news.ycombinator.com/item?id=50191507">111 comments</a> · github.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">Techdirt's Mike Masnick argues that regardless of whether Meta's hour-long suspension of the "No Kings" protest movement's Instagram account during a major demonstration was intentional or an accident, the deeper problem is that a centralized platform had the power to do it at all. He revisits his "Protocols, Not Platforms" argument: organizers need decentralized, self-controlled communication channels and contingency plans, because handing speech infrastructure to any single company creates a single point of failure.</p>
+      <p class="summary">OpenAI released an official command-line tool for its REST API, distinct from the Codex CLI coding agent: it's meant for scripting direct API operations — generating images, uploading and batching files, listing models, usage and admin queries — rather than agentic coding tasks, installable via prebuilt binaries, Homebrew, or Go.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>The most common pushback was pragmatic rather than philosophical: organizers use Facebook and Instagram because that's where the audience already is, and alternatives like Mastodon, Signal, or Bluesky have real usability and discovery friction for non-technical users.</li>
-          <li>Several shared personal anecdotes of trying and failing to migrate friends or family to decentralized alternatives, citing habit and multi-app friction as the real barrier, not awareness.</li>
-          <li>Some drew a parallel to Trump's post-January 6 platform bans, noting the same "force platforms to host what we want" instinct cuts both ways politically and isn't a durable solution either way.</li>
-          <li>A cynical sub-thread argued that even fully decentralized, self-hosted alternatives aren't safe from de-platforming at the infrastructure layer, citing Kiwi Farms' takedown via Cloudflare and payment processors as a precedent.</li>
+          <li>Many are confused about the distinction from Codex CLI, eventually clarifying that Codex is an interactive coding-agent harness while this is a thin, scriptable wrapper around the REST API for pipelines and automation.</li>
+          <li>Several criticize OpenAI's README for being dense technical reference with no friendly explanation of why you'd want this, likening it to IKEA assembly instructions.</li>
+          <li>There's recurring skepticism about OpenAI's tooling churn and deprecation track record, with some speculating the CLI itself was largely vibecoded given stylistic tells in the code.</li>
+          <li>One commenter raises whether usage draws from API credits or a subscription quota, drawing a comparison to how Anthropic's <code>claude -p</code> billing has worked.</li>
         </ul>
       </div>
     </div>
@@ -765,20 +760,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">28</span>
-        <span class="badge">Gaming &amp; Hardware</span>
+        <span class="badge">Productivity</span>
       </div>
-      <h2><a href="https://www.pagetable.com/303">Way to Play Super Mario 64: On Apple Vision Pro</a></h2>
-      <div class="meta">221 points · <a href="https://news.ycombinator.com/item?id=50150214">92 comments</a> · pagetable.com</div>
+      <h2><a href="https://www.boristhebrave.com/2026/10/18/chain-of-thought-for-humans/">Chain of Thought for Humans</a></h2>
+      <div class="meta">139 points · <a href="https://news.ycombinator.com/item?id=50154100">70 comments</a> · boristhebrave.com</div>
     </summary>
     <div class="card-body">
-      <p class="summary">A hobbyist project called "diorama64" turns Super Mario 64 into a tabletop AR diorama on Apple Vision Pro, built on the SM64 decompilation project, rendering each level as a small 3D scene you can physically walk around and view from any angle while playing with a controller. The author contrasts this community decompilation and preservation work favorably against Nintendo's history of DMCA takedowns and lawsuits, pointedly asking why Nintendo can't embrace this the way Xbox's chief recently praised decompilation efforts.</p>
+      <p class="summary">The author describes how narrating their own thought process out loud — as they ask interview candidates to do, inspired by "rubber duck debugging" — made them noticeably better at solving puzzles in the game The Witness, despite speech being slower and less precise than raw thought. They connect this to forcing explicit, named reasoning and cite a meta-study (n=6000) showing a moderate real benefit from verbalizing reasoning, likening it to LLMs needing to "think" via output tokens because they can't iterate silently.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Reception was very enthusiastic, with many commenters charmed by the idea of a physical, walk-around tabletop N64 level.</li>
-          <li>A wave of nostalgia for the original N64-era Mario 64 experience included reflections on how the game's sense of scale was mostly "smoke and mirrors" that worked especially well on young, first-time players.</li>
-          <li>Clarifying discussion noted modern iOS and Vision Pro devices can now run emulators from the App Store, with the main remaining limitation being lack of JIT support for more demanding, modern console emulation.</li>
-          <li>A tangent compared current VR/AR headset options, with Valve's upcoming Steam Frame mentioned as a notable alternative with better open software support but held back by display and passthrough quality.</li>
+          <li>Several practitioners confirm similar techniques exist elsewhere, such as commentary driving in UK driving tests and guided-inquiry teaching in science education, as independent evidence for the effect.</li>
+          <li>Reactions to trying it are split: some say it would completely wreck their thinking speed, while others — especially those without an "inner monologue" — say they already rely on externalizing thoughts just to think at all.</li>
+          <li>A tangent explores wide individual differences in the subjective experience of inner thought.</li>
+          <li>One top comment self-referentially "narrates its own chain of thought" about whether to bother commenting at all, which several readers call the best comment on the thread.</li>
         </ul>
       </div>
     </div>
@@ -788,20 +783,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">29</span>
-        <span class="badge">AI &amp; Science</span>
+        <span class="badge">Rust</span>
       </div>
-      <h2><a href="https://openai.com/index/scaling-ai-research-for-complex-biological-data/">Using thousands of AI agents to uncover new leads in biological data</a></h2>
-      <div class="meta">149 points · <a href="https://news.ycombinator.com/item?id=50180752">98 comments</a> · openai.com</div>
+      <h2><a href="https://lwn.net/Articles/1096028/">Beyond the &amp;</a></h2>
+      <div class="meta">95 points · <a href="https://news.ycombinator.com/item?id=50166590">13 comments</a> · lwn.net</div>
     </summary>
     <div class="card-body">
-      <p class="summary">OpenAI describes using large swarms of AI agents to analyze complex biological datasets and surface new research leads, including apparent candidate disease-gene links, framing distributed multi-agent analysis as a way to accelerate early-stage biological research. (The article text could not be retrieved directly; this summary is drawn from the discussion.) The piece reportedly compares human-expert preference for distributed-agent-generated reports versus single-agent reports as a measure of quality.</p>
+      <p class="summary">At RustConf 2026, Rust language-team lead Tyler Mandry presented "Beyond the &amp;," a multi-year project to make user-defined smart pointers like MutexGuard behave as flexibly as built-in references for the borrow checker. The design exposes the compiler's internal notion of a "place" — an abstract, compile-time read/write location — to library authors via new traits, letting them teach the borrow checker how custom pointer types can be split, written to, or safely reborrowed, fixing today's situation where wrapping shared state in a Mutex breaks reasoning that works fine with plain references.</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>The dominant skeptical take: generating leads was never the bottleneck in biology — validating them through costly, slow clinical trials and wet-lab work is, and that's where AI's impact is more likely to show up, for example by easing regulatory and study-design burden.</li>
-          <li>Several found the framing tonally jarring, criticizing the modest "new leads" language sandwiched between much grander claims about AI's future in science.</li>
-          <li>Some cynically read the announcement as AI labs needing visible wins amid cooling hype, sparking a sharp sub-thread disagreement over whether AI hype is actually cooling or still accelerating developer productivity.</li>
-          <li>A specific critique: spending report space on whether "human experts preferred distributed-agent reports" struck some as beside the point if the stated goal is curing diseases like Alzheimer's.</li>
+          <li>A detailed technical debate breaks out over the illustrative MutexGuard example, with one commenter objecting that projecting a guard down to a single field is conceptually wrong since a lock guard carries real side effects.</li>
+          <li>Others defend the design, clarifying the projected guard remains an owned, lock-holding value, which is the point — it lets you borrow-check field-level access without losing the lock semantics plain deref can't express.</li>
+          <li>Someone questions whether the ergonomic win justifies added implicit complexity on every field access; others reply that built-in references already get special-cased magic, so this just extends consistent semantics to third-party pointers.</li>
+          <li>A brief side thread explains why a Rust-internals talk is covered on LWN, a general free-software news site, especially now that Rust code lives inside the Linux kernel itself.</li>
         </ul>
       </div>
     </div>
@@ -811,20 +806,20 @@
     <summary class="card-head">
       <div class="card-top">
         <span class="rank">30</span>
-        <span class="badge">Retro Hardware</span>
+        <span class="badge">AI &amp; Policy</span>
       </div>
-      <h2><a href="https://www.dorchester3d.com/printing/blog/2020/11/zx-spectrum-next-laptop-version-2">ZX Spectrum Next Laptop</a></h2>
-      <div class="meta">127 points · <a href="https://news.ycombinator.com/item?id=50147799">28 comments</a> · dorchester3d.com</div>
+      <h2><a href="https://arxiv.org/abs/2610.27251">AI and the Enclosure of the Scientific Commons</a></h2>
+      <div class="meta">136 points · <a href="https://news.ycombinator.com/item?id=50199230">80 comments</a> · arxiv.org</div>
     </summary>
     <div class="card-body">
-      <p class="summary">A hobbyist's blog documents version 2 of a DIY ZX Spectrum Next laptop build, fixing issues from an earlier attempt — non-locking hinges, a broken HDMI screen, a non-Spectrum keyboard — by using a reclaimed 14-inch HD laptop screen, a genuine Spectrum Next keyboard, dual micro-SD slots, stereo speakers, and dual joystick ports inside a 3D-printed case refined via Shapeways, later adding a 10,000mAh battery pack for about six hours of portable play.</p>
+      <p class="summary">The paper argues that AI provides the tools to enable a previously infeasible "enclosure" of the scientific literature commons — paralleling England's historical enclosure movement that privatized common agricultural land — by letting AI companies extract and monetize the shared scientific corpus as private wealth, while degrading the social systems like peer review and trust that sustain it via "slop spam."</p>
       <div class="discussion">
         <h3>What the comments said</h3>
         <ul>
-          <li>Reception was purely enthusiastic and nostalgic; commenters appreciated the dedication to using a genuine Spectrum Next keyboard rather than an off-the-shelf one.</li>
-          <li>A side discussion poked fun at the modest six-hour battery life given the screen size and power draw, with some explaining the real-world power budget of driving a 14-inch LED panel.</li>
-          <li>Nostalgic tangents covered Soviet-era ZX Spectrum clones, including one that reverse-engineered its custom chip from scratch due to Cold War-era embargoes.</li>
-          <li>Commenters noted the post itself dates from 2020, resurfacing now, and joked about a "SPECtober" theme emerging from a run of retro-computing posts this month.</li>
+          <li>Several push back that most of the scientific commons was already effectively enclosed long ago by paywall publishers like Elsevier and Springer, making AI just the latest actor rather than a uniquely new threat.</li>
+          <li>A political tangent argues current US science-funding cuts are driven by ideological hostility to certain research topics rather than any AI-driven assumption that machines will replace researchers, with disagreement over how much AI narratives actually shape funding decisions.</li>
+          <li>Optimists counter that AI could just as plausibly democratize scientific participation by lowering barriers to research, prompting skepticism about whether prompting a chatbot without domain expertise constitutes real science.</li>
+          <li>Some find the techno-optimist framing for AI-driven progress unconvincing, pointing out that years after the GPT-3.5 era began, many promised breakthroughs still haven't materialized.</li>
         </ul>
       </div>
     </div>
